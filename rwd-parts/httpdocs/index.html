@@ -7,31 +7,38 @@
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
-<title></title>
+<title>RWD Parts</title>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 <link href="assets/css/common.css" rel="stylesheet">
 <link href="assets/css/index.css" rel="stylesheet">
 <script src="assets/js/common.js"></script>
-<!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]>
+<script src="assets/js/html5shiv.js"></script>
+<script src="assets/js/respond.min.js"></script>
+<![endif]-->
 </head>
 <body>
-
 <div id="container">
-	<header id="header" class="clearfix">
-		<h1>サンプルテキスト</h1>
-		<div class="logo">サイトロゴ</div>
+	<header id="header" role="banner">
+		<div class="inner">
+			<div class="logo">RWD Parts</div>
 
-		<div class="banner">
-			バナー
+			<div class="other">
+				<form action="" method="post" class="site_search">
+					<input type="text" name="site_search" id="fSite_search" value="" placeholder="検索する">
+					<button type="submit"><span class="ic_header_mglass"></span></button>
+				</form>
+
+				<ul class="link">
+					<li><a href="">お問い合わせ</a></li>
+					<li><a href="">サイトマップ</a></li>
+				</ul>
+			</div>
 		</div>
-
-		<ul class="otherNavi">
-			<li class="contact"><a href="">お問い合わせ</a></li>
-			<li class="sitemap"><a href="">サイトマップ</a></li>
-		</ul>
 	</header>
 
-	<nav id="gNavi">
-		<ul class="clearfix">
+	<nav id="global_navi" role="navigation">
+		<ul>
 			<li><a href="">menu1</a></li>
 			<li><a href="">menu2</a></li>
 			<li><a href="">menu3</a></li>
@@ -40,39 +47,35 @@
 		</ul>
 	</nav>
 
-	<ol id="pagePath">
-		<li class="root"><a href="">サイトタイトル</a>&gt;</li>
+	<ol id="page_path">
+		<li class="root"><a href="">サイトタイトル</a></li>
+		<li><a href="">ページタイトル</a></li>
 		<li>ページタイトル</li>
 	</ol>
 
 	<div id="main">
-		<div id="conts">
-			<section>
-				<h2>ページタイトル</h2>
-				<section>
-					<h3>中見出し</h3>
-					<section>
-						<h4>小見出し</h4>
-					</section>
-				</section>
-			</section>
-		</div><!-- /#conts -->
-		<div id="sideBar">
-		サイドバー
-		</div><!-- /#sideBar -->
+		<main id="conts" role="main">
+			<h1>h1見出し</h1>
+		</main><!-- /#conts -->
+
+		<aside id="sidebar" role="complementary">
+			サイドバー
+		</aside><!-- /#sideBar -->
 	</div><!-- /#main -->
 
-	<footer id="footer">
-		<ul class="subNavi">
+	<footer id="footer" role="contentinfo">
+		<div class="page_top"><a href="#header">PAGE TOP<span class="icon"></span></a></div>
+
+		<ul class="sub_navi">
 			<li><a href="">sub menu1</a></li>
 			<li><a href="">sub menu2</a></li>
 			<li><a href="">sub menu3</a></li>
 			<li><a href="">sub menu4</a></li>
-			<li class="lastChild"><a href="">sub menu5</a></li>
+			<li><a href="">sub menu5</a></li>
 		</ul>
-		<small class="copyright">copyright</small>
+
+		<p class="copyright"><small>copyright</small></p>
 	</footer>
 </div>
-
 </body>
 </html>

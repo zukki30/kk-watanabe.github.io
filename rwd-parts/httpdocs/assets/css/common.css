@@ -15,8 +15,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 html {
   font-size: 62.5%; }
 
-body, table, input, textarea, select, option, h1, h2, h3, h4, h5, h6 {
-  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+body, table, input, textarea, select, option, button, h1, h2, h3, h4, h5, h6 {
+  font-family: 'メイリオ', Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   line-height: 1.1; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -34,6 +34,12 @@ blockquote, q {
 :focus {
   outline: 0; }
 
+button {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none; }
+
 ins {
   text-decoration: none; }
 
@@ -42,6 +48,21 @@ del {
 
 img {
   vertical-align: top; }
+
+@font-face {
+  font-family: 'icomoon';
+  src: url('../../fonts/icomoon.eot?-bzbsig');
+  src: url('../../fonts/icomoon.eot?#iefix-bzbsig') format('embedded-opentype'), url('../../fonts/icomoon.woff?-bzbsig') format('woff'), url('../../fonts/icomoon.ttf?-bzbsig') format('truetype'), url('../../fonts/icomoon.svg?-bzbsig#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal; }
+
+/*------------------------------------------------------------
+	リンク
+------------------------------------------------------------*/
+a {
+  color: #06C; }
+  a:hover {
+    text-decoration: none; }
 
 /*------------------------------------------------------------
 	書式設定
@@ -95,22 +116,154 @@ img {
   display: none; }
 
 /*------------------------------------------------------------
+	webフォントアイコン
+------------------------------------------------------------*/
+[class^="ic_"], [class*=" ic_"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.ic_arrow_l_pc_d:before {
+  content: "\e600"; }
+
+.ic_arrow_l_pc_l:before {
+  content: "\e601"; }
+
+.ic_arrow_l_pc_r:before {
+  content: "\e602"; }
+
+.ic_arrow_l_pc_u:before {
+  content: "\e603"; }
+
+.ic_arrow_l_sp_d:before {
+  content: "\e604"; }
+
+.ic_arrow_l_sp_l:before {
+  content: "\e605"; }
+
+.ic_arrow_l_sp_r:before {
+  content: "\e606"; }
+
+.ic_arrow_l_sp_u:before {
+  content: "\e607"; }
+
+.ic_arrow_m_pc_d:before {
+  content: "\e608"; }
+
+.ic_arrow_m_pc_l:before {
+  content: "\e609"; }
+
+.ic_arrow_m_pc_r:before {
+  content: "\e60a"; }
+
+.ic_arrow_m_pc_u:before {
+  content: "\e60b"; }
+
+.ic_arrow_m_sp_d:before {
+  content: "\e60c"; }
+
+.ic_arrow_m_sp_l:before {
+  content: "\e60d"; }
+
+.ic_arrow_m_sp_r:before {
+  content: "\e60e"; }
+
+.ic_arrow_m_sp_u:before {
+  content: "\e60f"; }
+
+.ic_arrow_s_sp_d:before {
+  content: "\e610"; }
+
+.ic_arrow_s_sp_l:before {
+  content: "\e611"; }
+
+.ic_arrow_s_sp_r:before {
+  content: "\e612"; }
+
+.ic_arrow_s_sp_u:before {
+  content: "\e613"; }
+
+.ic_content_close:before {
+  content: "\e614"; }
+
+.ic_content_open:before {
+  content: "\e615"; }
+
+.ic_difference1:before {
+  content: "\e616"; }
+
+.ic_difference2:before {
+  content: "\e617"; }
+
+.ic_difference3:before {
+  content: "\e618"; }
+
+.ic_difference4:before {
+  content: "\e619"; }
+
+.ic_difference5:before {
+  content: "\e61a"; }
+
+.ic_difference6:before {
+  content: "\e61b"; }
+
+.ic_difference7:before {
+  content: "\e61c"; }
+
+.ic_facebook:before {
+  content: "\e61d"; }
+
+.ic_header_contact:before {
+  content: "\e61e"; }
+
+.ic_header_entry:before {
+  content: "\e61f"; }
+
+.ic_header_menu:before {
+  content: "\e620"; }
+
+.ic_header_menu_bar:before {
+  content: "\e621"; }
+
+.ic_header_menu_close:before {
+  content: "\e622"; }
+
+.ic_header_mglass:before {
+  content: "\e623"; }
+
+.ic_header_mypage:before {
+  content: "\e624"; }
+
+.ic_list:before {
+  content: "\e625"; }
+
+.ic_open_window:before {
+  content: "\e626"; }
+
+/*------------------------------------------------------------
 	レイアウト
 ------------------------------------------------------------*/
 body {
-  min-width: 800px;
+  min-width: 960px;
   /* ウインドウ幅で横スクロール時に背景が切れるバグ対策でコンテンツと同じ幅を指定 */
+  color: #333;
   line-height: 1.5;
   text-align: center; }
 
 #container {
-  margin: 0 auto;
-  width: 800px;
   background-color: #fff;
   text-align: left; }
 
 #main {
-  margin-bottom: 10px;
+  margin: 0 auto;
+  width: 960px;
   font-size: 140%; }
   #main:after {
     display: block;
@@ -121,100 +274,34 @@ body {
 	ヘッダー
 ------------------------------------------------------------*/
 #header {
-  margin-bottom: 10px;
-  padding: 5px 10px 10px;
-  background-color: #efefef;
-  position: relative; }
-  #header h1 {
-    margin: 0 150px 5px 0;
-    font-size: 110%;
-    font-weight: normal; }
+  background-color: #004C99; }
   #header .logo {
-    width: 200px;
-    height: 50px;
-    background-color: #ccc;
-    float: left; }
-  #header .banner {
-    width: 250px;
-    height: 50px;
-    background-color: #ccc;
-    float: right; }
-  #header .otherNavi {
-    position: absolute;
-    top: 5px;
-    right: 10px; }
-    #header .otherNavi li {
-      display: inline; }
-      #header .otherNavi li.contact {
-        margin-right: 2px;
-        padding-right: 5px;
-        border-right: 1px solid #666; }
+    text-align: center;
+    color: #FFF;
+    font-size: 450%;
+    font-weight: bold;
+    font-family: 'Droid Serif', serif;
+    font-style: italic; }
 
 /*------------------------------------------------------------
 	グローバルナビ
 ------------------------------------------------------------*/
-#gNavi {
-  margin-bottom: 10px; }
-  #gNavi li {
-    width: 160px;
-    background-color: #efefef;
-    float: left; }
-    #gNavi li a {
-      padding: 10px 0;
-      display: block;
-      text-decoration: none;
-      text-align: center; }
-
 /*------------------------------------------------------------
 	パンクズリスト
 ------------------------------------------------------------*/
-#pagePath {
-  margin-bottom: 10px; }
-  #pagePath li {
-    margin-right: 2px;
-    display: inline; }
-    #pagePath li a {
-      margin-right: 5px; }
-
 /*------------------------------------------------------------
 	コンテンツ
 ------------------------------------------------------------*/
-#conts {
-  width: 580px;
-  float: left; }
-
 /*------------------------------------------------------------
 	サイドバー
 ------------------------------------------------------------*/
-#sideBar {
-  padding: 50px 0;
-  width: 200px;
-  background-color: #efefef;
-  float: right; }
-
 /*------------------------------------------------------------
 	フッター
 ------------------------------------------------------------*/
-#footer {
-  padding: 10px 10px 5px;
-  background-color: #efefef; }
-  #footer .subNavi {
-    font-size: 120%;
-    text-align: center; }
-    #footer .subNavi li {
-      margin-right: 2px;
-      padding-right: 5px;
-      border-right: 1px solid #666;
-      display: inline; }
-    #footer .subNavi .lastChild {
-      margin: 0;
-      padding: 0;
-      border-right: none; }
-  #footer .copyright {
-    display: block;
-    font-size: 110%;
-    text-align: right;
-    font-style: normal; }
+#footer .copyright {
+  text-align: center;
+  font-size: 110%;
+  font-family: 'Droid Serif', serif; }
 
 /*------------------------------------------------------------
 	見出し
