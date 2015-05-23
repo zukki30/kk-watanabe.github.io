@@ -263,6 +263,7 @@ body {
 
 #main {
   margin: 0 auto;
+  padding-bottom: 70px;
   width: 960px;
   font-size: 140%; }
   #main:after {
@@ -273,35 +274,226 @@ body {
 /*------------------------------------------------------------
 	ヘッダー
 ------------------------------------------------------------*/
-#header {
-  background-color: #004C99; }
-  #header .logo {
-    text-align: center;
+#header .inner {
+  margin: 0 auto;
+  padding: 20px 0;
+  width: 960px; }
+  #header .inner:after {
+    display: block;
+    clear: both;
+    content: ""; }
+#header .logo {
+  float: left;
+  color: #004C99;
+  font-size: 450%;
+  font-weight: bold;
+  font-family: 'Droid Serif', serif;
+  font-style: italic;
+  letter-spacing: 0.1em; }
+#header .other {
+  float: right; }
+#header .site_search {
+  width: 280px;
+  position: relative; }
+  #header .site_search input[type="text"] {
+    box-sizing: border-box;
+    padding: 0 5px;
+    width: 100%;
+    height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    border-right: none;
+    color: #999;
+    line-height: 32px; }
+  #header .site_search button {
+    box-sizing: border-box;
+    width: 25px;
+    height: 100%;
+    background-color: #004C99;
+    border-radius: 0 2px 2px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
     color: #FFF;
-    font-size: 450%;
-    font-weight: bold;
-    font-family: 'Droid Serif', serif;
-    font-style: italic; }
+    cursor: pointer; }
+    #header .site_search button:hover {
+      background-color: #036; }
+#header .link {
+  margin-top: 10px;
+  text-align: right; }
+  #header .link li {
+    margin-left: 15px;
+    display: inline-block;
+    font-size: 120%; }
+    #header .link li:before {
+      margin-right: 3px;
+      display: inline-block;
+      vertical-align: middle;
+      font-family: 'icomoon';
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      content: "\e612"; }
 
 /*------------------------------------------------------------
 	グローバルナビ
 ------------------------------------------------------------*/
+#global_navi {
+  background-color: #004C99; }
+  #global_navi ul {
+    margin: 0 auto;
+    width: 960px; }
+    #global_navi ul:after {
+      display: block;
+      clear: both;
+      content: ""; }
+    #global_navi ul li {
+      width: 137.14286px;
+      float: left; }
+      #global_navi ul li:first-child {
+        position: relative; }
+        #global_navi ul li:first-child:before, #global_navi ul li:first-child:after {
+          margin-top: -25px;
+          width: 1px;
+          height: 50px;
+          position: absolute;
+          top: 50%;
+          z-index: 5;
+          content: ""; }
+        #global_navi ul li:first-child:before {
+          background-color: #0073E5;
+          left: 1px; }
+        #global_navi ul li:first-child:after {
+          background-color: #003366;
+          left: 0; }
+    #global_navi ul a {
+      padding: 15px 0;
+      display: block;
+      position: relative;
+      color: #FFF;
+      font-size: 140%;
+      text-decoration: none;
+      text-align: center; }
+      #global_navi ul a:before, #global_navi ul a:after {
+        margin-top: -25px;
+        width: 1px;
+        height: 50px;
+        position: absolute;
+        top: 50%;
+        content: ""; }
+      #global_navi ul a:before {
+        background-color: #0073E5;
+        right: 0; }
+      #global_navi ul a:after {
+        background-color: #003366;
+        right: 1px; }
+      #global_navi ul a:hover {
+        background-color: #036; }
+    #global_navi ul .icon {
+      padding-bottom: 15px;
+      display: block;
+      position: relative; }
+      #global_navi ul .icon:before {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: #FFF;
+        font-size: 15px;
+        text-align: center;
+        font-family: 'icomoon';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: "\e60c"; }
+
 /*------------------------------------------------------------
 	パンクズリスト
 ------------------------------------------------------------*/
 /*------------------------------------------------------------
 	コンテンツ
 ------------------------------------------------------------*/
+#conts {
+  width: 660px;
+  float: left; }
+
 /*------------------------------------------------------------
-	サイドバー
+	サブコンテンツ（サイドバー）
 ------------------------------------------------------------*/
+#sub_conts {
+  width: 250px;
+  float: right; }
+
 /*------------------------------------------------------------
 	フッター
 ------------------------------------------------------------*/
-#footer .copyright {
-  text-align: center;
-  font-size: 110%;
-  font-family: 'Droid Serif', serif; }
+#footer {
+  background-color: #004C99; }
+  #footer .page_top a {
+    padding: 10px 0;
+    background-color: #036;
+    display: block;
+    text-align: center;
+    color: #FFF;
+    font-size: 130%;
+    text-decoration: none; }
+    #footer .page_top a:hover {
+      background-color: #336EAA; }
+  #footer .page_top .icon {
+    padding-left: 30px;
+    position: relative; }
+    #footer .page_top .icon:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 18px;
+      text-align: left;
+      font-family: 'icomoon';
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      content: "\e60f"; }
+  #footer .sub_navi {
+    padding: 30px 0;
+    text-align: center; }
+    #footer .sub_navi li {
+      margin-left: 15px;
+      padding-left: 15px;
+      border-left: 1px solid #fff;
+      display: inline-block; }
+      #footer .sub_navi li:first-child {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none; }
+    #footer .sub_navi a {
+      color: #FFF;
+      line-height: 1;
+      font-size: 130%; }
+  #footer .copyright {
+    padding-bottom: 10px;
+    text-align: center;
+    color: #FFF;
+    font-size: 120%;
+    font-family: 'Droid Serif', serif;
+    letter-spacing: 0.1em; }
 
 /*------------------------------------------------------------
 	見出し
