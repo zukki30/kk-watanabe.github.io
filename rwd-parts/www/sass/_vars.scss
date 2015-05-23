@@ -1,0 +1,22 @@
+@charset "UTF-8";
+// HTML5か否か
+$use-html5: true;
+
+// サポートブラウザの設定
+$support-ie6: false;
+$support-ie7: false;
+$support-ie8: true;
+$support-ie9: true;
+$support-mozilla: true;
+$support-webkit : true;
+$support-opera  : false;
+
+// ベンダープレフィックスの設定
+$set_prefix: -webkit-, -moz-, -ms-, -o-, '';
+
+//設定
+$ff_droid: 'Droid Serif', serif;
+
+$max_width: 960px;
+$min_width: 320px;
+$break_w01: 737px;
