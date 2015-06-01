@@ -3,11 +3,10 @@
 	レイアウト
 ------------------------------------------------------------*/
 body {
-	min-width: $max_width;
-	/* ウインドウ幅で横スクロール時に背景が切れるバグ対策でコンテンツと同じ幅を指定 */
 	color: #333;
 	line-height: 1.5;
 	text-align: center;
+	-webkit-text-size-adjust: 100%;
 }
 
 #container {
@@ -16,38 +15,58 @@ body {
 }
 
 #main {
-	margin: 0 auto;
-	padding-bottom: 70px;
-	width: $max_width;
 	@include fs(14);
-	@include cf;
 }
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	body {
+		min-width: $max_width;
+	}
+
+	#container {
+	}
+
+	#main {
+		margin: 0 auto;
+		padding-bottom: 70px;
+		width: $max_width;
+		@include cf;
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	body {
+		min-width: $min_width;
+	}
+
+	#container {
+		overflow: hidden;
+	}
+
+	#main {
+		padding-bottom: 35px;
+	}
+}
+
 
 /*------------------------------------------------------------
 	ヘッダー
 ------------------------------------------------------------*/
 #header {
-	// background-color: #004C99;
 	.inner {
-		margin: 0 auto;
-		padding: 20px 0;
-		width: $max_width;
 		@include cf;
 	}
 	.logo {
 		float: left;
 		color: #004C99;
-		@include fs(45);
 		font-weight: bold;
 		font-family: $ff_droid;
 		font-style: italic;
 		letter-spacing: 0.1em;
 	}
-	.other {
-		float: right;
-	}
 	.site_search {
-		width: 280px;
 		position: relative;
 		input[type="text"] {
 			-webkit-box-sizing: border-box;
@@ -75,26 +94,168 @@ body {
 			right: 0;
 			color: #FFF;
 			cursor: pointer;
-			&:hover { background-color: #036; }
 		}
 	}
-	.link {
-		margin-top: 10px;
-		text-align: right;
-		li {
-			margin-left: 15px;
-			display: inline-block;
-			@include fs(12);
-			&:before {
-				margin-right:3px;
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	#header {
+		// background-color: #004C99;
+		.inner {
+			margin: 0 auto;
+			padding: 20px 0;
+			width: $max_width;
+		}
+		.logo {
+			@include fs(45);
+		}
+
+		.btn_group { display: none; }
+
+		.other {
+			float: right;
+		}
+		.site_search {
+			width: 280px;
+			button {
+				&:hover { background-color: #036; }
+			}
+		}
+		.link {
+			margin-top: 10px;
+			text-align: right;
+			li {
+				margin-left: 15px;
 				display: inline-block;
-				vertical-align: middle;
-				@include font_icon;
-				content: "\e612";
+				@include fs(12);
+				&:before {
+					margin-right:3px;
+					display: inline-block;
+					vertical-align: middle;
+					@include font_icon;
+					content: "\e612";
+				}
 			}
 		}
 	}
 }
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	#header {
+		margin-bottom: 20px;
+		border-bottom: 1px solid #003366;
+		.logo {
+			padding: 10px;
+			padding-right: 0;
+			@include fs(25);
+		}
+
+		.btn_group {
+			padding: 10px;
+			padding-top: 12px;
+			padding-left: 0;
+			float: right;
+			@include cf;
+			> div {
+				float: right;
+				position: relative;
+				> span {
+					transition: opacity 200ms ease-out;
+				}
+				&:before,
+				&:after {
+					width: 25px;
+					height: 3px;
+					background-color: #999;
+					position: absolute;
+					left: 0;
+					content: "";
+					transition: all 200ms ease-out;
+				}
+
+				&.open {
+					> span {
+						opacity: 0;
+						transition: opacity 200ms ease-out;
+					}
+					&:before,
+					&:after {
+						transition: all 200ms ease-out;
+					}
+					&:before {
+						-webkit-transform: translateY(9px) rotate(45deg);
+						transform: translateY(9px) rotate(45deg);
+					}
+					&:after {
+						-webkit-transform: translateY(-8px) rotate(-45deg);
+						transform: translateY(-8px) rotate(-45deg);
+					}
+				}
+			}
+		}
+
+		#menu_open {
+			margin-top: 5px;
+			width: 25px;
+			height: 20px;
+			.bar {
+				margin-top: -2px;
+				width: 25px;
+				height: 3px;
+				background-color: #999;
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 0;
+			}
+			&:before {
+				top: 0;
+			}
+			&:after {
+				bottom: 0;
+			}
+		}
+
+		#search_open {
+			margin-right: 10px;
+			height: 30px;
+			> span {
+				color: #004C99;
+				@include fs(30);
+			}
+			&:before,
+			&:after {
+				opacity: 0;
+			}
+			&:before {
+				top: 5px;
+			}
+			&:after {
+				bottom: 5px;
+			}
+
+			&.open {
+				&:before,
+				&:after {
+					opacity: 1;
+				}
+			}
+		}
+
+		.other {
+			padding: 10px;
+			background-color: #336EAA;
+			border-top: 1px solid #036;
+			border-bottom: 1px solid #036;
+			display: none;
+			clear: both;
+		}
+		.link { display: none; }
+	}
+}
+
 
 /*------------------------------------------------------------
 	グローバルナビ
@@ -177,80 +338,104 @@ body {
 	}
 }
 
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	#global_navi {
+		.other { display: none; }
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	#global_navi {
+		display: none;
+		position: absolute;
+		top: 50px;
+		left: 0;
+	}
+}
+
 /*------------------------------------------------------------
 	パンクズリスト
 ------------------------------------------------------------*/
-#page_path {
-	margin-bottom: 40px;
-	background-color: #ddd;
-	ol {
-		margin: 0 auto;
-		padding: 10px 0;
-		width: $max_width;
-	}
-	li {
-		margin-right: 10px;
-		display: inline;
-		@include fs(12);
-		vertical-align: middle;
-		&:before {
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	#page_path {
+		margin-bottom: 40px;
+		background-color: #ddd;
+		ol {
+			margin: 0 auto;
+			padding: 10px 0;
+			width: $max_width;
+		}
+		li {
 			margin-right: 10px;
 			display: inline;
-			@include font_icon;
+			@include fs(12);
 			vertical-align: middle;
-			content: "\e60e";
-		}
-
-		&:first-child {
-			margin-right: 0;
 			&:before {
+				margin-right: 10px;
+				display: inline;
+				@include font_icon;
+				vertical-align: middle;
+				content: "\e60e";
+			}
+
+			&:first-child {
 				margin-right: 0;
-				display: none;
+				&:before {
+					margin-right: 0;
+					display: none;
+				}
 			}
 		}
 	}
 }
 
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	#page_path { display: none; }
+}
+
 /*------------------------------------------------------------
 	コンテンツ
 ------------------------------------------------------------*/
-#conts {
-	width: 660px;
-	float: left;
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	#conts {
+		width: 660px;
+		float: left;
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	#conts {
+		padding: 0 10px;
+	}
 }
 
 /*------------------------------------------------------------
 	サブコンテンツ（サイドバー）
 ------------------------------------------------------------*/
 #sub_conts {
-	width: 250px;
-	float: right;
 	.frame {
-		margin-bottom: 30px;
 		.ttl {
-			padding: 14px 10px 10px;
 			background-color: #004C99;
 			border-bottom: 2px solid #036;
 			color: #FFF;
-			@include fs(18,14);
-		}
-		.inner {
-			margin-top: 10px;
 		}
 	}
 
 	.list {
 		li {
-			margin-top: 10px;
-			padding-bottom: 10px;
-			padding-left: 15px;
 			border-bottom: 1px dotted #ccc;
+		}
+		a {
 			position: relative;
 			&:before {
 				display: block;
 				position: absolute;
-				top: 2px;
-				left: -3px;
 				color: #004C99;
 				font-size: 16px;
 				@include font_icon;
@@ -261,16 +446,11 @@ body {
 
 	.blog {
 		li {
-			margin-top: 15px;
-			padding-bottom: 15px;
 			border-bottom: 1px dotted #ccc;
 		}
 		a {
 			width: 100%;
 			display: table;
-			&:hover img {
-				@include opct(0.7);
-			}
 		}
 		.img,
 		.txt {
@@ -278,8 +458,6 @@ body {
 			vertical-align: top;
 		}
 		.img {
-			padding-right: 10px;
-			width: 80px;
 			img {
 				-webkit-box-sizing: border-box;
 				box-sizing: border-box;
@@ -291,7 +469,6 @@ body {
 	}
 
 	.banner {
-		margin-bottom: 15px;
 		a {
 			border: 1px solid #999;
 			display: block;
@@ -299,12 +476,125 @@ body {
 				width: 100%;
 				height: auto;
 			}
-			&:hover img {
-				@include opct(0.7);
+		}
+	}
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	#sub_conts {
+		width: 250px;
+		float: right;
+		.frame {
+			margin-bottom: 30px;
+			.ttl {
+				padding: 14px 10px 10px;
+				@include fs(18,14);
+			}
+			.inner {
+				margin-top: 10px;
+			}
+		}
+
+		.list {
+			li {
+				margin-top: 10px;
+				padding-bottom: 10px;
+			}
+			a {
+				padding-left: 15px;
+				&:before {
+					top: 2px;
+					left: -3px;
+					font-size: 16px;
+					content: "\e612";
+				}
+			}
+		}
+
+		.blog {
+			li {
+				margin-top: 15px;
+				padding-bottom: 15px;
+			}
+			a {
+				&:hover img {
+					@include opct(0.7);
+				}
+			}
+			.img {
+				padding-right: 10px;
+				width: 80px;
+			}
+		}
+
+		.banner {
+			margin-bottom: 15px;
+			a {
+				&:hover img {
+					@include opct(0.7);
+				}
 			}
 		}
 	}
 }
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	#sub_conts {
+		padding: 0 10px;
+		.frame {
+			margin-bottom: 30px;
+			.ttl {
+				padding: 14px 10px 10px;
+				@include fs(16,14);
+			}
+		}
+
+		.list {
+			a {
+				padding: 15px 35px 15px 0;
+				display: block;
+				&:before {
+					margin-top: -10px;
+					top: 50%;
+					right: 0;
+					color: #999;
+					font-size: 20px;
+					content: "\e60e";
+				}
+			}
+		}
+
+		.blog {
+			a {
+				padding-top: 15px;
+				padding-bottom: 15px;
+				position: relative;
+				&:after {
+					margin-top: -10px;
+					position: absolute;
+					top: 50%;
+					right: 0;
+					color: #999;
+					font-size: 20px;
+					@include font_icon;
+					content: "\e60e";
+				}
+			}
+			.img {
+				padding-right: 10px;
+				width: 40px;
+			}
+			.txt { padding-right: 35px; }
+		}
+
+		.banner {
+			margin-bottom: 15px;
+		}
+	}
+}
+
 
 /*------------------------------------------------------------
 	フッター
@@ -320,7 +610,6 @@ body {
 			color: #FFF;
 			@include fs(13);
 			text-decoration: none;
-			&:hover { background-color: #336EAA; }
 		}
 		.icon {
 			padding-left: 30px;
@@ -339,7 +628,7 @@ body {
 	}
 
 	.sub_navi {
-		padding: 30px 0;
+		padding-top: 30px;
 		text-align: center;
 		li {
 			margin-left: 15px;
@@ -365,5 +654,39 @@ body {
 		@include fs(12);
 		font-family: $ff_droid;
 		letter-spacing: 0.1em;
+	}
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	#footer {
+		.page_top {
+			a {
+				&:hover { background-color: #336EAA; }
+			}
+		}
+
+		.sub_navi {
+			padding-bottom: 30px;
+		}
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	#footer {
+		.sub_navi {
+			margin: 0 auto;
+			padding-bottom: 15px;
+			width: 280px;
+			li {
+				margin-bottom: 15px;
+			}
+			.second {
+				margin-left: 0;
+				padding-left: 0;
+				border-left: none;
+			}
+		}
 	}
 }

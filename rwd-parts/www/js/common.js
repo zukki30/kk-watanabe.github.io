@@ -7,15 +7,90 @@
 function smartRollover(){if(document.getElementsByTagName)for(var b=document.getElementsByTagName("img"),a=0;a<b.length;a++)b[a].getAttribute("src").match("_out.")&&(b[a].onmouseover=function(){this.setAttribute("src",this.getAttribute("src").replace("_out.","_over."))},b[a].onmouseout=function(){this.setAttribute("src",this.getAttribute("src").replace("_over.","_out."))})}window.addEventListener?window.addEventListener("load",smartRollover,!1):window.attachEvent&&window.attachEvent("onload",smartRollover);
 
 /*--------------------------------------------------------------------------*
- *  
+ *
  *  SmoothScroll JavaScript Library V2
- *  
- *  MIT-style license. 
- *  
- *  2007-2011 Kazuma Nishihata 
+ *
+ *  MIT-style license.
+ *
+ *  2007-2011 Kazuma Nishihata
  *  http://www.to-r.net
- *  
+ *
  *--------------------------------------------------------------------------*/
 new function(){function f(a){function d(a,c,b){setTimeout(function(){"up"==b&&a>=c?(a=a-(a-c)/20-1,window.scrollTo(0,a),d(a,c,b)):"down"==b&&a<=c?(a=a+(c-a)/20+1,window.scrollTo(0,a),d(a,c,b)):scrollTo(0,c)},10)}if(b.getElementById(a.href.replace(/.*\#/,""))){a=b.getElementById(a.href.replace(/.*\#/,"")).offsetTop;var c=b.documentElement.scrollHeight,e=window.innerHeight||b.documentElement.clientHeight;c-e<a&&(a=c-e);c=window.pageYOffset||b.documentElement.scrollTop||b.body.scrollTop||0;d(c,a,a<c?
 "up":"down")}}var g=/noSmooth/,b=document;(function(a,d,c){try{a.addEventListener(d,c,!1)}catch(b){a.attachEvent("on"+d,function(){c.apply(a,arguments)})}})(window,"load",function(){for(var a=$("a").not(".noscrl"),b=0,c=a.length;b<c;b++)g.test(a[b].getAttribute("data-tor-smoothScroll"))||a[b].href.replace(/\#[a-zA-Z0-9_]+/,"")!=location.href.replace(/\#[a-zA-Z0-9_]+/,"")||(a[b].onclick=function(){f(this);return!1})})};
 // noscrlというクラスを付けることでスムーススクロールの対象外にできます。（<a href="#header" class="noscrl">hoge</a>）
+
+$(function(){
+	var win = $(window),
+		win_w = win.width(),
+		win_h = win.height(),
+		html = $('html'),
+		body = $('body'),
+		body_sp_w = '320px'
+		break_w = 736,
+
+		header = $('#header'),
+		headerOther = header.find('.other');
+		gNavi = $('#global_navi'),
+
+		menuOpenBtn = $('#menu_open'),
+		searchOpenBtn = $('#search_open');
+
+	var set = function() {
+		//htmlのclass切り替え
+		(function () {
+			var minWidth = body.css('min-width');
+
+			if (body_sp_w == minWidth) {
+				html.addClass('sp').removeClass('pc');
+			} else {
+				html.addClass('pc').removeClass('sp');
+			};
+		})();
+	};
+
+	var menuOpne = function() {
+		if (html.hasClass('pc')) return false;
+
+		//globalナビ開閉
+		menuOpenBtn.on('click', function() {
+			var _self = $(this);
+			headerOther.fadeOut('fast');
+			searchOpenBtn.removeClass('open');
+
+			if (_self.hasClass('open')) {
+				_self.removeClass('open');
+				gNavi.slideUp(400);
+			} else {
+				_self.addClass('open');
+				gNavi.slideDown('fast');
+			};
+		});
+
+		//検索ボックス開閉
+		searchOpenBtn.on('click', function() {
+			var _self = $(this);
+			gNavi.fadeOut('fast');
+			menuOpenBtn.removeClass('open');
+
+			if (_self.hasClass('open')) {
+				_self.removeClass('open');
+				headerOther.slideUp(400);
+			} else {
+				_self.addClass('open');
+				headerOther.slideDown('fast');
+			};
+		});
+	};
+
+	//SPボタン実行
+	menuOpne();
+
+	//set実行
+	set();
+
+	//リサイズ
+	win.resize(function() {
+		set();
+	});
+});

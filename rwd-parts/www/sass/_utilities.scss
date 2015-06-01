@@ -4,8 +4,14 @@
 ------------------------------------------------------------*/
 a {
 	color: #06C;
-	&:hover {
-		text-decoration: none;
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	a {
+		&:hover {
+			text-decoration: none;
+		}
 	}
 }
 
@@ -59,22 +65,51 @@ br {
 	hr
 ------------------------------------------------------------*/
 .deco {
-	margin-top: 80px;
-	margin-bottom: 80px;
 	border: none;
 	border-top: 1px solid #ccc;
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	.deco {
+		margin-top: 80px;
+		margin-bottom: 80px;
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	.deco {
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
 }
 
 /*------------------------------------------------------------
 	tempTtl
 ------------------------------------------------------------*/
 .tempTtl {
-	margin-bottom: 40px;
-	padding: 20px;
 	background-color: #036;
 	border: 4px double #fff;
 	color: #fff;
-	@include fs(20);
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	.tempTtl {
+		margin-bottom: 40px;
+		padding: 20px;
+		@include fs(20,14);
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	.tempTtl {
+		margin-bottom: 20px;
+		padding: 10px;
+		@include fs(16,14);
+	}
 }
 
 /*------------------------------------------------------------
