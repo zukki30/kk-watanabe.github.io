@@ -116,6 +116,32 @@ a {
   display: none; }
 
 /*------------------------------------------------------------
+	br
+------------------------------------------------------------*/
+br {
+  display: block; }
+
+/*------------------------------------------------------------
+	hr
+------------------------------------------------------------*/
+.deco {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  border: none;
+  border-top: 1px solid #ccc; }
+
+/*------------------------------------------------------------
+	tempTtl
+------------------------------------------------------------*/
+.tempTtl {
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #036;
+  border: 4px double #fff;
+  color: #fff;
+  font-size: 200%; }
+
+/*------------------------------------------------------------
 	webフォントアイコン
 ------------------------------------------------------------*/
 [class^="ic_"], [class*=" ic_"] {
@@ -422,6 +448,39 @@ body {
 /*------------------------------------------------------------
 	パンクズリスト
 ------------------------------------------------------------*/
+#page_path {
+  margin-bottom: 40px;
+  background-color: #ddd; }
+  #page_path ol {
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 960px; }
+  #page_path li {
+    margin-right: 10px;
+    display: inline;
+    font-size: 120%;
+    vertical-align: middle; }
+    #page_path li:before {
+      margin-right: 10px;
+      display: inline;
+      font-family: 'icomoon';
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      vertical-align: middle;
+      content: "\e60e"; }
+    #page_path li:first-child {
+      margin-right: 0; }
+      #page_path li:first-child:before {
+        margin-right: 0;
+        display: none; }
+
 /*------------------------------------------------------------
 	コンテンツ
 ------------------------------------------------------------*/
@@ -435,6 +494,72 @@ body {
 #sub_conts {
   width: 250px;
   float: right; }
+  #sub_conts .frame {
+    margin-bottom: 30px; }
+    #sub_conts .frame .ttl {
+      padding: 14px 10px 10px;
+      background-color: #004C99;
+      border-bottom: 2px solid #036;
+      color: #FFF;
+      font-size: 128.57143%; }
+    #sub_conts .frame .inner {
+      margin-top: 10px; }
+  #sub_conts .list li {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    border-bottom: 1px dotted #ccc;
+    position: relative; }
+    #sub_conts .list li:before {
+      display: block;
+      position: absolute;
+      top: 2px;
+      left: -3px;
+      color: #004C99;
+      font-size: 16px;
+      font-family: 'icomoon';
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      content: "\e612"; }
+  #sub_conts .blog li {
+    margin-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dotted #ccc; }
+  #sub_conts .blog a {
+    width: 100%;
+    display: table; }
+    #sub_conts .blog a:hover img {
+      opacity: 0.7;
+      filter: alpha(opacity=70); }
+  #sub_conts .blog .img, #sub_conts .blog .txt {
+    display: table-cell;
+    vertical-align: top; }
+  #sub_conts .blog .img {
+    padding-right: 10px;
+    width: 80px; }
+    #sub_conts .blog .img img {
+      box-sizing: border-box;
+      width: 100%;
+      height: auto;
+      border: 1px solid #ccc; }
+  #sub_conts .banner {
+    margin-bottom: 15px; }
+    #sub_conts .banner a {
+      border: 1px solid #999;
+      display: block; }
+      #sub_conts .banner a img {
+        width: 100%;
+        height: auto; }
+      #sub_conts .banner a:hover img {
+        opacity: 0.7;
+        filter: alpha(opacity=70); }
 
 /*------------------------------------------------------------
 	フッター

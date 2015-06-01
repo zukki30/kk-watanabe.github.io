@@ -49,11 +49,13 @@
 		</ul>
 	</nav>
 
-	<ol id="page_path">
-		<li class="root"><a href="">サイトタイトル</a></li>
-		<li><a href="">ページタイトル</a></li>
-		<li>ページタイトル</li>
-	</ol>
+	<div id="page_path">
+		<ol>
+			<li class="root"><a href="">サイトタイトル</a></li>
+			<li><a href="">ページタイトル</a></li>
+			<li>ページタイトル</li>
+		</ol>
+	</div>
 
 	<div id="main">
 		<main id="conts" role="main">
@@ -72,23 +74,23 @@
 
 				<a href="" class="link01">テキストリンク</a>
 
-				<hr class="deco01">
+				<hr class="deco">
 
 				<a href="" target="_blank" class="link01 new_window">テキストリンク(_blank)</a>
 
-				<hr class="deco01">
+				<hr class="deco">
 
 				<a href=""  class="btnLink01">テキストからボタンへ</a>
 
-				<hr class="deco01">
+				<hr class="deco">
 
 				<a href="" target="_blank" class="btnLink01">テキストからボタンへ<br class="pcHide">(_blank)</a>
 
-				<hr class="deco01">
+				<hr class="deco">
 
 				<a href="" class="btnLlink02"><span class="icon">最初からボタン</span></a>
 
-				<hr class="deco01">
+				<hr class="deco">
 
 				<button class="btnLlink02 search"><span class="icon">button</span></button>
 			</section>
@@ -101,13 +103,25 @@
 				<ul class="list01">
 					<l1>サンプルテキスト</l1>
 					<l1>サンプルテキストサンプルテキストサンプルテキストサンプルテキスト</l1>
-					<l1>サンプルテキストサンプルテキスト</l1>
+					<l1>
+						サンプルテキストサンプルテキスト
+						<ul class="level02">
+							<li>サンプルテキストサンプルテキストサンプルテキストサンプルテキスト</li>
+							<li>サンプルテキスト</li>
+						</ul>
+					</l1>
 				</ul>
 
 				<ol class="numList01">
 					<li>1. ナンバーリストサンプル</li>
 					<li>2. ナンバーリストサンプル</li>
-					<li>3. ナンバーリストサンプルナンバーリストサンプルナンバーリストサンプル</li>
+					<li>
+						3. ナンバーリストサンプルナンバーリストサンプルナンバーリストサンプル
+						<ul class="level02">
+							<l1>サンプルテキストサンプルテキストサンプルテキストサンプルテキスト</l1>
+							<li>サンプルテキスト</li>
+						</ul>
+					</li>
 				</ol>
 
 				<ul class="linkList01">
@@ -119,19 +133,41 @@
 				<ul class="LinkBoxList01">
 					<li><a href="">サンプルテキスト</a></li>
 					<li><a href="">サンプルテキストサンプルテキスト</a></li>
-					<li><a href="" target="_blank" class="new_window">サンプルテキストサンプルテキストサンプルテキスト</a></li>
+					<li>
+						<a href="" target="_blank" class="new_window">サンプルテキストサンプルテキストサンプルテキスト</a>
+						<ul class="level02">
+							<li><a href="">サンプルテキスト</a></li>
+							<li>
+								<a href="" target="_blank" class="new_window">サンプルテキストサンプルテキストサンプルテキスト</a>
+								<ul class="level03">
+									<li><a href="">サンプルテキスト</a></li>
+									<li><a href="" target="_blank" class="new_window">サンプルテキストサンプルテキストサンプルテキスト</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
 				</ul>
 
 				<ul class="pager01">
-					<li>前へ</li>
-					<li>TOPへ</li>
-					<li>次へ</li>
+					<li class="prev"><a href="">前へ</a></li>
+					<li class="home"><a href="">TOPへ</a></li>
+					<li class="next"><a href="">次へ</a></li>
+				</ul>
+
+				<ul class="pager01">
+					<li class="prev"><a href="">前へ</a></li>
+					<li><a href="">1</a></li>
+					<li><a href="">2</a></li>
+					<li class="current"><span>3</span></li>
+					<li><a href="">4</a></li>
+					<li><a href="">5</a></li>
+					<li class="next"><a href="">次へ</a></li>
 				</ul>
 
 				<ul class="pager02">
-					<li>前へ</li>
-					<li>TOPへ</li>
-					<li>次へ</li>
+					<li class="prev"><a href="">前へ</a></li>
+					<li class="home"><a href="">TOPへ</a></li>
+					<li class="next"><a href="">次へ</a></li>
 				</ul>
 
 				<ul class="lineUpList">
@@ -363,20 +399,20 @@
 		</main><!-- /#conts -->
 
 		<aside id="sub_conts" role="complementary">
-			<section class="list">
+			<section class="list frame">
 				<h2 class="ttl">リスト系</h2>
 				<div class="inner">
 					<ul>
 						<li><a href="">テキスト</a></li>
 						<li><a href="">テキスト</a></li>
-						<li><a href="">テキストテキストテキスト</a></li>
+						<li><a href="">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</a></li>
 						<li><a href="">テキスト</a></li>
 						<li><a href="">テキスト</a></li>
 					</ul>
 				</div>
 			</section>
 
-			<section class="blog">
+			<section class="blog frame">
 				<h2 class="ttl">ブログ</h2>
 				<div class="inner">
 					<ul>

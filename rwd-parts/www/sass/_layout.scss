@@ -180,7 +180,35 @@ body {
 /*------------------------------------------------------------
 	パンクズリスト
 ------------------------------------------------------------*/
-#pagePath {
+#page_path {
+	margin-bottom: 40px;
+	background-color: #ddd;
+	ol {
+		margin: 0 auto;
+		padding: 10px 0;
+		width: $max_width;
+	}
+	li {
+		margin-right: 10px;
+		display: inline;
+		@include fs(12);
+		vertical-align: middle;
+		&:before {
+			margin-right: 10px;
+			display: inline;
+			@include font_icon;
+			vertical-align: middle;
+			content: "\e60e";
+		}
+
+		&:first-child {
+			margin-right: 0;
+			&:before {
+				margin-right: 0;
+				display: none;
+			}
+		}
+	}
 }
 
 /*------------------------------------------------------------
@@ -197,6 +225,85 @@ body {
 #sub_conts {
 	width: 250px;
 	float: right;
+	.frame {
+		margin-bottom: 30px;
+		.ttl {
+			padding: 14px 10px 10px;
+			background-color: #004C99;
+			border-bottom: 2px solid #036;
+			color: #FFF;
+			@include fs(18,14);
+		}
+		.inner {
+			margin-top: 10px;
+		}
+	}
+
+	.list {
+		li {
+			margin-top: 10px;
+			padding-bottom: 10px;
+			padding-left: 15px;
+			border-bottom: 1px dotted #ccc;
+			position: relative;
+			&:before {
+				display: block;
+				position: absolute;
+				top: 2px;
+				left: -3px;
+				color: #004C99;
+				font-size: 16px;
+				@include font_icon;
+				content: "\e612";
+			}
+		}
+	}
+
+	.blog {
+		li {
+			margin-top: 15px;
+			padding-bottom: 15px;
+			border-bottom: 1px dotted #ccc;
+		}
+		a {
+			width: 100%;
+			display: table;
+			&:hover img {
+				@include opct(0.7);
+			}
+		}
+		.img,
+		.txt {
+			display: table-cell;
+			vertical-align: top;
+		}
+		.img {
+			padding-right: 10px;
+			width: 80px;
+			img {
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				width: 100%;
+				height: auto;
+				border: 1px solid #ccc;
+			}
+		}
+	}
+
+	.banner {
+		margin-bottom: 15px;
+		a {
+			border: 1px solid #999;
+			display: block;
+			img {
+				width: 100%;
+				height: auto;
+			}
+			&:hover img {
+				@include opct(0.7);
+			}
+		}
+	}
 }
 
 /*------------------------------------------------------------
