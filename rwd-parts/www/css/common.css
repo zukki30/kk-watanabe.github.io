@@ -147,7 +147,7 @@ br {
 	tempTtl
 ------------------------------------------------------------*/
 .tempTtl {
-  background-color: #036;
+  background-color: #666;
   border: 4px double #fff;
   color: #fff; }
 
@@ -416,7 +416,6 @@ body {
 @media only screen and (max-width: 736px) {
   #header {
     margin-bottom: 20px;
-    height: 57px;
     border-bottom: 1px solid #003366; }
     #header .logo {
       padding: 10px;
@@ -436,7 +435,7 @@ body {
         position: relative; }
         #header .btn_group > div > span {
           -webkit-transition: opacity 200ms ease-out;
-                  transition: opacity 200ms ease-out; }
+          transition: opacity 200ms ease-out; }
         #header .btn_group > div:before, #header .btn_group > div:after {
           width: 25px;
           height: 3px;
@@ -445,14 +444,14 @@ body {
           left: 0;
           content: "";
           -webkit-transition: all 200ms ease-out;
-                  transition: all 200ms ease-out; }
+          transition: all 200ms ease-out; }
         #header .btn_group > div.open > span {
           opacity: 0;
           -webkit-transition: opacity 200ms ease-out;
-                  transition: opacity 200ms ease-out; }
+          transition: opacity 200ms ease-out; }
         #header .btn_group > div.open:before, #header .btn_group > div.open:after {
           -webkit-transition: all 200ms ease-out;
-                  transition: all 200ms ease-out; }
+          transition: all 200ms ease-out; }
         #header .btn_group > div.open:before {
           -webkit-transform: translateY(9px) rotate(45deg);
           -ms-transform: translateY(9px) rotate(45deg);
@@ -677,6 +676,7 @@ body {
 /* SPへ切り替え */
 @media only screen and (max-width: 736px) {
   #conts {
+    margin-bottom: 50px;
     padding: 0 10px; } }
 
 /*------------------------------------------------------------

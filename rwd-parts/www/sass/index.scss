@@ -186,26 +186,564 @@
 }
 
 /*--------------- リンク ---------------*/
-/* .ttl1 */
+/* .link01 */
+.link01 {
+	margin-left: 20px;
+	// padding-left: 20px;
+	text-indent: -20px;
+	position: relative;
+	&:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		color: #036;
+		@include fs(15);
+		@include font_icon;
+		content: "\e612";
+	}
+}
+
+/* .new_window */
+.new_window {
+	padding-right: 25px;
+	position: relative;
+	&:after {
+		position: absolute;
+		bottom: 3px;
+		right: 0;
+		color: #036;
+		@include fs(11);
+		@include font_icon;
+		content: "\e626";
+	}
+}
+
+/* .btn_link01 */
+.btn_link01 {
+	position: relative;
+	&:before {
+		position: absolute;
+		@include font_icon;
+	}
+}
 
 /* PCへ切り替え */
 @media only screen and (min-width: $break_pc_width) {
+	.btn_link01 {
+		padding-left: 20px;
+		display: inline-block;
+		&:before {
+			top: 0;
+			left: 0;
+			color: #036;
+			@include fs(15);
+			content: "\e612";
+		}
+		.pcHide { display: none; }
+	}
 }
 
 /* SPへ切り替え */
 @media only screen and (max-width: $break_sp_width) {
+	.btn_link01 {
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		margin: 0 auto;
+		padding: 10px;
+		padding-right: 40px;
+		width: 80%;
+		background-color: #eee;
+		border: 5px solid #ccc;
+		display: block;
+		text-decoration: none;
+		&:before {
+			margin-top: -10px;
+			top: 50%;
+			right: 3px;
+			color: #666;
+			@include fs(14);
+			content: "\e60e";
+		}
+		&:after {
+			margin-top: -7px;
+			top: 50%;
+			right: 25px;
+			color: #666;
+		}
+	}
+}
+
+
+/* .btn_link02 */
+.btn_link02 {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0 auto;
+	padding: 12px 40px 10px 10px;
+	width: 100%;
+	max-width: 80%;
+	background-color: #eee;
+	border: 5px solid #ccc;
+	display: block;
+	position: relative;
+	color: #06C;
+	line-height: 1.5;
+	text-align: left;
+	text-decoration: none;
+	&:before,
+	&:after {
+		top: 50%;
+		color: #666;
+	}
+	&:before {
+		margin-top: -10px;
+		position: absolute;
+		right: 3px;
+		@include fs(14);
+		@include font_icon;
+		content: "\e60e";
+	}
+	&:after {
+		margin-top: -6px;
+		right: 25px;
+	}
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	.btn_link02 {
+		width: 280px;
+		cursor: pointer;
+		&:hover {
+			@include opct(0.7);
+		}
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	.btn_link02 {
+		width: 100%;
+	}
 }
 
 /*--------------- リスト ---------------*/
-/* .ttl1 */
+.list01,
+.num_list01,
+.link_list01 {
+	li {
+		position: relative;
+		&:first-child {
+			margin-top: 0;
+		}
+		&:before {
+			position: absolute;
+			top: 3px;
+			left: 0;
+			color: #333;
+			@include font_icon;
+
+		}
+	}
+
+	.level02 {
+		li {
+			@include fs(13,14);
+			&:before {
+				top: 1px;
+			}
+		}
+	}
+}
+
+.list01,
+.link_list01 {
+	li {
+		padding-left: 15px;
+	}
+
+	.level02 {
+		li {
+			@include fs(13,14);
+			&:before {
+				top: 1px;
+			}
+		}
+	}
+}
 
 /* PCへ切り替え */
 @media only screen and (min-width: $break_pc_width) {
+	.list01,
+	.num_list01,
+	.link_list01 {
+		li {
+			margin-top: 5px;
+		}
+		.level02 {
+			margin-top: 10px;
+			margin-bottom: 5px;
+		}
+	}
 }
 
 /* SPへ切り替え */
 @media only screen and (max-width: $break_sp_width) {
+	.list01,
+	.num_list01,
+	.link_list01 {
+		li {
+			margin-top: 10px;
+		}
+		.level02 {
+			margin-top: 15px;
+			margin-bottom: 10px;
+		}
+	}
 }
+
+/* .link01 */
+.list01 {
+	li {
+		&:before {
+			content: "\e625";
+		}
+	}
+}
+
+/* .num_list01 */
+.num_list01 {
+	> li {
+		padding-left: 18px;
+		text-indent: -18px;
+	}
+
+	.level02 {
+		> li {
+			padding-left: 15px;
+			text-indent: 0;
+			&:before {
+				content: "\e625";
+			}
+		}
+	}
+}
+
+/* .link_list01 */
+.link_list01 {
+	li {
+		&:before {
+			content: "\e612";
+		}
+	}
+}
+
+/* .Link_box_list01 */
+.Link_box_list01 {
+	li {
+		position: relative;
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	.Link_box_list01 {
+		li {
+			margin-top: 5px;
+			padding-left: 15px;
+			&:before {
+				position: absolute;
+				top: 3px;
+				left: 0;
+				color: #333;
+				@include font_icon;
+				content: "\e612";
+			}
+		}
+
+		.level02,
+		.level03 {
+			margin-top: 10px;
+		}
+
+		.level02 li {
+			@include fs(13,14);
+		}
+
+		.level03 li {
+			@include fs(11,13);
+		}
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	.Link_box_list01 {
+		border-top: 1px solid #ccc;
+		a {
+			padding-top: 15px;
+			padding-bottom: 15px;
+			display: block;
+			position: relative;
+			text-decoration: none;
+			&:before {
+				position: absolute;
+				top: 50%;
+				right: 0;
+				color: #888;
+				@include font_icon;
+			}
+		}
+		.new_window {
+			&:after {
+				margin-top: -6px;
+				top: 50%;
+				color: #888;
+				@include fs(12);
+			}
+		}
+		> li {
+			border-bottom: 1px solid #ccc;
+			> a {
+				padding-right: 40px;
+				&:before {
+					margin-top: -10px;
+					@include fs(14);
+					content: "\e60e";
+				}
+			}
+			> .new_window {
+				&:after {
+					right: 25px;
+				}
+			}
+		}
+
+		.level02 {
+			border-top: 1px solid #ccc;
+			> li {
+				border-top: 1px dotted #ccc;
+				@include fs(13,14);
+				&:first-child {
+					border-top: none;
+				}
+				> a{
+					padding-right: 35px;
+					padding-left: 20px;
+					background-color: #eee;
+					&:before {
+						margin-top: -8px;
+						@include fs(12);
+						content: "\e60e";
+					}
+				}
+				> .new_window {
+					&:after {
+						right: 20px;
+					}
+				}
+			}
+		}
+
+		.level03 {
+			border-top: 1px dotted #ccc;
+			> li {
+				border-top: 1px dotted #ccc;
+				@include fs(11,13);
+				&:first-child {
+					border-top: none;
+				}
+				> a {
+					padding-right: 30px;
+					padding-left: 30px;
+					background-color: #F2F2F2;
+					&:before {
+						margin-top: -6px;
+						right: 5px;
+						@include fs(12);
+						content: "\e612";
+					}
+				}
+				> .new_window {
+					&:after {
+						right: 20px;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* .pager01 */
+.pager01 {
+	text-align: center;
+	letter-spacing: -0.4em;
+	li {
+		display: inline-block;
+		letter-spacing: normal;
+		&:first-child {
+			margin-left: 0;
+		}
+		a,
+		span {
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			border: 1px solid #06C;
+			display: block;
+			line-height: 1;
+			text-decoration: none;
+		}
+	}
+
+	.current span {
+		background-color: #06C;
+		color: #FFF;
+	}
+
+	.prev,
+	.home,
+	.next {
+		a {
+			position: relative;
+			&:before {
+				margin-top: -10px;
+				position: absolute;
+				top: 50%;
+				@include fs(14);
+				@include font_icon;
+			}
+		}
+	}
+
+	.prev,
+	.home {
+		a {
+			padding-left: 25px;
+			&:before {
+				left: 0;
+			}
+		}
+	}
+	.next {
+		a {
+			padding-right: 25px;
+			&:before {
+				right: 0;
+			}
+		}
+	}
+
+	.prev a:before {
+		left: 0;
+		content: "\e60d";
+	}
+	.home a:before {
+		left: 5px;
+		content: "\e60f";
+	}
+	.next a:before {
+		right: 0;
+		content: "\e60e";
+	}
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	.pager01 {
+		li {
+			margin-left: 10px;
+			a,
+			span  {
+				padding: 8px 10px;
+			}
+
+			a:hover {
+				background-color: #06C;
+				color: #FFF;
+			}
+		}
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	.pager01 {
+		li {
+			margin-left: 8px;
+			a,
+			span  {
+				padding: 8px 5px;
+			}
+		}
+	}
+}
+
+/* .lineup_list */
+.lineup_list {
+	li {
+		a {
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			padding: 15px;
+			padding-right: 25px;
+			background-color: #06C;
+			display: block;
+			position: relative;
+			color: #FFF;
+			text-decoration: none;
+			&:after {
+				margin-top: -8px;
+				position: absolute;
+				top: 50%;
+				right: 5px;
+				@include fs(12);
+				@include font_icon;
+				content: "\e60e";
+			}
+		}
+	}
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	.lineup_list {
+		margin-left: -10px;
+		@include cf;
+		li {
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			padding-left: 10px;
+			width: 25%;
+			float: left;
+			&:first-child {
+				margin-left: 0;
+			}
+			a {
+				height: 100%;
+				&:hover {
+					@include opct(0.7);
+				}
+			}
+		}
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	.lineup_list {
+		li {
+			margin-top: 10px;
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+
 
 /*--------------- カラム ---------------*/
 /* .column_group */
@@ -236,13 +774,13 @@
 	}
 
 	.two_column {
-		> * { width: 50%; }
+		> .column { width: 50%; }
 	}
 	.three_column {
-		> * { width: 33.3%; }
+		> .column { width: 33.3%; }
 	}
 	.four_column {
-		> * { width: 25%; }
+		> .column { width: 25%; }
 	}
 }
 
@@ -349,24 +887,244 @@
 	}
 }
 
-/*--------------- 見出し ---------------*/
-/* .ttl1 */
+/*--------------- テーブル ---------------*/
+/* .basicTable */
+.basicTable {
+	dt {
+		background-color: #EEE;
+	}
+}
 
 /* PCへ切り替え */
 @media only screen and (min-width: $break_pc_width) {
+	.basicTable {
+		margin-bottom: 40px;
+		border-top: 1px solid #ccc;
+		ul {
+			width: 100%;
+			display: table;
+			li {
+				padding: 15px;
+				background-color: #EEE;
+				border-bottom: 1px solid #ccc;
+				border-left: 1px solid #ccc;
+				text-align: center;
+				display: table-cell;
+				vertical-align: middle;
+				&:first-child {
+					border-left: none;
+				}
+			}
+		}
+
+		dl {
+			width: 100%;
+			border-bottom: 1px solid #ccc;
+			display: table;
+		}
+		dt,
+		dd {
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			padding: 15px;
+			display: table-cell;
+			vertical-align: middle;
+		}
+		dd {
+			border-left: 1px solid #ccc;
+		}
+	}
+
+	.two_cell {
+		ul {
+			li {
+				width: 75%;
+				&:first-child {
+					width: 25%;
+				}
+			}
+		}
+
+		dt {
+			width: 25%;
+		}
+		dd {
+			width: 75%;
+		}
+	}
+	.four_cell {
+		li,
+		dt,
+		dd {
+			width: 25%;
+		}
+	}
 }
 
 /* SPへ切り替え */
 @media only screen and (max-width: $break_sp_width) {
+	.basicTable {
+		margin-bottom: 30px;
+		border-bottom: 1px solid #ccc;
+		ul { display: none; }
+
+		dt,
+		dd {
+			border-top: 1px solid #ccc;
+			padding: 10px;
+		}
+	}
 }
 
-/*--------------- 見出し ---------------*/
-/* .ttl1 */
+/*--------------- タブ ---------------*/
+/* #tab01 */
+#tab01 {
+	.tab_ttl {
+		> span {
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			padding: 15px;
+			border: 1px solid #06C;
+			display: block;
+			color: #06C;
+		}
+		&.current {
+			> span {
+				background-color: #06C;
+				color: #FFF;
+			}
+		}
+	}
+	.tab_conts {
+		padding-top: 20px;
+		p + p {
+			margin-top: 2em;
+		}
+	}
+
+	.tab_ttl_group {
+		.tab_ttl {
+			text-align: center;
+		}
+	}
+}
+
 
 /* PCへ切り替え */
 @media only screen and (min-width: $break_pc_width) {
+	#tab01 {
+		.tab_ttl_group {
+			width: 100%;
+			display: table;
+			border-bottom: 2px solid #06C;
+			.tab_ttl {
+				padding-left: 10px;
+				width: 124px;
+				display: table-cell;
+				text-align: center;
+				&:first-child {
+					padding-left: 0;
+				}
+				> span {
+					border-bottom: none;
+					cursor: pointer;
+					&:hover {
+						@include opct(0.7);
+					}
+				}
+			}
+		}
+	}
 }
 
 /* SPへ切り替え */
 @media only screen and (max-width: $break_sp_width) {
+	#tab01 {
+		.tab_ttl_group {
+			margin: 0 -5px;
+			text-align: center;
+			letter-spacing: -0.4em;
+			.tab_ttl {
+				padding: 0 5px 10px;
+				width: 30%;
+				display: inline-block;
+				letter-spacing: normal;
+			}
+		}
+	}
+}
+
+/*--------------- 長いコンテツ ---------------*/
+/* .long_conts */
+.long_conts {
+	> .ttl {
+		padding: 17px 15px 13px;
+		background-color: #06C;
+		border-bottom-style: solid;
+		border-bottom-color: #036;
+		color: #FFF;
+	}
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	.long_conts {
+		margin-bottom: 40px;
+		> .ttl {
+			margin-bottom: 25px;
+			@include fs(18,14);
+			border-bottom-width: 2px;
+		}
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	.long_conts {
+		margin-bottom: 10px;
+		> .ttl {
+			@include fs(16,14);
+			border-bottom-width: 1px;
+			position: relative;
+			&:before,
+			&:after {
+				position: absolute;
+				top: 50%;
+			}
+			&:before {
+				margin-top: -15px;
+				width: 30px;
+				height: 30px;
+				background-color: #036;
+				-webkit-box-shadow: 1px 1px 1px #001326 inset;
+				box-shadow: 1px 1px 1px #001326 inset;
+				-webkit-border-radius: 50px;
+				border-radius: 50px;
+				right: 10px;
+				content: "";
+			}
+			&:after {
+				margin-top: -7px;
+				right: 18px;
+				z-index: 10;
+				color: #FFF;
+				@include fs(14,16);
+				@include font_icon;
+				content: "\e615";
+				-webkit-transition: all 200ms ease-out;
+				transition: all 200ms ease-out;
+			}
+
+			&.open {
+				&:after {
+					-webkit-transform:  translateX(-1px)  rotate(45deg);
+					transform:  translateX(-1px)  rotate(45deg);
+				}
+			}
+		}
+		.inner {
+			margin-top: 20px;
+			display: none;
+		}
+	}
 }

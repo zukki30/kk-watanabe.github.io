@@ -144,7 +144,6 @@ body {
 @media only screen and (max-width: $break_sp_width) {
 	#header {
 		margin-bottom: 20px;
-		height: 57px;
 		border-bottom: 1px solid #003366;
 		.logo {
 			padding: 10px;
@@ -162,6 +161,7 @@ body {
 				float: right;
 				position: relative;
 				> span {
+					-webkit-transition: opacity 200ms ease-out;
 					transition: opacity 200ms ease-out;
 				}
 				&:before,
@@ -172,16 +172,19 @@ body {
 					position: absolute;
 					left: 0;
 					content: "";
+					-webkit-transition: all 200ms ease-out;
 					transition: all 200ms ease-out;
 				}
 
 				&.open {
 					> span {
 						opacity: 0;
+						-webkit-transition: opacity 200ms ease-out;
 						transition: opacity 200ms ease-out;
 					}
 					&:before,
 					&:after {
+						-webkit-transition: all 200ms ease-out;
 						transition: all 200ms ease-out;
 					}
 					&:before {
@@ -457,6 +460,7 @@ body {
 /* SPへ切り替え */
 @media only screen and (max-width: $break_sp_width) {
 	#conts {
+		margin-bottom: 50px;
 		padding: 0 10px;
 	}
 }

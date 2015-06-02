@@ -20,6 +20,90 @@ new function(){function f(a){function d(a,c,b){setTimeout(function(){"up"==b&&a>
 "up":"down")}}var g=/noSmooth/,b=document;(function(a,d,c){try{a.addEventListener(d,c,!1)}catch(b){a.attachEvent("on"+d,function(){c.apply(a,arguments)})}})(window,"load",function(){for(var a=$("a").not(".noscrl"),b=0,c=a.length;b<c;b++)g.test(a[b].getAttribute("data-tor-smoothScroll"))||a[b].href.replace(/\#[a-zA-Z0-9_]+/,"")!=location.href.replace(/\#[a-zA-Z0-9_]+/,"")||(a[b].onclick=function(){f(this);return!1})})};
 // noscrlというクラスを付けることでスムーススクロールの対象外にできます。（<a href="#header" class="noscrl">hoge</a>）
 
+/**
+ * Flatten height same as the highest element for each row.
+ *
+ * Copyright (c) 2011 Hayato Takenaka
+ * Dual licensed under the MIT and GPL licenses:
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.gnu.org/licenses/gpl.html
+ * @author: Hayato Takenaka (http://urin.take-uma.net)
+ * @version: 0.0.2
+**/
+;(function($) {
+	$.fn.tile = function(columns) {
+		var tiles, max, c, h, last = this.length - 1, s;
+		if(!columns) columns = this.length;
+		this.each(function() {
+			s = this.style;
+			if(s.removeProperty) s.removeProperty("height");
+			if(s.removeAttribute) s.removeAttribute("height");
+		});
+		return this.each(function(i) {
+			c = i % columns;
+			if(c == 0) tiles = [];
+			tiles[c] = $(this);
+			h = tiles[c].height();
+			if(c == 0 || h > max) max = h;
+			if(i == last || c == columns - 1)
+				$.each(tiles, function() { this.height(max); });
+		});
+	};
+})(jQuery);
+
+//Accordion
+;(function($) {
+	$.fn.accordion = function(className) {
+		var _self = $(this),
+			acoBtn = _self.find('.ttl');
+
+		acoBtn.on('click', function() {
+			if ($('html').hasClass('pc')) return false;
+
+			if ($(this).hasClass(className)) {
+				$(this).removeClass(className).next().slideUp();
+			} else {
+				$(this).addClass(className).next().slideDown();
+			};
+		});
+
+		$(window).resize(function() {
+			if ($('html').hasClass('pc')) {
+				_self.find('*').attr('style', '');
+			};
+		});
+	};
+})(jQuery);
+
+//tab
+;(function($) {
+	$.fn.tabFrame = function() {
+		var _self = $(this)
+			tabTtl = _self.find('.tab_ttl'),
+			tabConts = _self.find('.tab_conts'),
+			tabTtlGroup = '<div class="tab_ttl_group"></div>';
+
+		//.tab_ttl_group作成
+		_self.prepend(tabTtlGroup);
+		tabTtlGroup = $('.tab_ttl_group');
+
+		//.tab_ttl_groupの中に.tab_ttl移動
+		tabTtlGroup.prepend(tabTtl);
+
+		//tabConts最初だけ表示、tabTtl最初に.currentをつける
+		tabConts.hide().first().show();
+		tabTtl.first().addClass('current');
+
+		//クリックイベント
+		tabTtl.on('click', function() {
+			var index = $(this).index();
+
+			tabTtl.removeClass('current').eq(index).addClass('current');
+			tabConts.hide().eq(index).fadeIn();
+		});
+	};
+})(jQuery);
+
 $(function(){
 	var win = $(window),
 		win_w = win.width(),
@@ -34,7 +118,11 @@ $(function(){
 		gNavi = $('#global_navi'),
 
 		menuOpenBtn = $('#menu_open'),
-		searchOpenBtn = $('#search_open');
+		searchOpenBtn = $('#search_open'),
+
+		longConts = $('.long_conts'),
+
+		tab01 = $('#tab01');
 
 	var set = function() {
 		//htmlのclass切り替え
@@ -47,7 +135,21 @@ $(function(){
 				html.addClass('pc').removeClass('sp');
 			};
 		})();
+
+		//高さ固定
+		(function () {
+			var lineUpList = $('.lineup_list > li');
+
+			if (html.hasClass('sp')) {
+				lineUpList.attr('style', '');
+			} else {
+				lineUpList.tile(4)
+			};
+		})();
 	};
+
+	//set実行
+	set();
 
 	var menuOpne = function() {
 		if (html.hasClass('pc')) return false;
@@ -86,8 +188,11 @@ $(function(){
 	//SPボタン実行
 	menuOpne();
 
-	//set実行
-	set();
+	//アコーディオン
+	longConts.accordion('open');
+
+	//tab01
+	tab01.tabFrame();
 
 	//リサイズ
 	win.resize(function() {
