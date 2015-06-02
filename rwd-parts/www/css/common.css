@@ -416,6 +416,7 @@ body {
 @media only screen and (max-width: 736px) {
   #header {
     margin-bottom: 20px;
+    height: 57px;
     border-bottom: 1px solid #003366; }
     #header .logo {
       padding: 10px;
@@ -506,91 +507,120 @@ body {
 ------------------------------------------------------------*/
 #global_navi {
   background-color: #004C99; }
-  #global_navi ul {
-    margin: 0 auto;
-    width: 960px; }
-    #global_navi ul:after {
-      display: block;
-      clear: both;
-      content: ""; }
-    #global_navi ul li {
-      width: 137.14286px;
-      float: left; }
-      #global_navi ul li:first-child {
-        position: relative; }
-        #global_navi ul li:first-child:before, #global_navi ul li:first-child:after {
+  #global_navi ul a {
+    display: block;
+    position: relative;
+    color: #FFF;
+    font-size: 140%;
+    text-decoration: none; }
+  #global_navi ul .icon {
+    display: block;
+    position: relative; }
+    #global_navi ul .icon:before {
+      position: absolute;
+      font-size: 15px;
+      font-family: 'icomoon';
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale; }
+
+/* PCへ切り替え */
+@media only screen and (min-width: 737px) {
+  #global_navi {
+    display: block !important; }
+    #global_navi .basic {
+      margin: 0 auto;
+      width: 960px; }
+      #global_navi .basic:after {
+        display: block;
+        clear: both;
+        content: ""; }
+      #global_navi .basic li {
+        width: 137.14286px;
+        float: left; }
+        #global_navi .basic li:first-child {
+          position: relative; }
+          #global_navi .basic li:first-child:before, #global_navi .basic li:first-child:after {
+            margin-top: -25px;
+            width: 1px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            z-index: 5;
+            content: ""; }
+          #global_navi .basic li:first-child:before {
+            background-color: #0073E5;
+            left: 1px; }
+          #global_navi .basic li:first-child:after {
+            background-color: #003366;
+            left: 0; }
+      #global_navi .basic a {
+        padding: 15px 0;
+        text-align: center; }
+        #global_navi .basic a:before, #global_navi .basic a:after {
           margin-top: -25px;
           width: 1px;
           height: 50px;
           position: absolute;
           top: 50%;
-          z-index: 5;
           content: ""; }
-        #global_navi ul li:first-child:before {
+        #global_navi .basic a:before {
           background-color: #0073E5;
-          left: 1px; }
-        #global_navi ul li:first-child:after {
+          right: 0; }
+        #global_navi .basic a:after {
           background-color: #003366;
-          left: 0; }
-    #global_navi ul a {
-      padding: 15px 0;
-      display: block;
-      position: relative;
-      color: #FFF;
-      font-size: 140%;
-      text-decoration: none;
-      text-align: center; }
-      #global_navi ul a:before, #global_navi ul a:after {
-        margin-top: -25px;
-        width: 1px;
-        height: 50px;
-        position: absolute;
-        top: 50%;
-        content: ""; }
-      #global_navi ul a:before {
-        background-color: #0073E5;
-        right: 0; }
-      #global_navi ul a:after {
-        background-color: #003366;
-        right: 1px; }
-      #global_navi ul a:hover {
-        background-color: #036; }
-    #global_navi ul .icon {
-      padding-bottom: 15px;
-      display: block;
-      position: relative; }
-      #global_navi ul .icon:before {
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        color: #FFF;
-        font-size: 15px;
-        text-align: center;
-        font-family: 'icomoon';
-        speak: none;
-        font-style: normal;
-        font-weight: normal;
-        font-variant: normal;
-        text-transform: none;
-        line-height: 1;
-        /* Better Font Rendering =========== */
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        content: "\e60c"; }
-
-/* PCへ切り替え */
-@media only screen and (min-width: 737px) {
-  #global_navi .other {
-    display: none; } }
+          right: 1px; }
+        #global_navi .basic a:hover {
+          background-color: #036; }
+      #global_navi .basic .icon {
+        padding-bottom: 15px; }
+        #global_navi .basic .icon:before {
+          width: 100%;
+          bottom: 0;
+          left: 0;
+          color: #FFF;
+          text-align: center;
+          content: "\e60c"; }
+    #global_navi .other {
+      display: none; } }
 
 /* SPへ切り替え */
 @media only screen and (max-width: 736px) {
   #global_navi {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
     display: none;
     position: absolute;
-    top: 50px;
-    left: 0; } }
+    top: 58px;
+    left: 0;
+    z-index: 500; }
+    #global_navi ul li {
+      border-top: 1px solid #ccc; }
+      #global_navi ul li:first-child {
+        border-top: none; }
+    #global_navi ul a {
+      padding: 15px;
+      background-color: #FFF; }
+    #global_navi ul .icon {
+      padding-right: 20px; }
+      #global_navi ul .icon:before {
+        margin-top: -8px;
+        top: 50%;
+        right: 0;
+        content: "\e60e"; }
+    #global_navi .basic a {
+      color: #004C99; }
+    #global_navi .other {
+      margin-top: 10px; }
+      #global_navi .other a {
+        color: #999; } }
 
 /*------------------------------------------------------------
 	パンクズリスト

@@ -50,7 +50,6 @@ body {
 	}
 }
 
-
 /*------------------------------------------------------------
 	ヘッダー
 ------------------------------------------------------------*/
@@ -145,6 +144,7 @@ body {
 @media only screen and (max-width: $break_sp_width) {
 	#header {
 		margin-bottom: 20px;
+		height: 57px;
 		border-bottom: 1px solid #003366;
 		.logo {
 			padding: 10px;
@@ -256,83 +256,26 @@ body {
 	}
 }
 
-
 /*------------------------------------------------------------
 	グローバルナビ
 ------------------------------------------------------------*/
 #global_navi {
 	background-color: #004C99;
 	ul {
-		margin: 0 auto;
-		width: $max_width;
-		@include cf;
-		li {
-			width: $max_width / 7;
-			float: left;
-			&:first-child {
-				position: relative;
-				&:before,
-				&:after {
-					margin-top: -25px;
-					width: 1px;
-					height: 50px;
-					position: absolute;
-					top: 50%;
-					z-index: 5;
-					content: "";
-				}
-				&:before {
-					background-color: #0073E5;
-					left: 1px;
-				}
-				&:after {
-					background-color: #003366;
-					left: 0;
-				}
-			}
-		}
 		a {
-			padding: 15px 0;
 			display: block;
 			position: relative;
 			color: #FFF;
 			@include fs(14);
 			text-decoration: none;
-			text-align: center;
-			&:before,
-			&:after {
-				margin-top: -25px;
-				width: 1px;
-				height: 50px;
-				position: absolute;
-				top: 50%;
-				content: "";
-			}
-			&:before {
-				background-color: #0073E5;
-				right: 0;
-			}
-			&:after {
-				background-color: #003366;
-				right: 1px;
-			}
-			&:hover { background-color: #036; }
 		}
 		.icon {
-			padding-bottom: 15px;
 			display: block;
 			position: relative;
 			&:before {
-				width: 100%;
 				position: absolute;
-				bottom: 0;
-				left: 0;
-
-				color: #FFF;
 				font-size: 15px;
-				text-align: center;
 				@include font_icon;
-				content: "\e60c";
 			}
 		}
 	}
@@ -341,6 +284,70 @@ body {
 /* PCへ切り替え */
 @media only screen and (min-width: $break_pc_width) {
 	#global_navi {
+		display: block !important;
+		.basic {
+			margin: 0 auto;
+			width: $max_width;
+			@include cf;
+			li {
+				width: $max_width / 7;
+				float: left;
+				&:first-child {
+					position: relative;
+					&:before,
+					&:after {
+						margin-top: -25px;
+						width: 1px;
+						height: 50px;
+						position: absolute;
+						top: 50%;
+						z-index: 5;
+						content: "";
+					}
+					&:before {
+						background-color: #0073E5;
+						left: 1px;
+					}
+					&:after {
+						background-color: #003366;
+						left: 0;
+					}
+				}
+			}
+			a {
+				padding: 15px 0;
+				text-align: center;
+				&:before,
+				&:after {
+					margin-top: -25px;
+					width: 1px;
+					height: 50px;
+					position: absolute;
+					top: 50%;
+					content: "";
+				}
+				&:before {
+					background-color: #0073E5;
+					right: 0;
+				}
+				&:after {
+					background-color: #003366;
+					right: 1px;
+				}
+				&:hover { background-color: #036; }
+			}
+			.icon {
+				padding-bottom: 15px;
+				&:before {
+					width: 100%;
+					bottom: 0;
+					left: 0;
+					color: #FFF;
+					text-align: center;
+					content: "\e60c";
+				}
+			}
+		}
 		.other { display: none; }
 	}
 }
@@ -348,10 +355,49 @@ body {
 /* SPへ切り替え */
 @media only screen and (max-width: $break_sp_width) {
 	#global_navi {
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		padding: 10px;
+		width: 100%;
 		display: none;
 		position: absolute;
-		top: 50px;
+		top: 58px;
 		left: 0;
+		z-index: 500;
+		ul {
+			li {
+				border-top: 1px solid #ccc;
+				&:first-child {
+					border-top: none;
+				}
+			}
+			a {
+				padding: 15px;
+				background-color: #FFF;
+			}
+			.icon {
+				padding-right: 20px;
+				&:before {
+					margin-top: -8px;
+					top: 50%;
+					right: 0;
+
+					content: "\e60e";
+				}
+			}
+		}
+
+		.basic {
+			a {
+				color: #004C99;
+			}
+		}
+		.other {
+			margin-top: 10px;
+			a {
+				color: #999;
+			}
+		}
 	}
 }
 
