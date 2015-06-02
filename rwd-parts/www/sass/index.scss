@@ -1155,27 +1155,29 @@
 
 /* PCへ切り替え */
 @media only screen and (min-width: $break_pc_width) {
-	.list {
-		width: 100%;
-		display: table;
-		.ttl,
-		.txt {
-			display: table-cell;
-			vertical-align: top;
-		}
-		.ttl {
-			width: 170px;
-		}
-		.new {
-			padding: 2px 3px;
-			@include fs(10,14);
+	.news {
+		.list {
+			width: 100%;
+			display: table;
+			.ttl,
+			.txt {
+				display: table-cell;
+				vertical-align: top;
+			}
+			.ttl {
+				width: 170px;
+			}
+			.new {
+				padding: 2px 3px;
+				@include fs(10,14);
+			}
 		}
 	}
 }
 
 /* SPへ切り替え */
 @media only screen and (max-width: $break_sp_width) {
-	.list {
+	.news .list {
 		.ttl {
 			margin-bottom: 10px;
 		}
