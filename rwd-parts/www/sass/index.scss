@@ -4,10 +4,238 @@
 /*------------------------------------------------------------
 	トップページ
 ------------------------------------------------------------*/
-.test {
-	transform: scale(1);
-	background-size: cover;
-	-webkit-background-size: cover;
-	display: flex;
-	a { display: none; }
+/*--------------- 見出し ---------------*/
+/* .ttl1 */
+.ttl01 {
+	background-color: #004C99;
+	color: #fff;
+	line-height: 1.5;
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	.ttl01 {
+		margin-bottom: 30px;
+		padding: 15px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px;
+		@include fs(24);
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	.ttl01 {
+		margin-bottom: 20px;
+		padding: 10px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		@include fs(18);
+	}
+}
+
+
+/* .ttl02 */
+.ttl02 {
+	position: relative;
+	line-height: 1.5;
+	&:before {
+		padding: 10px;
+		background-color: #004C99;
+		-webkit-border-radius: 150px;
+		border-radius: 150px;
+		position: absolute;
+		top: -5px;
+		left: 0;
+		color: #FFF;
+		@include font_icon;
+		content: "\e616";
+	}
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	.ttl02 {
+		margin-bottom: 30px;
+		padding-left: 65px;
+		@include fs(24);
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	.ttl02 {
+		margin-bottom: 20px;
+		padding-left: 65px;
+		@include fs(18);
+	}
+}
+
+
+
+/* .ttl03 */
+.ttl03 {
+	width: 100%;
+	position: relative;
+	color: #004C99;
+	line-height: 1.5;
+	text-align: center;
+	span {
+		background-color: #FFF;
+		border-right-style: solid;
+		border-right-color: #FFF;
+		border-left-style: solid;
+		border-left-color: #FFF;
+		display: inline-block;
+		position: relative;
+		z-index: 1;
+	}
+	&:before,
+	&:after {
+		width: 100%;
+		height: 1px;
+		background-color: #004C99;
+		position: absolute;
+		top: 50%;
+		right: 0;
+		z-index: 0;
+		content: "";
+	}
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	.ttl03 {
+		margin-bottom: 30px;
+		@include fs(24);
+		span {
+			border-right-width: 10px;
+			border-left-width: 10px;
+		}
+		br { display: none; }
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	.ttl03 {
+		margin-bottom: 20px;
+		@include fs(18);
+		span {
+			border-right-width: 5px;
+			border-left-width: 5px;
+		}
+	}
+}
+
+/* .ttl04 */
+.ttl04 {
+	border-bottom-style: solid;
+	border-bottom-color: #004C99;
+	line-height: 1.5;
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	.ttl04 {
+		margin-bottom: 30px;
+		padding-bottom: 10px;
+		border-bottom-width: 2px;
+		@include fs(20);
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	.ttl04 {
+		margin-bottom: 20px;
+		padding-bottom: 5px;
+		border-bottom-width: 1px;
+		@include fs(16);
+	}
+}
+
+/* .ttl05 */
+.ttl05 {
+	padding-left: 15px;
+	position: relative;
+	line-height: 1.5;
+	&:before {
+		width: 5px;
+		height: 5px;
+		background-color: #004C99;
+		position: absolute;
+		top: 7px;
+		left: 0;
+		content: "";
+	}
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	.ttl05 {
+		margin-bottom: 30px;
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	.ttl05 {
+		margin-bottom: 20px;
+	}
+}
+
+/*--------------- 見出し ---------------*/
+/* .ttl1 */
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+}
+
+/*--------------- 見出し ---------------*/
+/* .ttl1 */
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+}
+
+/*--------------- 見出し ---------------*/
+/* .ttl1 */
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+}
+
+/*--------------- 見出し ---------------*/
+/* .ttl1 */
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+}
+
+/*--------------- 見出し ---------------*/
+/* .ttl1 */
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
 }

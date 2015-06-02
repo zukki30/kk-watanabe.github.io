@@ -2,15 +2,176 @@
 /*------------------------------------------------------------
 	トップページ
 ------------------------------------------------------------*/
-.test {
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
-  background-size: cover;
-  -webkit-background-size: cover;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; }
-  .test a {
-    display: none; }
+/*--------------- 見出し ---------------*/
+/* .ttl1 */
+.ttl01 {
+  background-color: #004C99;
+  color: #fff;
+  line-height: 1.5; }
+
+/* PCへ切り替え */
+@media only screen and (min-width: 737px) {
+  .ttl01 {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 240%; } }
+
+/* SPへ切り替え */
+@media only screen and (max-width: 736px) {
+  .ttl01 {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 180%; } }
+
+/* .ttl02 */
+.ttl02 {
+  position: relative;
+  line-height: 1.5; }
+  .ttl02:before {
+    padding: 10px;
+    background-color: #004C99;
+    border-radius: 150px;
+    position: absolute;
+    top: -5px;
+    left: 0;
+    color: #FFF;
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\e616"; }
+
+/* PCへ切り替え */
+@media only screen and (min-width: 737px) {
+  .ttl02 {
+    margin-bottom: 30px;
+    padding-left: 65px;
+    font-size: 240%; } }
+
+/* SPへ切り替え */
+@media only screen and (max-width: 736px) {
+  .ttl02 {
+    margin-bottom: 20px;
+    padding-left: 65px;
+    font-size: 180%; } }
+
+/* .ttl03 */
+.ttl03 {
+  width: 100%;
+  position: relative;
+  color: #004C99;
+  line-height: 1.5;
+  text-align: center; }
+  .ttl03 span {
+    background-color: #FFF;
+    border-right-style: solid;
+    border-right-color: #FFF;
+    border-left-style: solid;
+    border-left-color: #FFF;
+    display: inline-block;
+    position: relative;
+    z-index: 1; }
+  .ttl03:before, .ttl03:after {
+    width: 100%;
+    height: 1px;
+    background-color: #004C99;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 0;
+    content: ""; }
+
+/* PCへ切り替え */
+@media only screen and (min-width: 737px) {
+  .ttl03 {
+    margin-bottom: 30px;
+    font-size: 240%; }
+    .ttl03 span {
+      border-right-width: 10px;
+      border-left-width: 10px; }
+    .ttl03 br {
+      display: none; } }
+
+/* SPへ切り替え */
+@media only screen and (max-width: 736px) {
+  .ttl03 {
+    margin-bottom: 20px;
+    font-size: 180%; }
+    .ttl03 span {
+      border-right-width: 5px;
+      border-left-width: 5px; } }
+
+/* .ttl04 */
+.ttl04 {
+  border-bottom-style: solid;
+  border-bottom-color: #004C99;
+  line-height: 1.5; }
+
+/* PCへ切り替え */
+@media only screen and (min-width: 737px) {
+  .ttl04 {
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom-width: 2px;
+    font-size: 200%; } }
+
+/* SPへ切り替え */
+@media only screen and (max-width: 736px) {
+  .ttl04 {
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom-width: 1px;
+    font-size: 160%; } }
+
+/* .ttl05 */
+.ttl05 {
+  padding-left: 15px;
+  position: relative;
+  line-height: 1.5; }
+  .ttl05:before {
+    width: 5px;
+    height: 5px;
+    background-color: #004C99;
+    position: absolute;
+    top: 7px;
+    left: 0;
+    content: ""; }
+
+/* PCへ切り替え */
+@media only screen and (min-width: 737px) {
+  .ttl05 {
+    margin-bottom: 30px; } }
+
+/* SPへ切り替え */
+@media only screen and (max-width: 736px) {
+  .ttl05 {
+    margin-bottom: 20px; } }
+
+/*--------------- 見出し ---------------*/
+/* .ttl1 */
+/* PCへ切り替え */
+/* SPへ切り替え */
+/*--------------- 見出し ---------------*/
+/* .ttl1 */
+/* PCへ切り替え */
+/* SPへ切り替え */
+/*--------------- 見出し ---------------*/
+/* .ttl1 */
+/* PCへ切り替え */
+/* SPへ切り替え */
+/*--------------- 見出し ---------------*/
+/* .ttl1 */
+/* PCへ切り替え */
+/* SPへ切り替え */
+/*--------------- 見出し ---------------*/
+/* .ttl1 */
+/* PCへ切り替え */
+/* SPへ切り替え */
