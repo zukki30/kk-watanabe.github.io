@@ -185,7 +185,7 @@
 	}
 }
 
-/*--------------- 見出し ---------------*/
+/*--------------- リンク ---------------*/
 /* .ttl1 */
 
 /* PCへ切り替え */
@@ -196,7 +196,7 @@
 @media only screen and (max-width: $break_sp_width) {
 }
 
-/*--------------- 見出し ---------------*/
+/*--------------- リスト ---------------*/
 /* .ttl1 */
 
 /* PCへ切り替え */
@@ -207,15 +207,146 @@
 @media only screen and (max-width: $break_sp_width) {
 }
 
-/*--------------- 見出し ---------------*/
-/* .ttl1 */
+/*--------------- カラム ---------------*/
+/* .column_group */
+.column_group {
+	@include cf;
+	.column {
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		float: left;
+		.img {
+			margin-bottom: 15px;
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+}
 
 /* PCへ切り替え */
 @media only screen and (min-width: $break_pc_width) {
+	.column_group {
+		margin-bottom: 40px;
+		margin-left: -15px;
+		.column {
+			padding-left: 15px;
+		}
+	}
+
+	.two_column {
+		> * { width: 50%; }
+	}
+	.three_column {
+		> * { width: 33.3%; }
+	}
+	.four_column {
+		> * { width: 25%; }
+	}
 }
 
 /* SPへ切り替え */
 @media only screen and (max-width: $break_sp_width) {
+	.column_group {
+		margin-bottom: 30px;
+		margin-left: -10px;
+		.column {
+			padding-left: 10px;
+			margin-bottom: 10px;
+			width: 50%;
+		}
+	}
+}
+
+
+
+/* .img_float */
+.img_float {
+	@include cf;
+	line-height: 1.8;
+	> .img {
+		padding-bottom: 20px;
+		padding-left: 20px;
+		float: right;
+	}
+
+	&.img_left > .img {
+		padding-right: 20px;
+		padding-left: 0;
+		float: left;
+	}
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	.img_float {
+		margin-bottom: 40px;
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	.img_float {
+		margin-bottom: 30px;
+		> .img {
+			img {
+				width: 160px;
+				height: auto;
+			}
+		}
+	}
+}
+
+
+
+/* .img_column */
+.img_column {
+	line-height: 1.8;
+	.img {
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	.img_column {
+		margin-bottom: 40px;
+		@include cf;
+		.img {
+			width: 300px;
+			float: right;
+		}
+		.txt {
+			width: 340px;
+			float: left;
+		}
+		&.img_left {
+			.img {
+				float: left;
+			}
+			.txt {
+				float: right;
+			}
+		}
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	.img_column {
+		margin-bottom: 30px;
+		.img {
+			margin-bottom: 20px;
+			text-align: center;
+			img {
+				width: auto;
+			}
+		}
+	}
 }
 
 /*--------------- 見出し ---------------*/

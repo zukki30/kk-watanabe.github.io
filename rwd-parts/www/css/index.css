@@ -155,18 +155,118 @@
   .ttl05 {
     margin-bottom: 20px; } }
 
-/*--------------- 見出し ---------------*/
+/*--------------- リンク ---------------*/
 /* .ttl1 */
 /* PCへ切り替え */
 /* SPへ切り替え */
-/*--------------- 見出し ---------------*/
+/*--------------- リスト ---------------*/
 /* .ttl1 */
 /* PCへ切り替え */
 /* SPへ切り替え */
-/*--------------- 見出し ---------------*/
-/* .ttl1 */
+/*--------------- カラム ---------------*/
+/* .column_group */
+.column_group:after {
+  display: block;
+  clear: both;
+  content: ""; }
+.column_group .column {
+  box-sizing: border-box;
+  float: left; }
+  .column_group .column .img {
+    margin-bottom: 15px; }
+    .column_group .column .img img {
+      width: 100%;
+      height: auto; }
+
 /* PCへ切り替え */
+@media only screen and (min-width: 737px) {
+  .column_group {
+    margin-bottom: 40px;
+    margin-left: -15px; }
+    .column_group .column {
+      padding-left: 15px; }
+  .two_column > * {
+    width: 50%; }
+  .three_column > * {
+    width: 33.3%; }
+  .four_column > * {
+    width: 25%; } }
+
 /* SPへ切り替え */
+@media only screen and (max-width: 736px) {
+  .column_group {
+    margin-bottom: 30px;
+    margin-left: -10px; }
+    .column_group .column {
+      padding-left: 10px;
+      margin-bottom: 10px;
+      width: 50%; } }
+
+/* .img_float */
+.img_float {
+  line-height: 1.8; }
+  .img_float:after {
+    display: block;
+    clear: both;
+    content: ""; }
+  .img_float > .img {
+    padding-bottom: 20px;
+    padding-left: 20px;
+    float: right; }
+  .img_float.img_left > .img {
+    padding-right: 20px;
+    padding-left: 0;
+    float: left; }
+
+/* PCへ切り替え */
+@media only screen and (min-width: 737px) {
+  .img_float {
+    margin-bottom: 40px; } }
+
+/* SPへ切り替え */
+@media only screen and (max-width: 736px) {
+  .img_float {
+    margin-bottom: 30px; }
+    .img_float > .img img {
+      width: 160px;
+      height: auto; } }
+
+/* .img_column */
+.img_column {
+  line-height: 1.8; }
+  .img_column .img img {
+    width: 100%;
+    height: auto; }
+
+/* PCへ切り替え */
+@media only screen and (min-width: 737px) {
+  .img_column {
+    margin-bottom: 40px; }
+    .img_column:after {
+      display: block;
+      clear: both;
+      content: ""; }
+    .img_column .img {
+      width: 300px;
+      float: right; }
+    .img_column .txt {
+      width: 340px;
+      float: left; }
+    .img_column.img_left .img {
+      float: left; }
+    .img_column.img_left .txt {
+      float: right; } }
+
+/* SPへ切り替え */
+@media only screen and (max-width: 736px) {
+  .img_column {
+    margin-bottom: 30px; }
+    .img_column .img {
+      margin-bottom: 20px;
+      text-align: center; }
+      .img_column .img img {
+        width: auto; } }
+
 /*--------------- 見出し ---------------*/
 /* .ttl1 */
 /* PCへ切り替え */
