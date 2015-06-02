@@ -13,9 +13,9 @@
 @media only screen and (min-width: 737px) {
   .ttl01 {
     margin-bottom: 30px;
-    padding: 15px;
+    padding: 15px 15px 10px;
     border-radius: 10px;
-    font-size: 240%; } }
+    font-size: 200%; } }
 
 /* SPへ切り替え */
 @media only screen and (max-width: 736px) {
@@ -820,7 +820,7 @@
       display: inline-block;
       letter-spacing: normal; } }
 
-/*--------------- 長いコンテツ ---------------*/
+/*--------------- コンテンツ系 ---------------*/
 /* .long_conts */
 .long_conts > .ttl {
   padding: 17px 15px 13px;
@@ -884,3 +884,39 @@
     .long_conts .inner {
       margin-top: 20px;
       display: none; } }
+
+/* news */
+.news .list {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dotted #ccc; }
+  .news .list:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none; }
+  .news .list .date {
+    color: #999;
+    font-weight: normal; }
+  .news .list .new {
+    margin-left: 10px;
+    background-color: #A61A11;
+    color: #FFF; }
+
+/* PCへ切り替え */
+@media only screen and (min-width: 737px) {
+  .list {
+    width: 100%;
+    display: table; }
+    .list .ttl, .list .txt {
+      display: table-cell;
+      vertical-align: top; }
+    .list .ttl {
+      width: 170px; }
+    .list .new {
+      padding: 2px 3px;
+      font-size: 71.42857%; } }
+
+/* SPへ切り替え */
+@media only screen and (max-width: 736px) {
+  .list .ttl {
+    margin-bottom: 10px; } }

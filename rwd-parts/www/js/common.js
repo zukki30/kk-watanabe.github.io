@@ -138,12 +138,21 @@ $(function(){
 
 		//高さ固定
 		(function () {
-			var lineUpList = $('.lineup_list > li');
+			var lineUpList = $('.lineup_list > li'),
+				twoColumn = $('.two_column .column'),
+				threeColumn = $('.three_column .column'),
+				fourColumn = $('.four_column  .column');
+
+			twoColumn.tile(2);
 
 			if (html.hasClass('sp')) {
 				lineUpList.attr('style', '');
+				threeColumn.tile(2);
+				fourColumn.tile(2);
 			} else {
 				lineUpList.tile(4)
+				threeColumn.tile(3);
+				fourColumn.tile(4);
 			};
 		})();
 	};
