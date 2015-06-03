@@ -31,7 +31,7 @@
 
 			<div class="other">
 				<form action="/" method="post" class="site_search">
-					<input type="text" name="site_search" id="fSite_search" value="検索する">
+					<input type="text" name="site_search" id="fSite_search" value="" data-value="検索する" class="value_set">
 					<button type="submit"><span class="ic_header_mglass"></span></button>
 				</form>
 
@@ -97,19 +97,19 @@
 			<section id="link">
 				<div class="tempTtl">リンク</div>
 
-				<a href="" class="link01">テキストリンク</a>
+				<div class="link01"><a href="">テキストリンク</a></div>
 
 				<hr class="deco">
 
-				<a href="" target="_blank" class="link01 new_window">テキストリンク(_blank)</a>
+				<div class="link01 new_window"><a href="" target="_blank">テキストリンク(_blank)</a></div>
 
 				<hr class="deco">
 
-				<a href=""  class="btn_link01">テキストからボタンへ</a>
+				<div class="btn_link01"><a href="">テキストからボタンへ</a></div>
 
 				<hr class="deco">
 
-				<a href="" target="_blank" class="btn_link01 new_window">テキストからボタンへ<br class="pcHide">(_blank)</a>
+				<div class="btn_link01 new_window"><a href="" target="_blank">テキストからボタンへ<br class="pcHide">(_blank)</a></div>
 
 				<hr class="deco">
 
@@ -156,11 +156,11 @@
 				<ul class="link_list01">
 					<li><a href="">サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</a></li>
 					<li><a href="">サンプルテキスト</a></li>
-					<li><a href="" target="_blank" class="new_window">サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</a>
+					<li><span class="new_window"><a href="" target="_blank">サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</a></span>
 						<ul class="level02">
 							<li><a href="">サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</a></li>
 							<li><a href="">サンプルテキスト</a></li>
-							<li><a href="" target="_blank" class="new_window">サンプルテキストサンプルテキストサンプルテキスト</a></li>
+							<li><span class="box new_window"><a href="" target="_blank">サンプルテキストサンプルテキストサンプルテキスト</a></span></li>
 						</ul>
 					</li>
 				</ul>
@@ -168,21 +168,21 @@
 				<hr class="deco">
 
 				<ul class="Link_box_list01">
-					<li><a href="">サンプルテキストサンプルテキスト</a></li>
+					<li><a href="" class="box">サンプルテキストサンプルテキスト</a></li>
 					<li>
-						<a href="" target="_blank" class="new_window">サンプルテキストサンプルテキストサンプルテキスト</a>
+						<span class="box new_window"><a href="" target="_blank">サンプルテキストサンプルテキストサンプルテキスト</a></span>
 						<ul class="level02">
-							<li><a href="">サンプルテキスト</a></li>
+							<li><a href="" class="box">サンプルテキスト</a></li>
 							<li>
-								<a href="" target="_blank" class="new_window">サンプルテキストサンプルテキストサンプルテキスト</a>
+								<span class="box new_window"><a href="" target="_blank">サンプルテキストサンプルテキストサンプルテキスト</a></span>
 								<ul class="level03">
-									<li><a href="">サンプルテキスト</a></li>
-									<li><a href="" target="_blank" class="new_window">サンプルテキストサンプルテキストサンプルテキスト</a></li>
+									<li><a href="" class="box">サンプルテキスト</a></li>
+									<li><span class="box new_window"><a href="" target="_blank">サンプルテキストサンプルテキストサンプルテキスト</a></span></li>
 								</ul>
 							</li>
 						</ul>
 					</li>
-					<li><a href="">サンプルテキスト</a></li>
+					<li><a href="" class="box">サンプルテキスト</a></li>
 				</ul>
 
 				<hr class="deco">
@@ -472,11 +472,11 @@
 						<fieldset>
 							<dl class="row">
 								<dt><label for="fName">お名前<span class="required">必須</span></label></dt>
-								<dd><input type="text" name="name" id="fName" value="" data-value="例） 田中　太郎" class="vale_set"></dd>
+								<dd><input type="text" name="name" id="fName" value="" data-value="例） 田中　太郎" class="value_set"></dd>
 							</dl>
 							<dl class="row">
 								<dt><label for="fName">フリガナ<span class="required">必須</span></label></dt>
-								<dd><input type="text" name="name_kana" id="fNameKana" value="" data-value="例） タナカ　タロウ" class="vale_set"></dd>
+								<dd><input type="text" name="name_kana" id="fNameKana" value="" data-value="例） タナカ　タロウ" class="value_set"></dd>
 							</dl>
 
 							<dl class="row">

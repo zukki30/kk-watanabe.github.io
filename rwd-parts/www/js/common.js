@@ -149,11 +149,11 @@ $(function(){
 		win_h = win.height(),
 		html = $('html'),
 		body = $('body'),
-		body_sp_w = '320px'
+		body_sp_w = '320px',
 		break_w = 736,
 
 		header = $('#header'),
-		headerOther = header.find('.other');
+		headerOther = header.find('.other'),
 		gNavi = $('#global_navi'),
 
 		menuOpenBtn = $('#menu_open'),
@@ -163,7 +163,7 @@ $(function(){
 
 		tab01 = $('#tab01'),
 
-		inputVal = $('.vale_set');
+		inputVal = $('.value_set');
 
 	//set実行
 	var set = function() {
@@ -205,11 +205,12 @@ $(function(){
 	set();
 
 	//SPボタン実行
-	var menuOpne = function() {
-		if (html.hasClass('pc')) return false;
+	var menuOpen = function() {
 
 		//globalナビ開閉
 		menuOpenBtn.on('click', function() {
+			if (html.hasClass('pc')) return false;
+
 			var _self = $(this);
 			headerOther.fadeOut('fast');
 			searchOpenBtn.removeClass('open');
@@ -225,6 +226,8 @@ $(function(){
 
 		//検索ボックス開閉
 		searchOpenBtn.on('click', function() {
+			if (html.hasClass('pc')) return false;
+
 			var _self = $(this);
 			gNavi.fadeOut('fast');
 			menuOpenBtn.removeClass('open');
@@ -238,40 +241,45 @@ $(function(){
 			};
 		});
 	};
-	menuOpne();
+	menuOpen();
 
 	//google map
 	var mapCreating = function() {
 		//アクセス・地図　マップ表示 座標取得 表示
-		var geocoder = new google.maps.Geocoder();
-		var add = '仙台市青葉区一番町1-1-30 南町通有楽館ビルディング6F';
-		geocoder.geocode({'address': add,'region': 'jp'},function(results, status){
-			if(status==google.maps.GeocoderStatus.OK){
-				if(results.length > 0){
-					var lng = 140.874398;
-					var lat = 38.258077;
 
-					var latlng = new google.maps.LatLng(lat, lng);
-					var mapOptions = {
-						zoom: 14,
-						center: latlng,
-						mapTypeId: google.maps.MapTypeId.ROADMAP,
-						scaleControl: true,
-						scrollwheel: false
-					};
-					var mapObj = new google.maps.Map(document.getElementById('map'), mapOptions);
+		function map () {
+			var geocoder = new google.maps.Geocoder();
+			var add = '仙台市青葉区一番町1-1-30 南町通有楽館ビルディング6F';
+			geocoder.geocode({'address': add,'region': 'jp'},function(results, status){
+				var lng = 140.874398;
+				var lat = 38.258077;
 
-					// マーカーを作成
-					var marker = new google.maps.Marker({
-						position: latlng,
-						map: mapObj
-					});
-				}
-			}
-		});
+				var latlng = new google.maps.LatLng(lat, lng);
+				var mapOptions = {
+					zoom: 14,
+					center: latlng,
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					scaleControl: true,
+					scrollwheel: false,
+					noClear : true
+				};
+				var mapObj = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+				// マーカーを作成
+				var marker = new google.maps.Marker({
+					position: latlng,
+					map: mapObj
+				});
+			});
+		};
+
+		if (html.hasClass('pc')) {
+			map();
+		} else if (html.hasClass('sp')) {
+			map();
+		};
 	};
 	mapCreating();
-
 
 	//フォーム関係
 	inputVal.valueSet();
@@ -283,8 +291,13 @@ $(function(){
 	tab01.tabFrame();
 
 	//リサイズ
-	win.resize(function() {
-		set();
-		mapCreating();
+	var timer = false;
+	$(window).resize(function() {
+		if (timer !== false) {
+			clearTimeout(timer);
+		}
+		timer = setTimeout(function() {
+			set();
+		}, 200);
 	});
 });

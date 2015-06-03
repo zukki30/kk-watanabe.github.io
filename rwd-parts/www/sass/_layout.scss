@@ -230,7 +230,7 @@ body {
 			}
 			&:before,
 			&:after {
-				opacity: 0;
+				@include opct(0);
 			}
 			&:before {
 				top: 5px;
@@ -242,7 +242,7 @@ body {
 			&.open {
 				&:before,
 				&:after {
-					opacity: 1;
+					@include opct(1);
 				}
 			}
 		}
@@ -256,6 +256,55 @@ body {
 			clear: both;
 		}
 		.link { display: none; }
+	}
+
+	.ie8 {
+		#header {
+			.btn_group {
+				> div {
+					&.open {
+						span {
+							display: none !important;
+							visibility: hidden;
+						}
+						&:before {
+							width: auto;
+							height: auto;
+							background-color: #fff;
+							position: relative;
+							color: #999;
+							@include fs(24);
+							@include font_icon;
+							content: "\e622";
+						}
+						&:after {
+							display: none !important;
+							visibility: hidden;
+						}
+					}
+				}
+			}
+
+			#search_open {
+				margin-right: 10px;
+				height: 30px;
+				> span {
+					color: #004C99;
+					@include fs(30);
+				}
+				&:before,
+				&:after {
+					@include opct(0);
+					display: none;
+				}
+
+				&.open {
+					&:before {
+						display: block;
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -293,7 +342,7 @@ body {
 			width: $max_width;
 			@include cf;
 			li {
-				width: $max_width / 7;
+				width: 137px;
 				float: left;
 				&:first-child {
 					position: relative;
@@ -370,6 +419,7 @@ body {
 		ul {
 			li {
 				border-top: 1px solid #ccc;
+				line-height: 1;
 				&:first-child {
 					border-top: none;
 				}
@@ -480,8 +530,6 @@ body {
 	.list {
 		li {
 			border-bottom: 1px dotted #ccc;
-		}
-		a {
 			position: relative;
 			&:before {
 				display: block;
@@ -547,15 +595,10 @@ body {
 		}
 
 		.list {
-			ul {
-				margin-left: 15px;
-			}
 			li {
 				margin-top: 10px;
 				padding-bottom: 10px;
-			}
-			a {
-				text-indent: -15px;
+				padding-left: 15px;
 				&:before {
 					top: 2px;
 					left: -3px;
@@ -605,9 +648,7 @@ body {
 		}
 
 		.list {
-			a {
-				padding: 15px 35px 15px 0;
-				display: block;
+			li {
 				&:before {
 					margin-top: -10px;
 					top: 50%;
@@ -617,12 +658,14 @@ body {
 					content: "\e60e";
 				}
 			}
+			a {
+				padding: 15px 35px 15px 0;
+				display: block;
+			}
 		}
 
 		.blog {
-			a {
-				padding-top: 15px;
-				padding-bottom: 15px;
+			li {
 				position: relative;
 				&:after {
 					margin-top: -10px;
@@ -634,6 +677,11 @@ body {
 					@include font_icon;
 					content: "\e60e";
 				}
+			}
+			a {
+				padding-top: 15px;
+				padding-bottom: 15px;
+				position: relative;
 			}
 			.img {
 				padding-right: 10px;

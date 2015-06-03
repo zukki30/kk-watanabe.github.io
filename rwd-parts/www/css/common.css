@@ -40,6 +40,9 @@ button {
   background: none;
   border: none; }
 
+br {
+  letter-spacing: normal; }
+
 ins {
   text-decoration: none; }
 
@@ -175,6 +178,7 @@ br {
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
+  text-decoration: none !important;
   line-height: 1;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
@@ -406,6 +410,7 @@ body {
         font-weight: normal;
         font-variant: normal;
         text-transform: none;
+        text-decoration: none !important;
         line-height: 1;
         /* Better Font Rendering =========== */
         -webkit-font-smoothing: antialiased;
@@ -484,13 +489,15 @@ body {
         color: #004C99;
         font-size: 300%; }
       #header #search_open:before, #header #search_open:after {
-        opacity: 0; }
+        opacity: 0;
+        filter: alpha(opacity=0); }
       #header #search_open:before {
         top: 5px; }
       #header #search_open:after {
         bottom: 5px; }
       #header #search_open.open:before, #header #search_open.open:after {
-        opacity: 1; }
+        opacity: 1;
+        filter: alpha(opacity=100); }
     #header .other {
       padding: 10px;
       background-color: #336EAA;
@@ -499,7 +506,44 @@ body {
       display: none;
       clear: both; }
     #header .link {
-      display: none; } }
+      display: none; }
+  .ie8 #header .btn_group > div.open span {
+    display: none !important;
+    visibility: hidden; }
+  .ie8 #header .btn_group > div.open:before {
+    width: auto;
+    height: auto;
+    background-color: #fff;
+    position: relative;
+    color: #999;
+    font-size: 240%;
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-decoration: none !important;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\e622"; }
+  .ie8 #header .btn_group > div.open:after {
+    display: none !important;
+    visibility: hidden; }
+  .ie8 #header #search_open {
+    margin-right: 10px;
+    height: 30px; }
+    .ie8 #header #search_open > span {
+      color: #004C99;
+      font-size: 300%; }
+    .ie8 #header #search_open:before, .ie8 #header #search_open:after {
+      opacity: 0;
+      filter: alpha(opacity=0);
+      display: none; }
+    .ie8 #header #search_open.open:before {
+      display: block; } }
 
 /*------------------------------------------------------------
 	グローバルナビ
@@ -524,6 +568,7 @@ body {
       font-weight: normal;
       font-variant: normal;
       text-transform: none;
+      text-decoration: none !important;
       line-height: 1;
       /* Better Font Rendering =========== */
       -webkit-font-smoothing: antialiased;
@@ -541,7 +586,7 @@ body {
         clear: both;
         content: ""; }
       #global_navi .basic li {
-        width: 137.14286px;
+        width: 137px;
         float: left; }
         #global_navi .basic li:first-child {
           position: relative; }
@@ -601,7 +646,8 @@ body {
     left: 0;
     z-index: 500; }
     #global_navi ul li {
-      border-top: 1px solid #ccc; }
+      border-top: 1px solid #ccc;
+      line-height: 1; }
       #global_navi ul li:first-child {
         border-top: none; }
     #global_navi ul a {
@@ -647,6 +693,7 @@ body {
         font-weight: normal;
         font-variant: normal;
         text-transform: none;
+        text-decoration: none !important;
         line-height: 1;
         /* Better Font Rendering =========== */
         -webkit-font-smoothing: antialiased;
@@ -687,10 +734,9 @@ body {
   border-bottom: 2px solid #036;
   color: #FFF; }
 #sub_conts .list li {
-  border-bottom: 1px dotted #ccc; }
-#sub_conts .list a {
+  border-bottom: 1px dotted #ccc;
   position: relative; }
-  #sub_conts .list a:before {
+  #sub_conts .list li:before {
     display: block;
     position: absolute;
     color: #004C99;
@@ -701,6 +747,7 @@ body {
     font-weight: normal;
     font-variant: normal;
     text-transform: none;
+    text-decoration: none !important;
     line-height: 1;
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
@@ -738,14 +785,11 @@ body {
         font-size: 128.57143%; }
       #sub_conts .frame .inner {
         margin-top: 10px; }
-    #sub_conts .list ul {
-      margin-left: 15px; }
     #sub_conts .list li {
       margin-top: 10px;
-      padding-bottom: 10px; }
-    #sub_conts .list a {
-      text-indent: -15px; }
-      #sub_conts .list a:before {
+      padding-bottom: 10px;
+      padding-left: 15px; }
+      #sub_conts .list li:before {
         top: 2px;
         left: -3px;
         font-size: 16px;
@@ -774,21 +818,19 @@ body {
       #sub_conts .frame .ttl {
         padding: 14px 10px 10px;
         font-size: 114.28571%; }
+    #sub_conts .list li:before {
+      margin-top: -10px;
+      top: 50%;
+      right: 0;
+      color: #999;
+      font-size: 20px;
+      content: "\e60e"; }
     #sub_conts .list a {
       padding: 15px 35px 15px 0;
       display: block; }
-      #sub_conts .list a:before {
-        margin-top: -10px;
-        top: 50%;
-        right: 0;
-        color: #999;
-        font-size: 20px;
-        content: "\e60e"; }
-    #sub_conts .blog a {
-      padding-top: 15px;
-      padding-bottom: 15px;
+    #sub_conts .blog li {
       position: relative; }
-      #sub_conts .blog a:after {
+      #sub_conts .blog li:after {
         margin-top: -10px;
         position: absolute;
         top: 50%;
@@ -801,11 +843,16 @@ body {
         font-weight: normal;
         font-variant: normal;
         text-transform: none;
+        text-decoration: none !important;
         line-height: 1;
         /* Better Font Rendering =========== */
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         content: "\e60e"; }
+    #sub_conts .blog a {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      position: relative; }
     #sub_conts .blog .img {
       padding-right: 10px;
       width: 40px; }
@@ -842,6 +889,7 @@ body {
       font-weight: normal;
       font-variant: normal;
       text-transform: none;
+      text-decoration: none !important;
       line-height: 1;
       /* Better Font Rendering =========== */
       -webkit-font-smoothing: antialiased;

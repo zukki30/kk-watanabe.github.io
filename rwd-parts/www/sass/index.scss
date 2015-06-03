@@ -78,7 +78,7 @@
 	width: 100%;
 	position: relative;
 	color: #004C99;
-	line-height: 1.5;
+	line-height: 1;
 	text-align: center;
 	span {
 		background-color: #FFF;
@@ -88,6 +88,8 @@
 		border-left-color: #FFF;
 		display: inline-block;
 		position: relative;
+		letter-spacing: normal;
+		line-height: 1.5;
 		z-index: 1;
 	}
 	&:before,
@@ -125,6 +127,7 @@
 			border-right-width: 5px;
 			border-left-width: 5px;
 		}
+		br { display: inline; }
 	}
 }
 
@@ -188,17 +191,15 @@
 /*--------------- リンク ---------------*/
 /* .link01 */
 .link01 {
-	margin-left: 20px;
 	// padding-left: 20px;
-	text-indent: -20px;
+	display: inline;
 	position: relative;
 	&:before {
-		position: absolute;
-		top: 0;
-		left: 0;
+		margin-left: 5px;
 		color: #036;
 		@include fs(15);
 		@include font_icon;
+		vertical-align: middle;
 		content: "\e612";
 	}
 }
@@ -206,14 +207,14 @@
 /* .new_window */
 .new_window {
 	padding-right: 25px;
+	display: inline;
 	position: relative;
 	&:after {
-		position: absolute;
-		bottom: 3px;
-		right: 0;
+		margin-left: 5px;
 		color: #036;
 		@include fs(11);
 		@include font_icon;
+		vertical-align: middle;
 		content: "\e626";
 	}
 }
@@ -255,7 +256,9 @@
 		background-color: #eee;
 		border: 5px solid #ccc;
 		display: block;
-		text-decoration: none;
+		> a {
+			text-decoration: none;
+		}
 		&:before {
 			margin-top: -10px;
 			top: 50%;
@@ -266,6 +269,7 @@
 		}
 		&:after {
 			margin-top: -7px;
+			position: absolute;
 			top: 50%;
 			right: 25px;
 			color: #666;
@@ -441,7 +445,6 @@
 /* .Link_box_list01 */
 .Link_box_list01 {
 	li {
-		position: relative;
 		&:first-child {
 			margin-top: 0;
 		}
@@ -454,6 +457,7 @@
 		li {
 			margin-top: 5px;
 			padding-left: 15px;
+			position: relative;
 			&:before {
 				position: absolute;
 				top: 3px;
@@ -487,8 +491,11 @@
 			padding-top: 15px;
 			padding-bottom: 15px;
 			display: block;
-			position: relative;
 			text-decoration: none;
+		}
+		.box {
+			display: block;
+			position: relative;
 			&:before {
 				position: absolute;
 				top: 50%;
@@ -500,6 +507,7 @@
 		.new_window {
 			&:after {
 				margin-top: -6px;
+				position: absolute;
 				top: 50%;
 				color: #888;
 				@include fs(12);
@@ -507,7 +515,7 @@
 		}
 		> li {
 			border-bottom: 1px solid #ccc;
-			> a {
+			.box {
 				padding-right: 40px;
 				&:before {
 					margin-top: -10px;
@@ -515,7 +523,7 @@
 					content: "\e60e";
 				}
 			}
-			> .new_window {
+			.new_window {
 				&:after {
 					right: 25px;
 				}
@@ -525,12 +533,12 @@
 		.level02 {
 			border-top: 1px solid #ccc;
 			> li {
-				border-top: 1px dotted #ccc;
+				border-top: 1px dotted #999;
 				@include fs(13,14);
 				&:first-child {
 					border-top: none;
 				}
-				> a{
+				.box {
 					padding-right: 35px;
 					padding-left: 20px;
 					background-color: #eee;
@@ -540,7 +548,7 @@
 						content: "\e60e";
 					}
 				}
-				> .new_window {
+				.new_window {
 					&:after {
 						right: 20px;
 					}
@@ -549,14 +557,14 @@
 		}
 
 		.level03 {
-			border-top: 1px dotted #ccc;
+			border-top: 1px dotted #999;
 			> li {
-				border-top: 1px dotted #ccc;
+				border-top: 1px dotted #999;
 				@include fs(11,13);
 				&:first-child {
 					border-top: none;
 				}
-				> a {
+				.bpx {
 					padding-right: 30px;
 					padding-left: 30px;
 					background-color: #F2F2F2;
@@ -567,7 +575,7 @@
 						content: "\e612";
 					}
 				}
-				> .new_window {
+				.new_window {
 					&:after {
 						right: 20px;
 					}
@@ -1152,6 +1160,18 @@
 		.inner {
 			margin-top: 20px;
 			display: none;
+		}
+	}
+
+	.ie8 {
+		.long_conts {
+			> .ttl {
+				&.open {
+					&:after {
+						content: "\e622";
+					}
+				}
+			}
 		}
 	}
 }
