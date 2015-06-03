@@ -104,6 +104,45 @@ new function(){function f(a){function d(a,c,b){setTimeout(function(){"up"==b&&a>
 	};
 })(jQuery);
 
+
+//valueセット
+;(function($){
+	$.fn.valueSet = function(){
+		var _self = $(this);
+
+		_self.each(function(){
+			var input = $(this),
+				val = input.attr('data-value');
+
+			if (input.val() == val || input.val() == '') {
+				input.val(val).addClass('no_val');
+			};
+
+			input.focus(function() {
+				if ($(this).val() != val) return false;
+
+				$(this).val('').removeClass('no_val');
+			}).blur(function() {
+				if ($(this).val() == '') {
+					input.val(val).addClass('no_val');
+				};
+			});
+		});
+
+		$('form').submit(function() {
+			var input = $(this).find('input[type="text"]');
+			input.each(function() {
+				var input = $(this),
+					val = input.attr('data-value');
+
+				if (input.val() == val) {
+					input.val('');
+				};
+			});
+		});
+	};
+})(jQuery);
+
 $(function(){
 	var win = $(window),
 		win_w = win.width(),
@@ -122,8 +161,11 @@ $(function(){
 
 		longConts = $('.long_conts'),
 
-		tab01 = $('#tab01');
+		tab01 = $('#tab01'),
 
+		inputVal = $('.vale_set');
+
+	//set実行
 	var set = function() {
 		//htmlのclass切り替え
 		(function () {
@@ -141,7 +183,8 @@ $(function(){
 			var lineUpList = $('.lineup_list > li'),
 				twoColumn = $('.two_column .column'),
 				threeColumn = $('.three_column .column'),
-				fourColumn = $('.four_column  .column');
+				fourColumn = $('.four_column  .column'),
+				checkList = $('.checkbox > li');
 
 			twoColumn.tile(2);
 
@@ -149,17 +192,19 @@ $(function(){
 				lineUpList.attr('style', '');
 				threeColumn.tile(2);
 				fourColumn.tile(2);
+				checkList.tile(2);
 			} else {
 				lineUpList.tile(4)
 				threeColumn.tile(3);
 				fourColumn.tile(4);
+				checkList.tile(3);
 			};
 		})();
 	};
 
-	//set実行
 	set();
 
+	//SPボタン実行
 	var menuOpne = function() {
 		if (html.hasClass('pc')) return false;
 
@@ -193,9 +238,43 @@ $(function(){
 			};
 		});
 	};
-
-	//SPボタン実行
 	menuOpne();
+
+	//google map
+	var mapCreating = function() {
+		//アクセス・地図　マップ表示 座標取得 表示
+		var geocoder = new google.maps.Geocoder();
+		var add = '仙台市青葉区一番町1-1-30 南町通有楽館ビルディング6F';
+		geocoder.geocode({'address': add,'region': 'jp'},function(results, status){
+			if(status==google.maps.GeocoderStatus.OK){
+				if(results.length > 0){
+					var lng = 140.874398;
+					var lat = 38.258077;
+
+					var latlng = new google.maps.LatLng(lat, lng);
+					var mapOptions = {
+						zoom: 14,
+						center: latlng,
+						mapTypeId: google.maps.MapTypeId.ROADMAP,
+						scaleControl: true,
+						scrollwheel: false
+					};
+					var mapObj = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+					// マーカーを作成
+					var marker = new google.maps.Marker({
+						position: latlng,
+						map: mapObj
+					});
+				}
+			}
+		});
+	};
+	mapCreating();
+
+
+	//フォーム関係
+	inputVal.valueSet();
 
 	//アコーディオン
 	longConts.accordion('open');
@@ -206,5 +285,6 @@ $(function(){
 	//リサイズ
 	win.resize(function() {
 		set();
+		mapCreating();
 	});
 });

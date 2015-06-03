@@ -715,19 +715,21 @@
         width: auto; } }
 
 /*--------------- テーブル ---------------*/
-/* .basicTable */
-.basicTable dt {
+/* .basic_table */
+.basic_table .row > dt, .basic_table .row > dd {
+  padding: 15px; }
+.basic_table .row > dt {
   background-color: #EEE; }
 
 /* PCへ切り替え */
 @media only screen and (min-width: 737px) {
-  .basicTable {
+  .basic_table {
     margin-bottom: 40px;
     border-top: 1px solid #ccc; }
-    .basicTable ul {
+    .basic_table .head {
       width: 100%;
       display: table; }
-      .basicTable ul li {
+      .basic_table .head > li {
         padding: 15px;
         background-color: #EEE;
         border-bottom: 1px solid #ccc;
@@ -735,40 +737,46 @@
         text-align: center;
         display: table-cell;
         vertical-align: middle; }
-        .basicTable ul li:first-child {
+        .basic_table .head > li:first-child {
           border-left: none; }
-    .basicTable dl {
+    .basic_table .row {
       width: 100%;
       border-bottom: 1px solid #ccc;
       display: table; }
-    .basicTable dt, .basicTable dd {
-      box-sizing: border-box;
-      padding: 15px;
-      display: table-cell;
-      vertical-align: middle; }
-    .basicTable dd {
-      border-left: 1px solid #ccc; }
-  .two_cell ul li {
+      .basic_table .row > dt, .basic_table .row > dd {
+        box-sizing: border-box;
+        display: table-cell;
+        vertical-align: middle; }
+      .basic_table .row > dd {
+        border-left: 1px solid #ccc; }
+  .two_cell01 .head > li {
     width: 75%; }
-    .two_cell ul li:first-child {
+    .two_cell01 .head > li:first-child {
       width: 25%; }
-  .two_cell dt {
+  .two_cell01 .row > dt {
     width: 25%; }
-  .two_cell dd {
+  .two_cell01 .row > dd {
     width: 75%; }
-  .four_cell li, .four_cell dt, .four_cell dd {
+  .two_cell02 .head > li {
+    width: 70%; }
+    .two_cell02 .head > li:first-child {
+      width: 30%; }
+  .two_cell02 .row > dt {
+    width: 30%; }
+  .two_cell02 .row > dd {
+    width: 70%; }
+  .four_cell01 .head > li, .four_cell01 .row > dt, .four_cell01 .row > dd {
     width: 25%; } }
 
 /* SPへ切り替え */
 @media only screen and (max-width: 736px) {
-  .basicTable {
+  .basic_table {
     margin-bottom: 30px;
-    border-bottom: 1px solid #ccc; }
-    .basicTable ul {
+    border-top: 1px solid #ccc; }
+    .basic_table .head {
       display: none; }
-    .basicTable dt, .basicTable dd {
-      border-top: 1px solid #ccc;
-      padding: 10px; } }
+    .basic_table .row > dt, .basic_table .row > dd {
+      border-bottom: 1px solid #ccc; } }
 
 /*--------------- タブ ---------------*/
 /* #tab01 */
@@ -919,4 +927,125 @@
 /* SPへ切り替え */
 @media only screen and (max-width: 736px) {
   .news .list .ttl {
-    margin-bottom: 10px; } }
+    margin-bottom: 10px; }
+  .news .list .new {
+    padding: 2px 3px;
+    font-size: 71.42857%; } }
+
+/* map */
+#map {
+  width: 100%; }
+
+/* PCへ切り替え */
+@media only screen and (min-width: 737px) {
+  #map {
+    height: 320px; } }
+
+/* SPへ切り替え */
+@media only screen and (max-width: 736px) {
+  #map {
+    height: 250px; } }
+
+/* フォーム */
+.mail_form .row > dt label {
+  display: block;
+  position: relative; }
+.mail_form .required {
+  padding: 2px 3px;
+  background-color: #A61A11;
+  color: #FFF;
+  font-size: 71.42857%; }
+.mail_form input[type="text"], .mail_form textarea {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 3px;
+  font-size: 100%; }
+.mail_form input[type="radio"], .mail_form input[type="checkbox"] {
+  margin: 0;
+  margin-right: 5px;
+  vertical-align: -0.1em; }
+.mail_form input[type="text"].no_val {
+  color: #999; }
+.mail_form textarea {
+  width: 100%; }
+.mail_form .radio li label, .mail_form .checkbox li label {
+  padding-left: 20px;
+  display: inline-block;
+  text-indent: -20px; }
+  .mail_form .radio li label > input, .mail_form .checkbox li label > input {
+    position: relative;
+    left: 0; }
+.mail_form .radio {
+  text-align: left; }
+  .mail_form .radio li {
+    margin-right: 10px;
+    display: inline-block; }
+.mail_form .checkbox:after {
+  display: block;
+  clear: both;
+  content: ""; }
+.mail_form .checkbox li {
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  float: left; }
+.mail_form .submit button {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #06C;
+  color: #FFF;
+  text-align: center;
+  cursor: pointer; }
+.mail_form .submit .retry {
+  background-color: #999; }
+
+/* PCへ切り替え */
+@media only screen and (min-width: 737px) {
+  .mail_form .required {
+    position: absolute;
+    right: 0; }
+  .mail_form input[type="text"] {
+    width: 300px; }
+  .mail_form textarea {
+    height: 150px; }
+  .mail_form .checkbox li {
+    width: 33.3%; }
+  .mail_form .submit {
+    margin-top: 60px;
+    text-align: center;
+    letter-spacing: -0.4em; }
+    .mail_form .submit li {
+      margin-left: 30px;
+      width: 250px;
+      display: inline-block;
+      letter-spacing: normal; }
+      .mail_form .submit li:first-child {
+        margin-left: 0; }
+    .mail_form .submit button {
+      padding: 20px 15px;
+      font-size: 114.28571%; }
+      .mail_form .submit button:hover {
+        background-color: #036; }
+    .mail_form .submit .retry:hover {
+      background-color: #333; } }
+
+/* SPへ切り替え */
+@media only screen and (max-width: 736px) {
+  .mail_form .required {
+    margin-left: 10px; }
+  .mail_form input[type="text"] {
+    width: 100%; }
+  .mail_form textarea {
+    height: 200px; }
+  .mail_form .checkbox li {
+    width: 50%; }
+  .mail_form .submit {
+    margin-top: 30px; }
+    .mail_form .submit li {
+      margin: 30px auto 0;
+      width: 80%;
+      display: block; }
+      .mail_form .submit li:first-child {
+        margin-top: 0; }
+    .mail_form .submit button {
+      padding: 20px 0; } }

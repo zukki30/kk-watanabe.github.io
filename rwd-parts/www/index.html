@@ -11,6 +11,7 @@
 <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 <link href="css/common.css" rel="stylesheet">
 <link href="css/index.css" rel="stylesheet">
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="js/common.js"></script>
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
@@ -305,24 +306,24 @@
 
 			<section id="table">
 				<div class="tempTtl">テーブル</div>
-				<div class="basicTable two_cell">
-					<dl>
+				<div class="basic_table two_cell01">
+					<dl class="row">
 						<dt>サンプルテキスト</dt>
 						<dd>サンプルテキスト</dd>
 					</dl>
-					<dl>
+					<dl class="row">
 						<dt>サンプルテキスト</dt>
 						<dd>サンプルテキスト</dd>
 					</dl>
-					<dl>
+					<dl class="row">
 						<dt>サンプルテキスト</dt>
 						<dd>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</dd>
 					</dl>
-					<dl>
+					<dl class="row">
 						<dt>サンプルテキスト</dt>
 						<dd>サンプルテキスト</dd>
 					</dl>
-					<dl>
+					<dl class="row">
 						<dt>サンプルテキスト</dt>
 						<dd>サンプルテキスト</dd>
 					</dl>
@@ -330,38 +331,38 @@
 
 				<hr class="deco">
 
-				<div class="basicTable four_cell">
-					<ul>
+				<div class="basic_table four_cell01">
+					<ul class="head">
 						<li>項目01</li>
 						<li>項目02</li>
 						<li>項目03</li>
 						<li>項目04</li>
 					</ul>
-					<dl>
+					<dl class="row">
 						<dt>サンプルテキスト</dt>
 						<dd>サンプルテキスト</dd>
 						<dd>サンプルテキスト</dd>
 						<dd>サンプルテキスト</dd>
 					</dl>
-					<dl>
+					<dl class="row">
 						<dt>サンプルテキスト</dt>
 						<dd>サンプルテキスト</dd>
 						<dd>サンプルテキスト</dd>
 						<dd>サンプルテキスト</dd>
 					</dl>
-					<dl>
+					<dl class="row">
 						<dt>サンプルテキスト</dt>
 						<dd>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</dd>
 						<dd>サンプルテキスト</dd>
 						<dd>サンプルテキスト</dd>
 					</dl>
-					<dl>
+					<dl class="row">
 						<dt>サンプルテキスト</dt>
 						<dd>サンプルテキスト</dd>
 						<dd>サンプルテキスト</dd>
 						<dd>サンプルテキスト</dd>
 					</dl>
-					<dl>
+					<dl class="row">
 						<dt>サンプルテキスト</dt>
 						<dd>サンプルテキスト</dd>
 						<dd>サンプルテキスト</dd>
@@ -401,29 +402,6 @@
 						<p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
 					</section>
 				</div>
-
-<!-- 				<div id="tab02">
-					<section class="tab_conts">
-						<h2 class="tab_ttl">タブ01</h2>
-						<p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
-					</section>
-					<section class="tab_conts">
-						<h2 class="tab_ttl">タブ02</h2>
-						<p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
-					</section>
-					<section class="tab_conts">
-						<h2 class="tab_ttl">タブ03</h2>
-						<p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
-					</section>
-					<section class="tab_conts">
-						<h2 class="tab_ttl">タブ04</h2>
-						<p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
-					</section>
-					<section class="tab_conts">
-						<h2 class="tab_ttl">タブ05</h2>
-						<p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
-					</section>
-				</div> -->
 			</section>
 
 			<hr class="deco">
@@ -482,6 +460,82 @@
 						</article>
 					</div>
 				</section>
+
+				<hr class="deco">
+
+				<div id="map"></div>
+
+				<hr class="deco">
+
+				<div class="basic_table two_cell02">
+					<form action="" method="post" class="mail_form">
+						<fieldset>
+							<dl class="row">
+								<dt><label for="fName">お名前<span class="required">必須</span></label></dt>
+								<dd><input type="text" name="name" id="fName" value="" data-value="例） 田中　太郎" class="vale_set"></dd>
+							</dl>
+							<dl class="row">
+								<dt><label for="fName">フリガナ<span class="required">必須</span></label></dt>
+								<dd><input type="text" name="name_kana" id="fNameKana" value="" data-value="例） タナカ　タロウ" class="vale_set"></dd>
+							</dl>
+
+							<dl class="row">
+								<dt><label for="fSex">性別<span class="required">必須</span></label></dt>
+								<dd>
+									<ul class="radio">
+										<li><label><input type="radio" name="sex" id="fSex" alue="">男性</label></li>
+										<li><label><input type="radio" name="sex" value="">女性</label></li>
+									</ul>
+								</dd>
+							</dl>
+							<dl class="row">
+								<dt><label for="fOption">オプション<span class="required">必須</span></label></dt>
+								<dd>
+									<ul class="checkbox">
+										<li><label><input type="checkbox" name="" id="fOption" value="">オプション1</label></li>
+										<li><label><input type="checkbox" name="" value="">オプション2</label></li>
+										<li><label><input type="checkbox" name="" value="">オプション3オプション3</label></li>
+										<li><label><input type="checkbox" name="" value="">オプション4</label></li>
+										<li><label><input type="checkbox" name="" value="">オプション5オプション5</label></li>
+										<li><label><input type="checkbox" name="" value="">オプション6</label></li>
+										<li><label><input type="checkbox" name="" value="">オプション7オプション7</label></li>
+										<li><label><input type="checkbox" name="" value="">オプション8</label></li>
+									</ul>
+								</dd>
+							</dl>
+							<dl class="row">
+								<dt><label for="fState">都道府県</label></dt>
+								<dd>
+									<select name="都道府県" id="fState">
+										<option value="">都道府県をお選びください。</option>
+										<optgroup label="北海道・東北">
+											<option value="北海道">北海道</option>
+											<option value="青森県">青森県</option>
+											<option value="秋田県">秋田県</option>
+											<option value="岩手県">岩手県</option>
+											<option value="山形県">山形県</option>
+											<option value="宮城県">宮城県</option>
+											<option value="福島県">福島県</option>
+										</optgroup>
+									</select>
+								</dd>
+							</dl>
+							<dl class="row">
+								<dt><label for="fBody">お問い合わせ内容</label></dt>
+								<dd><textarea cols="40" rows="5" name="body" id="fBody"></textarea></dd>
+							</dl>
+						</fieldset>
+
+						<ul class="submit">
+							<li><button type="submit" name="__submit__">確認する</button></li>
+						</ul>
+
+						<ul class="submit">
+							<li><button type="submit" name="__retry_input__" class="retry">修正する</button></li>
+							<li><button type="submit" name="__send__">送信する</button></li>
+						</ul>
+					</form>
+				</div>
 			</section>
 		</main><!-- /#conts -->
 
@@ -547,3 +601,4 @@
 </div>
 </body>
 </html>
+

@@ -888,22 +888,28 @@
 }
 
 /*--------------- テーブル ---------------*/
-/* .basicTable */
-.basicTable {
-	dt {
-		background-color: #EEE;
+/* .basic_table */
+.basic_table {
+	.row {
+		> dt,
+		> dd {
+			padding: 15px;
+		}
+		> dt {
+			background-color: #EEE;
+		}
 	}
 }
 
 /* PCへ切り替え */
 @media only screen and (min-width: $break_pc_width) {
-	.basicTable {
+	.basic_table {
 		margin-bottom: 40px;
 		border-top: 1px solid #ccc;
-		ul {
+		.head {
 			width: 100%;
 			display: table;
-			li {
+			> li {
 				padding: 15px;
 				background-color: #EEE;
 				border-bottom: 1px solid #ccc;
@@ -917,27 +923,26 @@
 			}
 		}
 
-		dl {
+		.row {
 			width: 100%;
 			border-bottom: 1px solid #ccc;
 			display: table;
-		}
-		dt,
-		dd {
-			-webkit-box-sizing: border-box;
-			box-sizing: border-box;
-			padding: 15px;
-			display: table-cell;
-			vertical-align: middle;
-		}
-		dd {
-			border-left: 1px solid #ccc;
+			> dt,
+			> dd {
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				display: table-cell;
+				vertical-align: middle;
+			}
+			> dd {
+				border-left: 1px solid #ccc;
+			}
 		}
 	}
 
-	.two_cell {
-		ul {
-			li {
+	.two_cell01 {
+		.head {
+			> li {
 				width: 75%;
 				&:first-child {
 					width: 25%;
@@ -945,17 +950,38 @@
 			}
 		}
 
-		dt {
-			width: 25%;
-		}
-		dd {
-			width: 75%;
+		.row {
+			> dt {
+				width: 25%;
+			}
+			> dd {
+				width: 75%;
+			}
 		}
 	}
-	.four_cell {
-		li,
-		dt,
-		dd {
+	.two_cell02 {
+		.head {
+			> li {
+				width: 70%;
+				&:first-child {
+					width: 30%;
+				}
+			}
+		}
+
+		.row {
+			> dt {
+				width: 30%;
+			}
+			> dd {
+				width: 70%;
+			}
+		}
+	}
+	.four_cell01 {
+		.head > li,
+		.row > dt,
+		.row > dd {
 			width: 25%;
 		}
 	}
@@ -963,15 +989,16 @@
 
 /* SPへ切り替え */
 @media only screen and (max-width: $break_sp_width) {
-	.basicTable {
+	.basic_table {
 		margin-bottom: 30px;
-		border-bottom: 1px solid #ccc;
-		ul { display: none; }
+		border-top: 1px solid #ccc;
+		.head { display: none; }
 
-		dt,
-		dd {
-			border-top: 1px solid #ccc;
-			padding: 10px;
+		.row {
+			> dt,
+			> dd {
+				border-bottom: 1px solid #ccc;
+			}
 		}
 	}
 }
@@ -1180,6 +1207,203 @@
 	.news .list {
 		.ttl {
 			margin-bottom: 10px;
+		}
+		.new {
+			padding: 2px 3px;
+			@include fs(10,14);
+		}
+	}
+}
+
+/* map */
+#map {
+	width: 100%;
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	#map {
+		height: 320px;
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	#map {
+		height: 250px;
+	}
+}
+
+/* フォーム */
+.mail_form {
+	.row > dt label {
+		display: block;
+		position: relative;
+	}
+
+	.required {
+		padding: 2px 3px;
+		background-color: #A61A11;
+		color: #FFF;
+		@include fs(10,14);
+	}
+
+	input[type="text"],
+	textarea {
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 3px;
+		@include fs(10);
+	}
+
+	input[type="radio"],
+	input[type="checkbox"] {
+		margin: 0;
+		margin-right: 5px;
+		vertical-align: -0.1em;
+	}
+
+	input[type="text"] {
+		&.no_val {
+			color: #999;
+		}
+	}
+	textarea {
+		width: 100%;
+	}
+
+	.radio,
+	.checkbox {
+		li label {
+			padding-left: 20px;
+			display: inline-block;
+			text-indent: -20px;
+			> input {
+				position: relative;
+				left: 0;
+			}
+		}
+	}
+
+	.radio {
+		text-align: left;
+		li {
+			margin-right: 10px;
+			display: inline-block;
+		}
+	}
+
+	.checkbox {
+		@include cf;
+		li {
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			padding-right: 10px;
+			padding-bottom: 10px;
+			float: left;
+		}
+	}
+
+	.submit {
+		button {
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			width: 100%;
+			background-color: #06C;
+			color: #FFF;
+			text-align: center;
+			cursor: pointer;
+		}
+		.retry {
+			background-color: #999;
+		}
+	}
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	.mail_form {
+		.required {
+			position: absolute;
+			right: 0;
+		}
+
+		input[type="text"] {
+			width: 300px;
+		}
+		textarea {
+			height: 150px;
+		}
+
+		.checkbox {
+			li {
+				width: 33.3%;
+			}
+		}
+
+		.submit {
+			margin-top: 60px;
+			text-align: center;
+			letter-spacing: -0.4em;
+			li {
+				margin-left: 30px;
+				width: 250px;
+				display: inline-block;
+				letter-spacing: normal;
+				&:first-child {
+					margin-left: 0;
+				}
+			}
+			button {
+				padding: 20px 15px;
+				@include fs(16,14);
+				&:hover {
+					background-color: #036;
+				}
+			}
+			.retry {
+				&:hover {
+					background-color: #333;
+				}
+			}
+		}
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	.mail_form {
+		.required {
+			margin-left: 10px;
+		}
+
+		input[type="text"] {
+			width: 100%;
+		}
+		textarea {
+			height: 200px;
+		}
+
+		.checkbox {
+			li {
+				width: 50%;
+			}
+		}
+
+		.submit {
+			margin-top: 30px;
+			li {
+				margin: 30px auto 0;
+				width: 80%;
+				display: block;
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+			button {
+				padding: 20px 0;
+			}
 		}
 	}
 }
