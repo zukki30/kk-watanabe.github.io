@@ -954,6 +954,9 @@
 /* map */
 #map {
   width: 100%; }
+  #map iframe {
+    width: 100% !important;
+    height: 100% !important; }
 
 /* PCへ切り替え */
 @media only screen and (min-width: 737px) {

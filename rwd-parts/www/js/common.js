@@ -243,44 +243,6 @@ $(function(){
 	};
 	menuOpen();
 
-	//google map
-	var mapCreating = function() {
-		//アクセス・地図　マップ表示 座標取得 表示
-
-		function map () {
-			var geocoder = new google.maps.Geocoder();
-			var add = '仙台市青葉区一番町1-1-30 南町通有楽館ビルディング6F';
-			geocoder.geocode({'address': add,'region': 'jp'},function(results, status){
-				var lng = 140.874398;
-				var lat = 38.258077;
-
-				var latlng = new google.maps.LatLng(lat, lng);
-				var mapOptions = {
-					zoom: 14,
-					center: latlng,
-					mapTypeId: google.maps.MapTypeId.ROADMAP,
-					scaleControl: true,
-					scrollwheel: false,
-					noClear : true
-				};
-				var mapObj = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-				// マーカーを作成
-				var marker = new google.maps.Marker({
-					position: latlng,
-					map: mapObj
-				});
-			});
-		};
-
-		if (html.hasClass('pc')) {
-			map();
-		} else if (html.hasClass('sp')) {
-			map();
-		};
-	};
-	mapCreating();
-
 	//フォーム関係
 	inputVal.valueSet();
 

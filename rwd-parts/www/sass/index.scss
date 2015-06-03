@@ -1238,6 +1238,10 @@
 /* map */
 #map {
 	width: 100%;
+	iframe {
+		width: 100% !important;
+		height: 100% !important;
+	}
 }
 
 /* PCへ切り替え */
