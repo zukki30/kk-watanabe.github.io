@@ -505,6 +505,14 @@ body {
 		width: 660px;
 		float: left;
 	}
+
+	//シングルカラム
+	.single_column {
+		#conts {
+			width: auto;
+			float: none;
+		}
+	}
 }
 
 /* SPへ切り替え */

@@ -1,9 +1,9 @@
 @charset "UTF-8";
 @import "vars";	// 変数
 @import "functions"; // 関数等
-@import "reset"; // スタイルリセット
-@import "utilities";	// 便利系スタイル
-@import "layout"; // テンプレート部位のレイアウト
+/*------------------------------------------------------------
+	トップページ
+------------------------------------------------------------*/
 /*--------------- 見出し ---------------*/
 /* .ttl1 */
 .ttl01 {
@@ -867,25 +867,15 @@
 			float: right;
 		}
 		.txt {
-			margin-right: -340px;
-			width: 100%;
+			width: 340px;
 			float: left;
-			p {
-				padding-right: 340px;
-			}
 		}
 		&.img_left {
 			.img {
 				float: left;
 			}
 			.txt {
-				margin-right: 0;
-				margin-left: -340px;
 				float: right;
-				p {
-					padding-right: 0;
-					padding-left: 340px;
-				}
 			}
 		}
 	}
