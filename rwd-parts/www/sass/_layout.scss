@@ -3,6 +3,7 @@
 	レイアウト
 ------------------------------------------------------------*/
 body {
+	background-color: #fff;
 	color: #333;
 	line-height: 1.5;
 	text-align: center;
@@ -10,7 +11,6 @@ body {
 }
 
 #container {
-	background-color: #fff;
 	text-align: left;
 }
 
@@ -54,6 +54,7 @@ body {
 	ヘッダー
 ------------------------------------------------------------*/
 #header {
+	background-color: #FFF;
 	.inner {
 		@include cf;
 	}
@@ -342,7 +343,7 @@ body {
 			width: $max_width;
 			@include cf;
 			li {
-				width: 137px;
+				width: 120px;
 				float: left;
 				&:first-child {
 					position: relative;

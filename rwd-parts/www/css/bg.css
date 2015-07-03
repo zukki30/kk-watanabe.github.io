@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/*------------------------------------------------------------
+	背景有り
+------------------------------------------------------------*/
+.bg_image {
+  background-image: url(../img/photo/bg01.jpg);
+  background-repeat: no-repeat; }
+
+/* PCへ切り替え */
+/* SPへ切り替え */
+/*------------------------------------------------------------
+	rwd01のディレクトリ
+------------------------------------------------------------*/
+/* PCへ切り替え */
+@media only screen and (min-width: 737px) {
+  #bg01 .bg_image {
+    background-position: center 210px; } }
+
+/* SPへ切り替え */
+@media only screen and (max-width: 736px) {
+  #bg01 .bg_image {
+    background-position: center 58px; } }
+
+/*------------------------------------------------------------
+	rwd02のディレクトリ
+------------------------------------------------------------*/
+#bg02 #container {
+  position: relative;
+  z-index: 1; }
+#bg02 .bg {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0; }
+  #bg02 .bg img {
+    width: 100%;
+    min-width: 1200px;
+    height: auto; }
+
+/* PCへ切り替え */
+@media only screen and (min-width: 737px) {
+  #bg02 .bg {
+    top: 210px; } }
+
+/* SPへ切り替え */
+@media only screen and (max-width: 736px) {
+  #bg02 .bg {
+    top: 50px; } }
+
+/*------------------------------------------------------------
+	rwd03のディレクトリ
+------------------------------------------------------------*/
+#bg03 .bg_image {
+  background-size: cover; }
+
+/* PCへ切り替え */
+@media only screen and (min-width: 737px) {
+  #bg03 .bg_image {
+    background-position: center 210px; } }
+
+/* SPへ切り替え */
+@media only screen and (max-width: 736px) {
+  #bg03 .bg_image {
+    background-position: center 58px; } }

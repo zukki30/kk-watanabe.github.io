@@ -305,13 +305,13 @@ br {
 	レイアウト
 ------------------------------------------------------------*/
 body {
+  background-color: #fff;
   color: #333;
   line-height: 1.5;
   text-align: center;
   -webkit-text-size-adjust: 100%; }
 
 #container {
-  background-color: #fff;
   text-align: left; }
 
 #main {
@@ -342,40 +342,42 @@ body {
 /*------------------------------------------------------------
 	ヘッダー
 ------------------------------------------------------------*/
-#header .inner:after {
-  display: block;
-  clear: both;
-  content: ""; }
-#header .logo {
-  float: left;
-  color: #004C99;
-  font-weight: bold;
-  font-family: 'Droid Serif', serif;
-  font-style: italic;
-  letter-spacing: 0.1em; }
-#header .site_search {
-  position: relative; }
-  #header .site_search input[type="text"] {
-    box-sizing: border-box;
-    padding: 0 5px;
-    width: 100%;
-    height: 32px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    border-right: none;
-    color: #999;
-    line-height: 32px; }
-  #header .site_search button {
-    box-sizing: border-box;
-    width: 25px;
-    height: 100%;
-    background-color: #004C99;
-    border-radius: 0 2px 2px 0;
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: #FFF;
-    cursor: pointer; }
+#header {
+  background-color: #FFF; }
+  #header .inner:after {
+    display: block;
+    clear: both;
+    content: ""; }
+  #header .logo {
+    float: left;
+    color: #004C99;
+    font-weight: bold;
+    font-family: 'Droid Serif', serif;
+    font-style: italic;
+    letter-spacing: 0.1em; }
+  #header .site_search {
+    position: relative; }
+    #header .site_search input[type="text"] {
+      box-sizing: border-box;
+      padding: 0 5px;
+      width: 100%;
+      height: 32px;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      border-right: none;
+      color: #999;
+      line-height: 32px; }
+    #header .site_search button {
+      box-sizing: border-box;
+      width: 25px;
+      height: 100%;
+      background-color: #004C99;
+      border-radius: 0 2px 2px 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #FFF;
+      cursor: pointer; }
 
 /* PCへ切り替え */
 @media only screen and (min-width: 737px) {
@@ -586,7 +588,7 @@ body {
         clear: both;
         content: ""; }
       #global_navi .basic li {
-        width: 137px;
+        width: 120px;
         float: left; }
         #global_navi .basic li:first-child {
           position: relative; }

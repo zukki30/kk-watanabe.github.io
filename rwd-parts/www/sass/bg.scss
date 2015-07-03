@@ -1,0 +1,94 @@
+@charset "UTF-8";
+@import "vars";	// 変数
+@import "functions"; // 関数等
+/*------------------------------------------------------------
+	背景有り
+------------------------------------------------------------*/
+.bg_image {
+	background-image: url(../img/photo/bg01.jpg);
+	background-repeat: no-repeat;
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+}
+
+/*------------------------------------------------------------
+	rwd01のディレクトリ
+------------------------------------------------------------*/
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	#bg01 .bg_image {
+		background-position: center 210px;
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	#bg01 .bg_image {
+		background-position: center 58px;
+	}
+}
+
+/*------------------------------------------------------------
+	rwd02のディレクトリ
+------------------------------------------------------------*/
+#bg02 {
+	#container {
+		position: relative;
+		z-index: 1;
+	}
+	.bg {
+		width: 100%;
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 0;
+		img {
+			width: 100%;
+			min-width: 1200px;
+			height: auto;
+		}
+	}
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	#bg02 .bg {
+		top: 210px;
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	#bg02 .bg {
+		top: 50px;
+	}
+}
+
+/*------------------------------------------------------------
+	rwd03のディレクトリ
+------------------------------------------------------------*/
+#bg03 .bg_image {
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+/* PCへ切り替え */
+@media only screen and (min-width: $break_pc_width) {
+	#bg03 .bg_image {
+		background-position: center 210px;
+	}
+}
+
+/* SPへ切り替え */
+@media only screen and (max-width: $break_sp_width) {
+	#bg03 .bg_image {
+		background-position: center 58px;
+	}
+}
