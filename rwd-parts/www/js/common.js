@@ -143,6 +143,24 @@ new function(){function f(a){function d(a,c,b){setTimeout(function(){"up"==b&&a>
 	};
 })(jQuery);
 
+//valueセット
+;(function($){
+	$.fn.radioSet = function(){
+		var _self = $(this);
+
+		_self.each(function() {
+			var target = $(this),
+				label = target.find('label');
+
+			label.on('click', function() {
+				label.removeClass('on').find('input[type="radio"]').prop('checked', '');
+				$(this).addClass('on').find('input[type="radio"]').prop('checked', 'checked');
+			});
+		});
+	};
+})(jQuery);
+
+
 $(function(){
 	var win = $(window),
 		win_w = win.width(),
@@ -251,6 +269,9 @@ $(function(){
 
 	//tab01
 	tab01.tabFrame();
+
+	var radio = $('.radio');
+	radio.radioSet();
 
 	//リサイズ
 	var timer = false;

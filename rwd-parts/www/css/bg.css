@@ -53,6 +53,7 @@
 	rwd03のディレクトリ
 ------------------------------------------------------------*/
 #bg03 .bg_image {
+  -webkit-background-size: cover;
   background-size: cover; }
 
 /* PCへ切り替え */

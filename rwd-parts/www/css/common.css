@@ -358,20 +358,24 @@ body {
   #header .site_search {
     position: relative; }
     #header .site_search input[type="text"] {
+      -webkit-box-sizing: border-box;
       box-sizing: border-box;
       padding: 0 5px;
       width: 100%;
       height: 32px;
       border: 1px solid #ccc;
+      -webkit-border-radius: 2px;
       border-radius: 2px;
       border-right: none;
       color: #999;
       line-height: 32px; }
     #header .site_search button {
+      -webkit-box-sizing: border-box;
       box-sizing: border-box;
       width: 25px;
       height: 100%;
       background-color: #004C99;
+      -webkit-border-radius: 0 2px 2px 0;
       border-radius: 0 2px 2px 0;
       position: absolute;
       top: 0;
@@ -461,12 +465,10 @@ body {
           transition: all 200ms ease-out; }
         #header .btn_group > div.open:before {
           -webkit-transform: translateY(9px) rotate(45deg);
-          -ms-transform: translateY(9px) rotate(45deg);
-              transform: translateY(9px) rotate(45deg); }
+          transform: translateY(9px) rotate(45deg); }
         #header .btn_group > div.open:after {
           -webkit-transform: translateY(-8px) rotate(-45deg);
-          -ms-transform: translateY(-8px) rotate(-45deg);
-              transform: translateY(-8px) rotate(-45deg); }
+          transform: translateY(-8px) rotate(-45deg); }
     #header #menu_open {
       margin-top: 5px;
       width: 25px;
@@ -639,6 +641,7 @@ body {
 /* SPへ切り替え */
 @media only screen and (max-width: 736px) {
   #global_navi {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 10px;
     width: 100%;
@@ -767,6 +770,7 @@ body {
   display: table-cell;
   vertical-align: top; }
 #sub_conts .blog .img img {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   height: auto;
@@ -956,6 +960,7 @@ body {
   .ttl01 {
     margin-bottom: 30px;
     padding: 15px 15px 10px;
+    -webkit-border-radius: 10px;
     border-radius: 10px;
     font-size: 200%; } }
 
@@ -964,6 +969,7 @@ body {
   .ttl01 {
     margin-bottom: 20px;
     padding: 10px;
+    -webkit-border-radius: 5px;
     border-radius: 5px;
     font-size: 180%; } }
 
@@ -974,6 +980,7 @@ body {
   .ttl02:before {
     padding: 10px;
     background-color: #004C99;
+    -webkit-border-radius: 150px;
     border-radius: 150px;
     position: absolute;
     top: -5px;
@@ -1182,6 +1189,7 @@ body {
 /* SPへ切り替え */
 @media only screen and (max-width: 736px) {
   .btn_link01 {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0 auto;
     padding: 10px;
@@ -1208,6 +1216,7 @@ body {
 
 /* .btn_link02 */
 .btn_link02 {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0 auto;
   padding: 12px 40px 10px 10px;
@@ -1450,6 +1459,7 @@ body {
     .pager01 li:first-child {
       margin-left: 0; }
     .pager01 li a, .pager01 li span {
+      -webkit-box-sizing: border-box;
       box-sizing: border-box;
       border: 1px solid #06C;
       display: block;
@@ -1513,6 +1523,7 @@ body {
 
 /* .lineup_list */
 .lineup_list li a {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 15px;
   padding-right: 25px;
@@ -1549,6 +1560,7 @@ body {
       clear: both;
       content: ""; }
     .lineup_list li {
+      -webkit-box-sizing: border-box;
       box-sizing: border-box;
       padding-left: 10px;
       width: 25%;
@@ -1575,6 +1587,7 @@ body {
   clear: both;
   content: ""; }
 .column_group .column {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   float: left; }
   .column_group .column .img {
@@ -1710,6 +1723,7 @@ body {
       border-bottom: 1px solid #ccc;
       display: table; }
       .basic_table .row > dt, .basic_table .row > dd {
+        -webkit-box-sizing: border-box;
         box-sizing: border-box;
         display: table-cell;
         vertical-align: middle; }
@@ -1747,6 +1761,7 @@ body {
 /*--------------- タブ ---------------*/
 /* #tab01 */
 #tab01 .tab_ttl > span {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 15px;
   border: 1px solid #06C;
@@ -1828,7 +1843,9 @@ body {
         width: 30px;
         height: 30px;
         background-color: #036;
+        -webkit-box-shadow: 1px 1px 1px #001326 inset;
         box-shadow: 1px 1px 1px #001326 inset;
+        -webkit-border-radius: 50px;
         border-radius: 50px;
         right: 10px;
         content: ""; }
@@ -1854,8 +1871,7 @@ body {
         transition: all 200ms ease-out; }
       .long_conts > .ttl.open:after {
         -webkit-transform: translateX(-1px) rotate(45deg);
-        -ms-transform: translateX(-1px) rotate(45deg);
-            transform: translateX(-1px) rotate(45deg); }
+        transform: translateX(-1px) rotate(45deg); }
     .long_conts .inner {
       margin-top: 20px;
       display: none; }
@@ -1928,6 +1944,7 @@ body {
   color: #FFF;
   font-size: 71.42857%; }
 .mail_form input[type="text"], .mail_form textarea {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
   padding: 3px;
@@ -1957,11 +1974,13 @@ body {
   clear: both;
   content: ""; }
 .mail_form .checkbox li {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding-right: 10px;
   padding-bottom: 10px;
   float: left; }
 .mail_form .submit button {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   background-color: #06C;
