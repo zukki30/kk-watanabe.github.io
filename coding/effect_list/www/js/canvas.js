@@ -6,16 +6,16 @@
 $(function () {
 	elementSet();
 	sphereDraw();
-	// dustDraw();
-	// window.requestAnimationFrame(dustMove);
-	// $(window).resize(function() {
-	// 	sphereDraw();
-	// 	for(var i=0; i<dustNum; i++){
-	// 		boxReSet(i);
-	// 	}
-	// 	boxRange = boxStatus.length;
-	// 	dustReDraw();
-	// });
+	dustDraw();
+	window.requestAnimationFrame(dustMove);
+	$(window).resize(function() {
+		sphereDraw();
+		for(var i=0; i<dustNum; i++){
+			boxReSet(i);
+		}
+		boxRange = boxStatus.length;
+		dustReDraw();
+	});
 });
 
 //振幅
@@ -125,9 +125,6 @@ function sphereDraw() {
 		r = Math.round(Math.random()*255),
 		g = Math.round(Math.random()*255),
 		b = Math.round(Math.random()*255);
-
-		console.log(spX, spY, r, g, b)
-
 		sphere.beginPath();
 		var grad=sphere.createRadialGradient(spX,spY,0,spX,spY,spR);
 		grad.addColorStop(0,'rgba('+r+','+g+','+b+',0.75)');
