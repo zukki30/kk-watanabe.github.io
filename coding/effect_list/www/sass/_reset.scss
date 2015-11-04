@@ -36,7 +36,7 @@ html {
 body, table,
 input, textarea, select, option,
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+	font-family: 'メイリオ', Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 	line-height: 1.1;
 }
 
@@ -71,4 +71,12 @@ del {
 
 img {
 	vertical-align: top;
+}
+
+a {
+	color: #6495ED;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
 }

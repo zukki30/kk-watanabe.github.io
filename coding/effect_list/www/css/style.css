@@ -16,7 +16,7 @@ html {
   font-size: 62.5%; }
 
 body, table, input, textarea, select, option, h1, h2, h3, h4, h5, h6 {
-  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-family: 'メイリオ', Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   line-height: 1.1; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,6 +42,12 @@ del {
 
 img {
   vertical-align: top; }
+
+a {
+  color: #6495ED;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
 
 /*------------------------------------------------------------
 	書式設定
@@ -98,10 +104,9 @@ img {
 	レイアウト
 ------------------------------------------------------------*/
 body {
-  min-width: 800px;
+  min-width: 960px;
   /* ウインドウ幅で横スクロール時に背景が切れるバグ対策でコンテンツと同じ幅を指定 */
-  line-height: 1.5;
-  text-align: center; }
+  line-height: 1.5; }
 
 #container {
   background-color: #fff;
@@ -123,11 +128,50 @@ body {
 	フッター
 ------------------------------------------------------------*/
 /*------------------------------------------------------------
-	見出し
+	topNavi
 ------------------------------------------------------------*/
+#topNavi {
+  margin: 100px auto 0;
+  width: 960px; }
+  #topNavi > li {
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc; }
+    #topNavi > li:first-child {
+      border-top: 1px solid #ccc;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px; }
+    #topNavi > li:last-child {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px; }
+    #topNavi > li a {
+      padding: 20px;
+      display: block;
+      font-size: 14px;
+      position: relative; }
+      #topNavi > li a:before, #topNavi > li a:after {
+        width: 5px;
+        height: 15px;
+        background-color: #ddd;
+        position: absolute;
+        right: 20px;
+        content: ""; }
+      #topNavi > li a:before {
+        margin-top: -12px;
+        top: 50%;
+        transform: rotate(-45deg); }
+      #topNavi > li a:after {
+        margin-bottom: -12px;
+        bottom: 50%;
+        transform: rotate(45deg); }
+
 /*------------------------------------------------------------
-	ボタン
+	canvas
 ------------------------------------------------------------*/
-/*------------------------------------------------------------
-	箇条書き
-------------------------------------------------------------*/
+#canvas #mainVisual {
+  width: 100%;
+  height: 800px;
+  overflow: hidden; }
+#canvas #colorBg {
+  width: 100%;
+  height: 800px; }
