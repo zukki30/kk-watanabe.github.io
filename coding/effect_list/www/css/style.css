@@ -168,16 +168,25 @@ body {
 /*------------------------------------------------------------
 	canvas
 ------------------------------------------------------------*/
-#canvas #mainVisual {
+#canvas #mainVisual, #index #mainVisual {
   width: 100%;
   height: 800px;
+  position: relative;
   overflow: hidden; }
-#canvas #colorBg {
+#canvas #colorBg, #index #colorBg {
   width: 100%;
   height: 800px; }
-#canvas #line {
+#canvas #line, #index #line {
   width: 100%;
-  height: 800px;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0; }
+#canvas .text, #index .text {
+  margin-top: -100px;
+  margin-left: -213px;
+  width: 426px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%; }

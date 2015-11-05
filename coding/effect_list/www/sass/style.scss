@@ -55,10 +55,12 @@
 /*------------------------------------------------------------
 	canvas
 ------------------------------------------------------------*/
-#canvas {
+#canvas,
+#index {
 	#mainVisual {
 		width: 100%;
 		height: 800px;
+		position: relative;
 		overflow: hidden;
 	}
 
@@ -69,9 +71,18 @@
 
 	#line {
 		width: 100%;
-		height: 800px;
+		height: 100%;
 		position: absolute;
 		top: 0;
 		left: 0;
+	}
+	.text {
+		margin-top: -100px;
+		margin-left: -213px;
+		width: 426px;
+		height: 200px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
 	}
 }
