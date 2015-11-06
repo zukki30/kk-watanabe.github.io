@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html lang="ja" class="ie8 lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="ja"><!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="<%= page_description %>">
+<meta name="keywords" content="<%= page_keywords %>">
+<title>CSS ONLY - NO JS NO LIFE</title>
+<link href="../css/style.css" rel="stylesheet">
+<script src="../js/easeljs-0.8.1.min.js"></script>
+<script src="../js/tweenjs-0.6.1.min.js"></script>
+</head>
+<body id="index">
+<div id="container">
+	<div id="mainVisual">
+		<div class="bg"><canvas id="colorBg"></canvas></div>
+		<div id="line"><canvas id="tween_line" width="1200" height="800"></canvas></div>
+		<!-- /.line -->
+	</div>
+	<!-- /#mainVisual -->
+</div>
+<script src="../js/common.js"></script>
+<script>
+(function(){
+	document.addEventListener('DOMContentLoaded', function(){
+		var mainVisual = document.getElementById('mainVisual'),
+			tween_line = document.getElementById('tween_line'),
+			mystage = new createjs.Stage('tween_line'),
+			g = new createjs.Graphics(),
+			win_w = window.innerWidth,
+			mv_h = mainVisual.clientHeight,
+
+			start_x = win_w - 200,
+			start_y = 100;
+
+		$(tween_line).attr({
+			width: win_w,
+			height: mv_h
+		});
+
+		//線を書く
+		g.setStrokeStyle(1).beginStroke('rgba(50, 50, 50, 0.5)');
+		g.moveTo(start_x, start_y);
+		g.lineTo(start_x + 50, start_y / 2);
+		g.lineTo(start_x + 100, start_y + 50);
+		g.lineTo(start_x + 105, start_y + 150);
+		g.lineTo(start_x + 95, start_y + 300);
+		g.lineTo(start_x, start_y + 500);
+		g.lineTo(start_x - 200, start_y + 700);
+		g.lineTo(start_x - 500, start_y + 750);
+		g.lineTo(start_x - 850, start_y + 650);
+		g.lineTo(start_x - 1200, start_y + 300);
+		g.endStroke();
+
+		//Displayオブジェクトを作成
+		var shape = new createjs.Shape(g);
+		console.log(shape)
+
+		mystage.addChild(shape);
+		createjs.Tween.get(shape, {loop:true}).to({x:1000,y:0}, 2000);
+
+		mystage.update();
+	});
+})();
+</script>
+</body>
+</html>

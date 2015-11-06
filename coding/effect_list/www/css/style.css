@@ -182,6 +182,10 @@ body {
   position: absolute;
   top: 0;
   left: 0; }
+  #canvas #line > canvas, #index #line > canvas {
+    position: absolute;
+    top: 0;
+    left: 0; }
 #canvas .text, #index .text {
   margin-top: -100px;
   margin-left: -213px;

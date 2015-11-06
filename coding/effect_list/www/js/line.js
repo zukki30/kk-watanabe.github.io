@@ -20,7 +20,7 @@ var line = function () {
 	renderer.setClearColor( 0x000000, 0 );
 	lineFrame.appendChild( renderer.domElement );
 
-	//高原
+	//光源
 	var directionalLight = new THREE.DirectionalLight( 0xffffff );
 	directionalLight.position.set( 0, 0.7, 0.7 );
 	scene.add( directionalLight );

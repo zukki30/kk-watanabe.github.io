@@ -6,16 +6,19 @@
 <meta name="description" content="<%= page_description %>">
 <meta name="keywords" content="<%= page_keywords %>">
 <title>CSS ONLY - NO JS NO LIFE</title>
-<link href="/css/style.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
 </head>
-<body>
+<body id="index">
 <div id="container">
-	<ul id="topNavi">
-		<li><a href="canvas/">Canvas - 01</a></li>
-		<li><a href="canvas/three.html">Canvas - 02</a></li>
-		<li><a href="canvas/barabara.html">Canvas - 03</a></li>
-		<li><a href="canvas/line01.html">Canvas - 04</a></li>
-	</ul>
+	<div id="mainVisual">
+		<div class="bg"><canvas id="colorBg"></canvas></div>
+    <div id="line">
+      <script src="../js/three.min.js"></script>
+      <script src="../js/bg.js"></script>
+    </div>
+	</div>
+	<!-- /#mainVisual -->
 </div>
+<script src="../js/common.js"></script>
 </body>
 </html>
