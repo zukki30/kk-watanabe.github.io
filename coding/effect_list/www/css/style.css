@@ -173,6 +173,21 @@ body {
   height: 800px;
   position: relative;
   overflow: hidden; }
+  #canvas #mainVisual > .particles-js-canvas-el, #index #mainVisual > .particles-js-canvas-el {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; }
+  #canvas #mainVisual .bg, #index #mainVisual .bg {
+    position: relative; }
+    #canvas #mainVisual .bg:before, #index #mainVisual .bg:before {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.7);
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: ""; }
 #canvas #colorBg, #index #colorBg {
   width: 100%;
   height: 800px; }

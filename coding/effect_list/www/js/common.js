@@ -39,7 +39,7 @@ $(function(){
 				start = 0,
 				end = Math.PI * 2,
 				sp_number = 16,
-				alpha = 0.15;
+				alpha = 0.5;
 
 			var paren_node = document.getElementById('canvasBg');
 

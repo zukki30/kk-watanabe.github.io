@@ -26,7 +26,7 @@ var line = function () {
 	scene.add( directionalLight );
 
 	//物体の追加
-	var geometry = new THREE.CylinderGeometry( 50, 50, 10, 50, 0, false )
+	var geometry = new THREE.CylinderGeometry( 50, 50, 10, 50, 0, false );
 	var material = new THREE.MeshPhongMaterial( {
 		color: 0xffffff,
 		"wireframe" : true,

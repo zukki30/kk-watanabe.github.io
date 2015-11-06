@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html lang="ja" class="ie8 lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="ja"><!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="<%= page_description %>">
+<meta name="keywords" content="<%= page_keywords %>">
+<title>CSS ONLY - NO JS NO LIFE</title>
+<link href="../css/style.css" rel="stylesheet">
+<script src="../js/easeljs-0.8.1.min.js"></script>
+<script src="../js/tweenjs-0.6.1.min.js"></script>
+<script src="../js/three.min.js"></script>
+</head>
+<body id="index">
+<div id="container">
+	<div id="mainVisual">
+		<div class="bg"><canvas id="colorBg"></canvas></div>
+		<div id="line">
+			<canvas id="tween_line" width="1200" height="800"></canvas>
+		</div>
+		<!-- /.line -->
+	</div>
+	<!-- /#mainVisual -->
+</div>
+<script src="../js/common.js"></script>
+<script>
+(function(){
+	var obj = function(){
+		var scene = new THREE.Scene(),
+			mainVisual = document.getElementById('mainVisual'),
+			tween_line = document.getElementById('tween_line'),
+			mystage = new createjs.Stage('tween_line'),
+			g = new createjs.Graphics(),
+			win_w = window.innerWidth,
+			mv_h = mainVisual.clientHeight,
+
+			start_x = win_w - 200,
+			start_y = 100,
+
+			lineFrame = document.getElementById('line'),
+			fov = 70,
+			aspect = win_w / mv_h,
+			near = 1,
+			far = 10000,
+			camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
+
+		THREE.UserCubes1 = function ( scene, cubeSize, cubeNum, displaySpan ) {
+
+			// キューブの基本サイズ( 見た目は後でスケールで変化する )
+			this.cubeSize = ( cubeSize !== undefined ) ? cubeSize : 1;
+			// キューブの数
+			this.cubeNum = ( cubeNum !== undefined ) ? cubeNum : 1;
+			// 表示幅( 発生させる座標の範囲の長さ )
+			this.displaySpan = ( displaySpan !== undefined ) ? displaySpan : 500;
+
+			this.geometry = new THREE.CylinderGeometry( 0, 10, 30, 50, 0, false );
+			this.group = null
+			this.scene = scene;
+
+			this.renew();
+
+		};
+
+		THREE.UserCubes1.prototype = {
+			constructor: THREE.UserCubes1,
+			remove: function() {
+				this.scene.remove( this.group )
+				this.group = null;
+			},
+			renew: function() {
+				if ( this.group == null ) {
+					this.group = new THREE.Object3D();
+					this.scene.add( this.group );
+				}
+				for ( var i = 0; i < this.cubeNum; i ++ ) {
+
+					var object = new THREE.Mesh(
+						this.geometry,
+						new THREE.MeshBasicMaterial( {
+							// color: Math.random() * 0xffffff,
+							color: 0x333333,
+							opacity: 0.6,
+							"wireframe" : true,
+						})
+					);
+
+					// 正座標に発生させて、原点に半分戻す
+					object.position.x = 528;
+					object.position.y = 295;
+					object.position.z = 0;
+
+					// object.scale.x = Math.random() * 2 + 1;
+					// object.scale.y = Math.random() * 2 + 1;
+					// object.scale.z = Math.random() * 2 + 1;
+
+					// // 向きを360度ランダム
+					object.rotation.x = -250;
+					object.rotation.y = 0;
+					object.rotation.z = 0;
+
+					this.group.add( object )
+
+				}
+
+			}
+		}
+
+		var w = 600;
+		var h = 500;
+
+		var camera, scene, renderer;
+		var UserCubes;
+
+		//カメラの設定
+		camera.position.set( 0, 0, 50);
+
+		//レンダリング
+		var renderer = new THREE.WebGLRenderer({ alpha: true });
+		renderer.setSize( win_w, mv_h );
+		renderer.setClearColor( 0x000000, 0 );
+		lineFrame.appendChild( renderer.domElement );
+
+		//光源
+		var directionalLight = new THREE.DirectionalLight( 0xffffff );
+		directionalLight.position.set( 0, 0.7, 0.7 );
+		scene.add( directionalLight );
+
+		//物体の追加
+		UserCubes = new THREE.UserCubes1( scene );
+
+		//表示する
+		renderer.render( scene, camera );
+
+		animate();
+
+		function animate() {
+			requestAnimationFrame( animate );
+			render();
+		}
+
+		var radius = 600;
+		var theta = 0;
+
+		function render() {
+			theta += 0.1;
+
+			camera.position.x = 0;
+			camera.position.y = 0;
+			camera.position.z = 500;
+			camera.lookAt( scene.position );
+
+			renderer.render( scene, camera );
+		};
+
+		var init = function(){
+			$(tween_line).attr({
+				width: win_w,
+				height: mv_h
+			});
+
+			initLine();
+		};
+		init();
+
+		//線を書く
+		function initLine(){
+			g.setStrokeStyle(1).beginStroke('rgba(51, 51, 51, 0.5)');
+			g.moveTo(start_x, start_y);
+			g.lineTo(start_x + 50, start_y / 2);
+			g.lineTo(start_x + 100, start_y + 50);
+			g.lineTo(start_x + 105, start_y + 150);
+			g.lineTo(start_x + 95, start_y + 300);
+			g.lineTo(start_x, start_y + 500);
+			g.lineTo(start_x - 200, start_y + 700);
+			g.lineTo(start_x - 500, start_y + 750);
+			g.lineTo(start_x - 850, start_y + 650);
+			g.lineTo(start_x - 1200, start_y + 300);
+			g.endStroke();
+
+			//Displayオブジェクトを作成
+			var shape = new createjs.Shape(g);
+
+			mystage.addChild(shape);
+			createjs.Tween.get(shape, {loop:true}).to({x:1000,y:0}, 2000);
+
+			mystage.update();
+		}
+	}
+
+	document.addEventListener('DOMContentLoaded', obj, false);
+})();
+</script>
+</body>
+</html>
