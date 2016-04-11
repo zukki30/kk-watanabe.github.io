@@ -1,0 +1,110 @@
+@charset "UTF-8";
+/*------------------------------------------------------------
+	レイアウト
+------------------------------------------------------------*/
+body {
+	min-width: 0;
+	/* ウインドウ幅で横スクロール時に背景が切れるバグ対策でコンテンツと同じ幅を指定 */
+	line-height: 1.5;
+}
+
+#container {
+	background-color: #fff;
+	text-align: left;
+}
+
+#main {
+	padding: 140px 15px 60px;
+	color: #111;
+	font-size: 1.4rem;
+}
+
+/*------------------------------------------------------------
+	ヘッダー
+------------------------------------------------------------*/
+#l_header {
+	padding: 15px;
+	width: 100%;
+	background-color: $darken_color;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	color: #FFF;
+	@include cf;
+	.l_logo {
+		padding-top: 20px;
+		float: left;
+		font-size: 1.5rem;
+	}
+}
+
+/*------------------------------------------------------------
+	グローバルナビ
+------------------------------------------------------------*/
+#l_gnav {
+	float: right;
+	.l_gnav_inner {
+		display: flex;
+	}
+	.l_gnav_li {
+		height: 60px;
+		display: table;
+	}
+	.l_gnav_anchor {
+		padding-right: 10px;
+		padding-left: 10px;
+		background-color: $darken_color;
+		display: table-cell;
+		color: #FFF;
+		font-size: 1.3rem;
+		text-align: center;
+		vertical-align: middle;
+
+		transition: all 300ms ease;
+		&:hover {
+			background-color: $base_color;
+			text-decoration: none;
+		}
+
+		&.current {
+			background-color: $base_color;
+		}
+	}
+}
+
+/*------------------------------------------------------------
+	フッター
+------------------------------------------------------------*/
+#l_pagetop {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	z-index: 500;
+	a {
+		padding-top: 25px;
+		padding-bottom: 25px;
+		width: 80px;
+		background-color: #999;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;
+		display: block;
+		opacity: 1;
+		color: #fff;
+		text-align: center;
+		transition: opacity 500ms ease;
+		&:hover {
+			opacity: 0.7;
+			text-decoration: none;
+		}
+	}
+}
+
+#l_footer {
+	padding: 10px 0;
+	background-color: $darken_color;
+	.l_copyright {
+		color: #FFF;
+		text-align: center;
+	}
+}
