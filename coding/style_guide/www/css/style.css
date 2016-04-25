@@ -160,27 +160,27 @@ body {
   text-align: left;
 }
 
-#l_main {
+#lay_main {
   padding: 60px 15px;
   color: #111;
   font-size: 1.4rem;
 }
 
-#l_main .l_main_inner {
+#lay_main .lay_main_inner {
   padding: 30px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   position: relative;
 }
 
-#l_main .l_main_inner > p {
+#lay_main .lay_main_inner > p {
   margin-bottom: 45px;
 }
 
 /*------------------------------------------------------------
 	ヘッダー
 ------------------------------------------------------------*/
-#l_header {
+#lay_header {
   padding: 15px;
   width: 100%;
   background-color: #1a1a1a;
@@ -188,7 +188,7 @@ body {
   color: #FFF;
 }
 
-#l_header .l_logo {
+#lay_header .lay_logo {
   padding-top: 10px;
   width: 145px;
   display: table-cell;
@@ -199,12 +199,12 @@ body {
 /*------------------------------------------------------------
 	グローバルナビ
 ------------------------------------------------------------*/
-#l_gnav {
+#lay_gnav {
   display: table-cell;
   vertical-align: middle;
 }
 
-#l_gnav .l_gnav_inner {
+#lay_gnav .lay_gnav_inner {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -218,7 +218,7 @@ body {
           justify-content: flex-end;
 }
 
-#l_gnav .l_gnav_anchor {
+#lay_gnav .lay_gnav_anchor {
   padding: 10px;
   background-color: #1a1a1a;
   display: table-cell;
@@ -230,26 +230,26 @@ body {
           transition: all 300ms ease;
 }
 
-#l_gnav .l_gnav_anchor:hover {
+#lay_gnav .lay_gnav_anchor:hover {
   background-color: #333;
   text-decoration: none;
 }
 
-#l_gnav .l_gnav_anchor.current {
+#lay_gnav .lay_gnav_anchor.current {
   background-color: #333;
 }
 
 /*------------------------------------------------------------
 	フッター
 ------------------------------------------------------------*/
-#l_pagetop {
+#lay_pagetop {
   position: fixed;
   bottom: 30px;
   right: 30px;
   z-index: 500;
 }
 
-#l_pagetop a {
+#lay_pagetop a {
   padding-top: 25px;
   padding-bottom: 25px;
   width: 80px;
@@ -263,17 +263,17 @@ body {
           transition: opacity 500ms ease;
 }
 
-#l_pagetop a:hover {
+#lay_pagetop a:hover {
   opacity: 0.7;
   text-decoration: none;
 }
 
-#l_footer {
+#lay_footer {
   padding: 10px 0;
   background-color: #1a1a1a;
 }
 
-#l_footer .l_copyright {
+#lay_footer .lay_copyright {
   color: #FFF;
   text-align: center;
 }

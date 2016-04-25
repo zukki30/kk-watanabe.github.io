@@ -13,11 +13,11 @@ body {
 	text-align: left;
 }
 
-#l_main {
+#lay_main {
 	padding: 60px 15px;
 	color: #111;
 	font-size: 1.4rem;
-	.l_main_inner {
+	.lay_main_inner {
 		padding: 30px;
 		-webkit-border-radius: 5px;
 		border-radius: 5px;
@@ -33,13 +33,13 @@ body {
 /*------------------------------------------------------------
 	ヘッダー
 ------------------------------------------------------------*/
-#l_header {
+#lay_header {
 	padding: 15px;
 	width: 100%;
 	background-color: $darken_color;
 	display: table;
 	color: #FFF;
-	.l_logo {
+	.lay_logo {
 		padding-top: 10px;
 		width: 145px;
 		display: table-cell;
@@ -51,15 +51,15 @@ body {
 /*------------------------------------------------------------
 	グローバルナビ
 ------------------------------------------------------------*/
-#l_gnav {
+#lay_gnav {
 	display: table-cell;
 	vertical-align: middle;
-	.l_gnav_inner {
+	.lay_gnav_inner {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: flex-end;
 	}
-	.l_gnav_anchor {
+	.lay_gnav_anchor {
 		padding: 10px;
 		background-color: $darken_color;
 		display: table-cell;
@@ -83,7 +83,7 @@ body {
 /*------------------------------------------------------------
 	フッター
 ------------------------------------------------------------*/
-#l_pagetop {
+#lay_pagetop {
 	position: fixed;
 	bottom: 30px;
 	right: 30px;
@@ -107,10 +107,10 @@ body {
 	}
 }
 
-#l_footer {
+#lay_footer {
 	padding: 10px 0;
 	background-color: $darken_color;
-	.l_copyright {
+	.lay_copyright {
 		color: #FFF;
 		text-align: center;
 	}

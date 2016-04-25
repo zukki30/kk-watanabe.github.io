@@ -20,8 +20,8 @@ $(function(){
 	//実行
 	var set = function(){
 		var tab_switch = function(){
-			var gnav = $('#l_gnav'),
-				tab = gnav.find('.l_gnav_anchor'),
+			var gnav = $('#lay_gnav'),
+				tab = gnav.find('.lay_gnav_anchor'),
 				tabconts = $('.st_tab_cont');
 
 			tabconts.hide().first().show();
