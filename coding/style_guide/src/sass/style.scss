@@ -104,6 +104,7 @@
 		margin-bottom: 2em;
 		padding: 20px;
 		padding-top: 50px;
+		background-color: #f0f0f0;
 		border: 1px solid #ccc;
 		box-shadow: 2px 2px 2px rgba(0, 0, 0, .25) inset;
 		position: relative;
@@ -117,6 +118,7 @@
 		}
 	}
 	&_markup {
+		margin-bottom: 2em;
 		overflow: auto;
 		line-height: 1.75;
 	}
