@@ -25,7 +25,7 @@
 
 .st_style {
 	& + .st_style {
-		margin-top: 2em;
+		margin-top: 10em;
 	}
 
 	&_ttl {
@@ -40,9 +40,15 @@
 	}
 
 	&_item {
-		margin-top: 2em;
-		&:first-child {
-			margin-top: 0;
+		& + .st_style_item {
+			margin-top: 5em;
+		}
+
+		code {
+			margin-right: 5px;
+			padding: 3px 5px;
+			background-color: #ddd;
+			text-shadow: 0 0 2px #fff;
 		}
 	}
 
@@ -64,9 +70,10 @@
 		}
 	}
 	&_text {
+		line-height: 1.75;
 		p {
 			margin-bottom: 2em;
-			font-size: 1.2rem;
+			font-size: 1.4rem;
 		}
 	}
 	&_list {
@@ -75,7 +82,7 @@
 			margin-top: 5px;
 			padding-left: 1em;
 			position: relative;
-			font-size: 1.2rem;
+			font-size: 1.4rem;
 			&:first-child {
 				margin-top: 0;
 			}
@@ -90,6 +97,23 @@
 				left: 0;
 				content: "";
 			}
+		}
+	}
+	&_display {
+		margin-top: 2em;
+		margin-bottom: 2em;
+		padding: 20px;
+		padding-top: 50px;
+		border: 1px solid #ccc;
+		box-shadow: 2px 2px 2px rgba(0, 0, 0, .25) inset;
+		position: relative;
+		&:before {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			color: #666;
+			font-size: 1.2rem;
+			content: attr(data-ttl);
 		}
 	}
 	&_markup {

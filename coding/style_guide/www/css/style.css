@@ -295,7 +295,7 @@ body {
 }
 
 .st_style + .st_style {
-  margin-top: 2em;
+  margin-top: 10em;
 }
 
 .st_style_ttl {
@@ -308,12 +308,15 @@ body {
   font-weight: normal;
 }
 
-.st_style_item {
-  margin-top: 2em;
+.st_style_item + .st_style_item {
+  margin-top: 5em;
 }
 
-.st_style_item:first-child {
-  margin-top: 0;
+.st_style_item code {
+  margin-right: 5px;
+  padding: 3px 5px;
+  background-color: #ddd;
+  text-shadow: 0 0 2px #fff;
 }
 
 .st_style_classname {
@@ -335,9 +338,13 @@ body {
   content: "";
 }
 
+.st_style_text {
+  line-height: 1.75;
+}
+
 .st_style_text p {
   margin-bottom: 2em;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .st_style_list {
@@ -348,7 +355,7 @@ body {
   margin-top: 5px;
   padding-left: 1em;
   position: relative;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .st_style_list li:first-child {
@@ -364,6 +371,25 @@ body {
   top: 6px;
   left: 0;
   content: "";
+}
+
+.st_style_display {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding: 20px;
+  padding-top: 50px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25) inset;
+  position: relative;
+}
+
+.st_style_display:before {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #666;
+  font-size: 1.2rem;
+  content: attr(data-ttl);
 }
 
 .st_style_markup {
