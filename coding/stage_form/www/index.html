@@ -11,7 +11,7 @@
 <body>
 <div id="container">
 <form action="index_submit" method="post" id="mail_form">
-	<div class="input_stage">
+	<div class="input_stage" data-stage="true">
 		<ul class="box">
 			<li><label class="on"><input type="radio" name="type" value="来店予約" checked="checked">来店予約</label></li>
 			<li><label><input type="radio" name="type" value="お問い合わせ">お問い合わせ</label></li>
@@ -44,7 +44,7 @@
 			<input type="text" name="text" value="">
 		</div>
 	</div>
-	<div class="input_stage">
+	<div class="input_stage" data-stage="true">
 		<div class="box">
 			<input type="email" name="email" value="">
 		</div>
@@ -53,12 +53,12 @@
 			<input type="number" name="number" value="">
 		</div>
 	</div>
-	<div class="input_stage">
+	<div class="input_stage" data-stage="true">
 		<div class="box">
 			<input type="file" name="file">
 		</div>
 	</div>
-	<div class="input_stage">
+	<div class="input_stage" data-stage="true">
 		<textarea name="fBody"></textarea>
 	</div>
 </form>
