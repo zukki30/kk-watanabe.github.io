@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html lang="ja" class="ie8 lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="ja"><!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<title>段階フォーム</title>
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id="container">
+<form action="index_submit" method="post" id="mail_form">
+	<div class="input_stage">
+		<ul class="box">
+			<li><label class="on"><input type="radio" name="type" value="来店予約" checked="checked">来店予約</label></li>
+			<li><label><input type="radio" name="type" value="お問い合わせ">お問い合わせ</label></li>
+		</ul>
+
+		<ul class="box">
+			<li><label class="on"><input type="checkbox" name="type" value="来店予約">来店予約</label></li>
+			<li><label><input type="checkbox" name="type" value="お問い合わせ">お問い合わせ</label></li>
+		</ul>
+
+		<div class="box">
+			<select name="month">
+				<option label="--" value="">--</option>
+				<option label="1" value="1">1</option>
+				<option label="2" value="2">2</option>
+				<option label="3" value="3">3</option>
+				<option label="4" value="4">4</option>
+				<option label="5" value="5">5</option>
+				<option label="6" value="6">6</option>
+				<option label="7" value="7">7</option>
+				<option label="8" value="8">8</option>
+				<option label="9" value="9">9</option>
+				<option label="10" value="10">10</option>
+				<option label="11" value="11">11</option>
+				<option label="12" value="12">12</option>
+			</select>
+		</div>
+
+		<div class="box">
+			<input type="text" name="text" value="">
+		</div>
+	</div>
+	<div class="input_stage">
+		<div class="box">
+			<input type="email" name="email" value="">
+		</div>
+
+		<div class="box">
+			<input type="number" name="number" value="">
+		</div>
+	</div>
+	<div class="input_stage">
+		<div class="box">
+			<input type="file" name="file">
+		</div>
+	</div>
+	<div class="input_stage">
+		<textarea name="fBody"></textarea>
+	</div>
+</form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="js/stage_form.js" async></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+@charset "UTF-8";
+@import "vars";	// 変数
+@import "functions"; // 関数等
+@import "reset"; // スタイルリセット
+@import "utilities";	// 便利系スタイル
+@import "layout"; // テンプレート部位のレイアウト
+/*------------------------------------------------------------
+	mail_form
+------------------------------------------------------------*/
+#mail_form {
+	padding: 50px;
+	font-size: 1.6rem;
+	.box + .box {
+		margin-top: 30px;
+	}
+}
