@@ -1,7 +1,17 @@
 $(function(){
 	var mail_form = $('#mail_form'),
 		target = mail_form.find('[data-stage="true"]'),
-		target_len = target.length;
+		target_len = target.length,
+		target_input = target.find('[data-required="true"]');
+
+	//カスタム属性関数
+	var data_option = function(decision) {
+		var option = {
+			'data-decision-comp': decision
+		};
+
+		return option;
+	}
 
 	//生成
 	var generation = function(){
@@ -15,12 +25,11 @@ $(function(){
 		//囲う
 		mail_form.append(warp_elm);
 		$('#stage_wrap_inner').append(target);
+		target_input.attr(data_option(false));
 
 		//各パーツ作成
 		var pager = '<ul id="stage_pager">\n',
-			submit = '<ul class="submit_group">\n',
-
-			submits;
+			submit = '<ul class="submit_group">\n';
 
 		for (var i = 0; target_len > i; i++) {
 			var num = i + 1,
@@ -41,10 +50,10 @@ $(function(){
 			//リスト設定
 			pager += '<li class="stage_pager_list">'+num+'</li>\n';
 
-			//閉じタグ設定
+			//閉じタグ
 			submit += '</ul>';
 
-			//data_stageにカスタム属性追加
+			//data_stageにカスタム属性追加,ボタンの追加
 			target_num.attr('data-stage-num', num).append(submit);
 
 			//リセット
@@ -86,5 +95,72 @@ $(function(){
 
 			set_width(wrap_w);
 		}).trigger('resize');
+	}();
+
+	//全て入力されているか判定
+	var required_comp = function(elm){
+		var confirm = true;
+
+		elm.each(function(index, el) {
+			var _self = $(el),
+				required = _self.attr('data-decision-comp');
+
+			console.log(required)
+
+			if (required === 'false') {
+				confirm = false;
+				return false;
+			}
+		});
+
+		if (confirm === true) {
+			$('.active_stage').find('.is_not_input').removeClass('is_not_input').addClass('is_next').html('次へ');
+		} else {
+			$('.active_stage').find('.is_next').removeClass('is_next').addClass('is_not_input').html('未入力項目があります');
+		}
+	};
+
+	//判定関数
+	var decision = function(el){
+		var type = el.attr('type'),
+			name = el.attr('name'),
+			val = el.val()
+
+		if (type === 'radio' || type === "checkbox") {
+			if (el.prop('checked')) {
+				$('input[name="'+name+'"]').attr(data_option(true));
+			}
+		} else {
+			if (val.length > 0) {
+				el.attr(data_option(true));
+			}
+		}
+	};
+
+	//最初の呼び込み
+	var first_load = function(){
+		target_input.each(function(index, el) {
+			var _self = $(el);
+
+			decision(_self);
+		});
+	}();
+
+	//入力アクション
+	// var
+
+	//ボタンアクション
+	var btn_action = function(){
+		var btn = $('.btn_type');
+
+		btn.on('click', function(event) {
+			var _self = $(this);
+
+			if (_self.hasClass('is_not_input')) {
+				//未入力の場合
+				console.log('tset')
+				return false;
+			}
+		});
 	}();
 });

@@ -12,20 +12,27 @@
 <div id="container">
 <form action="index_submit" method="post" id="mail_form">
 	<div class="input_stage" data-stage="true">
-		<ul class="box">
-			<li><label class="on"><input type="radio" name="type" value="来店予約" checked="checked">来店予約</label></li>
-			<li><label><input type="radio" name="type" value="お問い合わせ">お問い合わせ</label></li>
+		<div class="box">
+		<p>↓必須</p>
+		<ul>
+			<li><label class="on"><input type="radio" name="type" value="来店予約" data-required="true">来店予約</label></li>
+			<li><label><input type="radio" name="type" value="お問い合わせ" checked="checked" data-required="true">お問い合わせ</label></li>
 		</ul>
-
-		<ul class="box">
-			<li><label class="on"><input type="checkbox" name="type" value="来店予約">来店予約</label></li>
-			<li><label><input type="checkbox" name="type" value="お問い合わせ">お問い合わせ</label></li>
-		</ul>
+		</div>
 
 		<div class="box">
-			<select name="month">
+			<p>↓必須</p>
+			<ul>
+				<li><label class="on"><input type="checkbox" name="type01" value="来店予約" checked="checked" data-required="true">来店予約</label></li>
+				<li><label><input type="checkbox" name="type01" value="お問い合わせ" data-required="true">お問い合わせ</label></li>
+			</ul>
+		</div>
+
+		<div class="box">
+			<p>↓必須</p>
+			<select name="month" data-required="true">
 				<option label="--" value="">--</option>
-				<option label="1" value="1">1</option>
+				<option label="1" value="1" selected>1</option>
 				<option label="2" value="2">2</option>
 				<option label="3" value="3">3</option>
 				<option label="4" value="4">4</option>
@@ -41,7 +48,8 @@
 		</div>
 
 		<div class="box">
-			<input type="text" name="text" value="">
+			<p>↓必須</p>
+			<input type="text" name="text" value="test" data-required="true">
 		</div>
 	</div>
 	<div class="input_stage" data-stage="true">
@@ -50,7 +58,8 @@
 		</div>
 
 		<div class="box">
-			<input type="number" name="number" value="">
+			<p>↓必須</p>
+			<input type="number" name="number" value="0" data-required="true">
 		</div>
 	</div>
 	<div class="input_stage" data-stage="true">
