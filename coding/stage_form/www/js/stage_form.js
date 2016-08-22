@@ -159,6 +159,16 @@ $(function(){
 			if (_self.hasClass('is_not_input')) {
 				//未入力の場合
 				console.log('tset')
+			} else if (_self.hasClass('is_next')) {
+				//次への場合
+				console.log('tset01')
+			} else if (_self.hasClass('is_next')) {
+				//戻るの場合
+				console.log('tset02')
+			}
+
+			//送信ボタン以外
+			if (!_self.hasClass('is_send')) {
 				return false;
 			}
 		});
