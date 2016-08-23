@@ -72,7 +72,9 @@ a {
   overflow: hidden; }
 
 #stage_wrap_inner {
-  width: 100%; }
+  width: 100%;
+  transform: translateX(0);
+  transition: transform 500ms ease; }
   #stage_wrap_inner:after {
     display: block;
     clear: both;
@@ -80,6 +82,8 @@ a {
   #stage_wrap_inner [data-stage="true"] {
     width: 100%;
     float: left; }
+  #stage_wrap_inner .btn_type.is_not_input {
+    pointer-events: none; }
 
 /*------------------------------------------------------------
 	レイアウト

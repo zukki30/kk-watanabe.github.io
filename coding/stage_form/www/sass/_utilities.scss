@@ -9,9 +9,18 @@
 
 #stage_wrap_inner {
 	width: 100%;
+	transform: translateX(0);
 	@include cf;
+
+	transition: transform 500ms ease;
 	[data-stage="true"] {
 		width: 100%;
 		float: left;
+	}
+
+	.btn_type {
+		&.is_not_input {
+			pointer-events: none;
+		}
 	}
 }
