@@ -165,16 +165,16 @@
 			active_decision();
 		}();
 
+		//確認判定まとめ
+		var confirm_action = function(){
+			var action_input = $('.active_stage').find(target_input);
+
+			active_decision();
+			required_comp(action_input);
+		}
+
 		//入力アクション
 		var input_action = function(){
-			//確認判定まとめ
-			var confirm_action = function(){
-				var action_input = $('.active_stage').find(target_input);
-
-				active_decision();
-				required_comp(action_input);
-			}
-
 			//チェックボックス、セレクト、ラジオボタン
 			var checked = function(elm){
 				var _self = elm,
@@ -197,7 +197,13 @@
 
 		//ボタンアクション
 		var btn_action = function(){
-			var btn = $('.btn_type');
+			var btn = $('.btn_type'),
+				wrap = $('#stage_wrap'),
+				wrap_inner = $('#stage_wrap_inner'),
+
+				pager =  $('#stage_pager'),
+				pager_li = pager.find('.stage_pager_list '),
+				comps = 'false';
 
 			//translateXまとめ
 			function getTransforms(num){
@@ -217,10 +223,8 @@
 			//スライド
 			function slide_anima(btn) {
 				var _self = btn,
-
-					wrap = $('#stage_wrap'),
-					wrap_inner = $('#stage_wrap_inner'),
 					active = $('.active_stage'),
+
 					next_num = Number(active.attr('data-stage-next')),
 					prev_num = Number(active.attr('data-stage-prev')),
 
@@ -231,24 +235,53 @@
 				if (_self.hasClass('is_next')) {
 					move_x = wrap_w * (next_num);
 					target.removeClass('active_stage').eq(next_num).addClass('active_stage');
+					pager_li.removeClass('active_list').eq(next_num).addClass('active_list');
 				} else if(_self.hasClass('is_return')) {
 					move_x = wrap_w * prev_num;
 					target.removeClass('active_stage').eq(prev_num).addClass('active_stage');
+					pager_li.removeClass('active_list').eq(prev_num).addClass('active_list');
 				};
-
-				console.log(next_num, prev_num, move_x)
 
 				wrap_inner.css(getTransforms(move_x));
 				not_required();
 			}
 
-			//クリックイベント
-			btn.on('click', function(event) {
-				var _self = $(this);
+			//submit
+			_this.submit(function() {
+				confirm_action();
 
-				//戻る、次へと移動の場合
+				if (!target.last().hasClass('active_stage') && comps !== 'true') {
+					return false;
+				}
+			});
+
+			//クリックイベント
+			btn.on('click', function() {
+				var _self = $(this),
+					wrap_y = wrap.offset().top;
+
 				if (_self.hasClass('is_next') || _self.hasClass('is_return')) {
+					//戻る、次へと移動の場合
 					slide_anima(_self);
+					$('html, body').delay(500).animate({scrollTop: wrap_y}, 500, 'swing');
+
+				} else if(_self.hasClass('is_send')) {
+					//送信ボタンクリック
+					target_input.each(function(index, el) {
+						var _self = $(el),
+							comp = _self.attr('data-decision-comp');
+
+						if (comp === 'false') {
+							comps = 'false';
+							return false;
+						} else {
+							comps = 'true';
+						}
+					});
+
+					if (target.last().hasClass('active_stage') && comps === 'true') {
+						_this.submit();
+					}
 				}
 
 				//送信ボタン以外
