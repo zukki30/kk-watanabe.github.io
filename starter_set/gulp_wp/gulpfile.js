@@ -12,7 +12,7 @@ var base = {
 
 var setting = {
   autoprefixer: {
-      browser: ['last 2 versions']]
+      browser: ['last 2 versions']
   },
   browserSync: {
     // 使わない方はコメントアウトする
