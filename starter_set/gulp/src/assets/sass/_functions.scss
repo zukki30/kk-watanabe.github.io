@@ -1,0 +1,41 @@
+@charset "UTF-8";
+//
+// mixin,extendで使用する
+//
+
+// 文字サイズ
+@mixin fs($fontSize, $baseFontSize:10){
+	font-size: #{$fontSize / $baseFontSize}em;
+}
+// example:
+// @include fs(15);
+// @include fs(20, 13);
+// ※第二引数のサイズをベースとして20pxになるよう計算された値が出力される
+
+//%にしたい場合は、
+//@mixin fs($fontSize, $baseFontSize:10){
+//font-size: percentage($fontSize / $baseFontSize);
+//}
+//に変更
+
+// clearfix（float解除）
+%cf {
+	&:after {
+		display: block;
+		clear: both;
+		content: "";
+	}
+}
+// example:
+// @extend %cf;
+
+// clearfix（float解除）
+@mixin cf{
+	&:after {
+		display: block;
+		clear: both;
+		content: "";
+	}
+}
+// example:
+// @extend cf;
