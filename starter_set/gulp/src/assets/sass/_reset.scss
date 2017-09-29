@@ -39,8 +39,8 @@ body {
 	-webkit-text-size-adjust: 100%;
 }
 
-html, table, input, select, option, button {
-	font-family: "メイリオ", "Meiryo", "ＭＳＰゴシック","ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial;
+html, table, input, select, option, textarea, button {
+	font-family: $ff_all;
 }
 
 article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
@@ -107,6 +107,14 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
+}
+
+u {
+	text-decoration: none;
+}
+
+em {
+	font-style: normal;
 }
 
 img {
