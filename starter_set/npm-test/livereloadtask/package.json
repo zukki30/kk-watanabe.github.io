@@ -1,0 +1,22 @@
+{
+  "name": "livereloadtask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run sass && npm run serve",
+    "sass": "node index.js sass",
+    "serve": "node index.js server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.18.13",
+    "fs-extra": "^4.0.2",
+    "gaze": "^1.1.2",
+    "glob": "^7.1.2",
+    "node-sass": "^4.5.3"
+  }
+}
