@@ -5,9 +5,9 @@
   "main": "",
   "scripts": {
     "start": "npm-run-all -p build watch",
-    "build:css": "node-sass --include-path src/assets/sass/style.css --out-file httpdocs/assets/css/style.css --output-style compressed --source-map httpdocs/assets/css/ --source-map-contents true",
+    "build:css": "node-sass src/assets/sass/style.scss httpdocs/assets/css/style.css --output-style compressed --source-map httpdocs/assets/css/ --source-map-contents true --include-path src/assets/sass/**/*.scss",
     "build": "npm-run-all build:*",
-    "watch:css": "npm run build:css --watch",
+    "watch:css": "node-sass src/assets/sass/style.scss httpdocs/assets/css/style.css --output-style compressed --source-map httpdocs/assets/css/ --source-map-contents true --include-path src/assets/sass/**/*.scss --w",
     "watch:serve": "browser-sync start --server ./httpdocs/ --files './httpdocs/, ./src/assets/'",
     "watch": "npm-run-all -p watch:*",
     "test": "echo \"Error: no test specified\" && exit 1"
