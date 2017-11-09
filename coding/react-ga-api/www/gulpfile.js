@@ -1,4 +1,3 @@
-import * as all from './module.js';
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
@@ -10,8 +9,10 @@ var webpackStream = require('webpack-stream');
 var webpack = require('webpack');
 
 var webpackConfig = require('./webpack.config');
+var _base = webpackConfig.base;
+var _setting = webpackConfig.setting;
 
-console.log(all)
+console.log(_base, _setting)
 
 // SASS
 gulp.task('scss',function(){
