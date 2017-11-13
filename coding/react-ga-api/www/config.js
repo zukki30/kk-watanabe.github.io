@@ -24,7 +24,7 @@ var setting = {
       dest: base.dest + 'css/',
     },
     js: {
-      src: base.src + 'js/**/index.js',
+      src: base.src + 'js/',
       dest: base.dest + 'js/',
     },
     html: {
@@ -33,8 +33,7 @@ var setting = {
   }
 };
 
-
 module.exports = {
-    base: base,
-    copy: setting
-};
+  base: base,
+  setting: setting
+}

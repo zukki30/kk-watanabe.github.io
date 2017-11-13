@@ -1,56 +1,35 @@
-var base = {
-  src: 'src/assets/',
-  dest: 'httpdocs/assets/',
-};
-
-var setting = {
-  autoprefixer: {
-      browser: ['last 2 versions']
-  },
-  browserSync: {
-    // 使わない方はコメントアウトする
-    // proxy: 'test.test',
-    server:{
-        baseDir: 'httpdocs',
-    },
-  },
-  path: {
-    base: {
-      src: 'src',
-      dest: 'httpdocs'
-    },
-    sass: {
-      src: base.src + 'sass/**/*.scss',
-      dest: base.dest + 'css/',
-    },
-    js: {
-      src: base.src + 'js/**/index.js',
-      dest: base.dest + 'js/',
-    },
-    html: {
-      src: ['src/**/*', '!src/assets/**/*']
-    },
-  }
-};
+var config = require('./config');
+var _base = config.base;
+var _setting = config.setting;
+var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
-  base: base,
-  setting: setting,
-
+  entry: './' + _setting.path.js.src + 'main.js',
+  output: {
+    path: path.join(__dirname, _setting.path.js.dest),
+    filename: 'bundle.js'
+  },
+  devtool: 'source-map',
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({sourceMap: true})
+  ],
   module: {
-    entry: './src/assets.jsx',
-    output: {
-      filename: './build/bundle.js'
-    },
-    devtool: 'inline-source-map',
-    loaders: [
+    rules: [
       {
         test: /\.js?$/,
         exclude: /(node_modules)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react']
-        }
+        use:[
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                'es2015',
+                'react'
+              ]
+            }
+          }
+        ]
       }
     ]
   }

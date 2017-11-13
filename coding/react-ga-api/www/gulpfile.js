@@ -1,4 +1,3 @@
-
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
@@ -7,58 +6,54 @@ var del = require('del');
 
 var webpackStream = require('webpack-stream');
 var webpack = require('webpack');
+var webpackConfig = require("./webpack.config");
 
-var webpackConfig = require('./webpack.config');
-var _base = webpackConfig.base;
-var _setting = webpackConfig.setting;
+var config = require('./config');
+var _base = config.base;
+var _setting = config.setting;
 
-console.log(_base, _setting)
+var gulpJsPath = _setting.path.js.src + '**/*.js';
 
 // SASS
 gulp.task('scss',function(){
-  return gulp.src(setting.path.sass.src)
+  return gulp.src(_setting.path.sass.src)
     .pipe($.plumber({
       errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
     }))
     .pipe($.sass({outputStyle: 'compressed'}))
     .pipe($.postcss([
-      require('autoprefixer')({browsers: setting.autoprefixer.browser}),
+      require('autoprefixer')({browsers: _setting.autoprefixer.browser}),
       require('css-mqpacker')
     ]))
     .pipe($.csso())
-    .pipe(gulp.dest(setting.path.sass.dest))
+    .pipe(gulp.dest(_setting.path.sass.dest))
     .pipe(browserSync.reload({stream: true}));
 });
 
 // HTML
 gulp.task('html', function(){
   return gulp.src(
-      setting.path.html.src,
-      {base: setting.path.base.src}
+      _setting.path.html.src,
+      {base: _setting.path.base.src}
     )
     .pipe($.plumber({
       errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
     }))
-    .pipe($.changed(setting.path.base.dest))
-    .pipe(gulp.dest(setting.path.base.dest))
+    .pipe($.changed(_setting.path.base.dest))
+    .pipe(gulp.dest(_setting.path.base.dest))
     .pipe(browserSync.reload({stream: true}));
 });
 
 // JavaScript
 gulp.task('js', function(){
-  return gulp.src(
-      setting.path.js.src
-    )
-    .pipe($.plumber({
-      errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
-    }))
-    .pipe($.webpack(require('./webpack.config.js')))
-    .pipe(gulp.dest(setting.path.js.dest))
+  return gulp.src(gulpJsPath)
+    .pipe(webpackStream(webpackConfig, webpack))
+    .pipe(gulp.dest(_setting.path.js.dest))
     .pipe(browserSync.reload({stream: true}));
 });
 
 // Clean
-gulp.task('clean', del.bind(null, setting.path.base.dest));
+gulp.task('clean', del.bind(null, _setting.path.base.dest));
 
 // Build
 gulp.task('build', function(){
@@ -70,11 +65,12 @@ gulp.task('build', function(){
 
 // Watch
 gulp.task('watch', function(){
-  browserSync.init(setting.browserSync);
+  console.log(_setting.browserSync)
+  browserSync.init(_setting.browserSync);
 
-  gulp.watch([setting.path.sass.src], ['scss']);
-  gulp.watch([setting.path.js.src], ['js']);
-  gulp.watch([setting.path.html.src], ['html']);
+  gulp.watch([_setting.path.sass.src], ['scss']);
+  gulp.watch([gulpJsPath], ['js']);
+  gulp.watch([_setting.path.html.src], ['html']);
 });
 
 gulp.task('default',['watch']);
