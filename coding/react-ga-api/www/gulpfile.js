@@ -47,6 +47,9 @@ gulp.task('html', function(){
 // JavaScript
 gulp.task('js', function(){
   return gulp.src(gulpJsPath)
+    .pipe($.plumber({
+      errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
+    }))
     .pipe(webpackStream(webpackConfig, webpack))
     .pipe(gulp.dest(_setting.path.js.dest))
     .pipe(browserSync.reload({stream: true}));
@@ -65,7 +68,6 @@ gulp.task('build', function(){
 
 // Watch
 gulp.task('watch', function(){
-  console.log(_setting.browserSync)
   browserSync.init(_setting.browserSync);
 
   gulp.watch([_setting.path.sass.src], ['scss']);
