@@ -2,14 +2,67 @@
 /*------------------------------------------------------------
 	変数まとめ
 ------------------------------------------------------------*/
-//width
-$max_width: 1000px;
-$width: 960px;
-$min_width: 320px;
+
+/* 横幅定義
+
+$max_width・・・・コンテンツの最大幅
+$min_width・・・・コンテンツの最小幅
+$width・・・・・・・・コンテンツ幅
+
+ブレークポイントの設定は「${命名}_break_w」で定義
+コメントも必須
+
+例）
+$pc_break_w・・・PCのブレークポイント
+$sp_break_w・・・SPのブレークポイント
+*/
+
+$max_width : 1000px;
+$width     : 960px;
+$min_width : 320px;
 
 $pc_break_w: 801px;
 $sp_break_w: $pc_break_w - 1;
 
-//色
+/* カラー定義
 
-//z-index
+「$is_color_{色}{0x}」で定義
+数値はできるだけ薄い色～濃い色の順にする
+
+例）
+$is_break_wb01: #fff;
+$is_break_wb02: #000;
+*/
+
+$is_break_wb01: #fff;
+$is_break_wb02: #000;
+
+/* z-index定義
+
+「${指定class or id名}_num」で定義
+数値順になるように並べる
+
+例）
+$l-header_num: 100;
+$l-gnavi_num : 300;
+*/
+
+$l-header_num: 100;
+$l-gnavi_num : 300;
+
+/* font-family定義
+
+「$ff_{font-family名}」で定義
+「$ff_all」はサイト固定のfont-family
+
+例）
+$ff_all: "メイリオ", "Meiryo", "ＭＳＰゴシック","ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, sans-serif;
+
+$ff_meiryo: "メイリオ", "Meiryo", sans-serif;
+$ff_hirakakuGo: "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, sans-serif;
+*/
+
+$ff_all: "メイリオ", "Meiryo", "ＭＳＰゴシック","ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, sans-serif;
+
+$ff_meiryo: "メイリオ", "Meiryo", sans-serif;
+$ff_hirakakuGo: "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, sans-serif;

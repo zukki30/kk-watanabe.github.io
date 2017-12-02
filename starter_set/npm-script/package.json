@@ -1,0 +1,22 @@
+{
+  "name": "kk-watanabe",
+  "version": "1.0.0",
+  "description": "npm-script package.json only starter set",
+  "main": "",
+  "scripts": {
+    "start": "npm-run-all -p build watch",
+    "build:css": "node-sass src/assets/sass/style.scss httpdocs/assets/css/style.css --output-style compressed --source-map httpdocs/assets/css/ --source-map-contents true --include-path src/assets/sass/**/*.scss",
+    "build": "npm-run-all build:*",
+    "watch:css": "node-sass src/assets/sass/style.scss httpdocs/assets/css/style.css --output-style compressed --source-map httpdocs/assets/css/ --source-map-contents true --include-path src/assets/sass/**/*.scss --w",
+    "watch:serve": "browser-sync start --server ./httpdocs/ --files './httpdocs/, ./src/assets/'",
+    "watch": "npm-run-all -p watch:*",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kk-watanabe",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.18.13",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.1.1"
+  }
+}
