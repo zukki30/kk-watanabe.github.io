@@ -1,0 +1,22 @@
+{
+  "name": "vue_start",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-env": "^2.4.1",
+    "babel-loader": "^7.1.2",
+    "npm-run-all": "^4.1.2",
+    "vue-loader": "^13.5.0",
+    "vue-template-compiler": "^2.5.9",
+    "webpack": "^3.8.1"
+  },
+  "dependencies": {
+    "vue": "^2.5.9"
+  }
+}
