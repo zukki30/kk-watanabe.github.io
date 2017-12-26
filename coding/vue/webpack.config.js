@@ -1,37 +1,61 @@
-var config = require('./config');
-var _base = config.base;
-var _setting = config.setting;
-var path = require('path');
-var webpack = require('webpack');
+const config  = require('./config');
+const _base   = config.base;
+
+const path    = require('path');
+const webpack = require('webpack');
+const cwp     = require('copy-webpack-plugin');
+const ujp     = require('uglifyjs-webpack-plugin')
 
 module.exports = {
-  cache: true,
-  entry: './' + _setting.path.js.src + 'main.js',
+  watch: true,
+  entry: './' + _base.src + 'main.js',
   output: {
-    path: path.join(__dirname, _setting.path.js.dest),
+    path: path.resolve(__dirname, _base.dest),
     filename: 'bundle.js'
   },
   devtool: '#source-map',
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({sourceMap: true})
+    new ujp({
+      sourceMap: true,
+    }),
+    new cwp([{
+      from: path.resolve(__dirname, _base.src, 'index.html'),
+    }]),
   ],
   module: {
     rules: [
       {
+        loader: 'babel-loader',
         test: /\.js?$/,
         exclude: /(node_modules)/,
-        use:[
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                ['env', {'modules': false}],
-                'react'
-              ]
-            }
+      },
+      {
+        loader: 'vue-hot-reload-loader',
+        test: /\.js?$/,
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            scss: 'vue-style-loader!css-loader!sass-loader', // <style lang="scss">
+            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax' // <style lang="sass">
           }
-        ]
+        }
       }
     ]
-  }
+  },
+  resolve: {
+    modules: [path.join(__dirname, 'src'), 'node_modules'],
+    extensions: ['.js', '.vue'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    },
+  },
+
+  devServer: {
+    contentBase: _base.dest,
+    port: 3000,
+    host: 'localhost',
+  },
 };
