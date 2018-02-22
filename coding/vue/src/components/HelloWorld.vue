@@ -20,6 +20,7 @@ export default {
   	background-color: #ccc;
     h1 {
       color: red;
+      font-size: 6.0rem
     }
   }
 </style>

@@ -11,6 +11,7 @@ module.exports = {
   entry: './' + _base.src + 'main.js',
   output: {
     path: path.resolve(__dirname, _base.dest),
+    publicPath: _base.src,
     filename: 'bundle.js'
   },
   devtool: '#source-map',
@@ -28,10 +29,6 @@ module.exports = {
         loader: 'babel-loader',
         test: /\.js?$/,
         exclude: /(node_modules)/,
-      },
-      {
-        loader: 'vue-hot-reload-loader',
-        test: /\.js?$/,
       },
       {
         test: /\.vue$/,
@@ -54,8 +51,9 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: _base.dest,
-    port: 3000,
-    host: 'localhost',
+    contentBase : path.resolve(__dirname, _base.dest),
+    publicPath  : _base.src,
+    port        : 3000,
+    host        : 'localhost',
   },
 };
