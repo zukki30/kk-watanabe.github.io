@@ -32,6 +32,33 @@
       <button v-on:click="hello">Hello</button>
       <button @click="hello">Hello</button>
     </div>
+
+    <div>
+      <input type="button" v-bind:value="message1">
+      <input type="button" :value="message2">
+    </div>
+
+    <div>
+      <input v-model="message1">
+      <div>Message: {{ message1 }}</div>
+    </div>
+
+    <div>
+      <div v-pre>Message: {{ message1 }}</div>
+      <div>Message: {{ message1 }}</div>
+    </div>
+
+    <div>
+      <button onclick="location.reload()">再表示</button>
+      <div>Message: <span v-cloak>{{ message1 }}</span></div>
+      <div>Message: <span>{{ message1 }}</span></div>
+    </div>
+
+    <div>
+      <input type="text" name="text1" v-model:value="message1">
+      <div>Message: <span v-once>{{ message1 }}</span></div>
+      <div>Message: <span>{{ message1 }}</span></div>
+    </div>
   </div><!-- /#form -->
 </template>
 
@@ -53,7 +80,9 @@ export default {
       seen: true,
       ifseen: true,
       type: 'A',
-      colorList: [ 'Red', 'Green', 'Blue' ]
+      colorList: [ 'Red', 'Green', 'Blue' ],
+      message1: 'Hello! test',
+      message2: '押してみて'
     }
   },
   methods: {
@@ -77,6 +106,9 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+[v-cloak]
+  display: none
+
 #form
   margin-right: auto
   margin-left: auto
