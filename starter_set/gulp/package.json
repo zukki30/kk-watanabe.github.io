@@ -23,10 +23,13 @@
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.1",
     "gulp-uglify-es": "^1.0.4",
+    "require-dir": "^1.0.0",
     "run-sequence": "^2.1.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp",
+    "build": "gulp build"
   },
   "author": "",
   "license": "ISC"

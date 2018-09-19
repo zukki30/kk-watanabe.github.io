@@ -90,3 +90,18 @@ npm-check-updatesを使用し管理します。<br>
 
 ## 最後に
 gulpfile.js で何を行っているのか、package.json にあるモジュールは何かを事前に把握して使用してください。
+
+## メモ
+gulp-cliを使用しない
+忘れてしまうから
+
+そのかわり下のコマンドを使用する
+
+### コマンド
+start : npm run gulp
+build : npm run build
+
+## メモ2
+importは使用しない
+追記でバベルのプラグインが必要なため
+設定ファイルも追加が必要
