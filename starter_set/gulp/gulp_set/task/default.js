@@ -11,7 +11,7 @@ gulp.task('build', () => {
   return $.sequence(
     ['clean'],
     ['html', 'js', 'scss', 'include'],
-    ['imagemin', 'jsminify']
+    ['imagemin',]
     );
 });
 

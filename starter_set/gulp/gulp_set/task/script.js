@@ -18,14 +18,14 @@ gulp.task('js', () => {
     .pipe($.browserSync.reload({stream: true}));
 });
 
-// JS Minify
-gulp.task('jsminify', () => {
-  if(setting.minify.js){
-    return gulp.src(setting.path.js.dest+'**/*.js')
-      .pipe($.plumber({
-        errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
-      }))
-      .pipe(uglify())
-      .pipe(gulp.dest(setting.path.js.dest));
-  }
-});
+// // JS Minify
+// gulp.task('jsminify', () => {
+//   if(setting.minify.js){
+//     return gulp.src(setting.path.js.dest+'**/*.js')
+//       .pipe($.plumber({
+//         errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
+//       }))
+//       .pipe(uglify())
+//       .pipe(gulp.dest(setting.path.js.dest));
+//   }
+// });

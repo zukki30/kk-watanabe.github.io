@@ -1,3 +1,7 @@
+/**********************************
+ 環境変数
+**********************************/
+
 const base = {
   src: 'src/assets/',
   dest: 'httpdocs/assets/',
@@ -14,14 +18,16 @@ module.exports.setting = {
         baseDir: 'httpdocs',
     },
   },
-  imagemin: {
-    disabled: false,  // falseでimageminを実行
-    level: 7  // 圧縮率
-  },
-  // css、jsのミニファイの有効化/無効化
-  minify: {
-    js: true
-  },
+  imagemin: {[
+    imagemin.jpegtran({progressive: true}),
+    imagemin.optipng({optimizationLevel: 5}),
+    imagemin.svgo({
+        plugins: [
+            {removeViewBox: true},
+            {cleanupIDs: false}
+        ]
+    }},
+
   path: {
     base: {
       src: 'src',
@@ -36,7 +42,7 @@ module.exports.setting = {
       dest: base.dest + 'js/',
     },
     image: {
-      src: base.src + 'img/**/*',
+      src: base.src + 'img/**/*.+(jpg|jpeg|png|gif|svg)',
       dest: base.dest + 'img/',
     },
     include: {
@@ -53,10 +59,20 @@ module.exports.setting = {
  * ロードモジュールの設定
  */
 module.exports.loadPlugins = {
-  pattern: ['gulp-*', 'gulp.*', 'browser-sync', 'run-sequence', 'del'],
+  pattern: [
+    'gulp-*',
+    'gulp.*',
+    'browser-sync',
+    'run-sequence',
+    'imagemin-*',
+    'del'
+  ],
   rename : {
-    'browser-sync' : 'browserSync',
-    'run-sequence' : 'sequence',
-    'del'          : 'del',
+    'browser-sync'      : 'browserSync',
+    'run-sequence'      : 'sequence',
+    'del'               : 'del',
+    'imagemin-svgo'     : 'imageminSvgo',
+    'imagemin-jpegtran' : 'imageminJpeg',
+    'imagemin-optipng'  : 'imageminPng'
   }
 };

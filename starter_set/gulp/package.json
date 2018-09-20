@@ -23,6 +23,9 @@
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.1",
     "gulp-uglify-es": "^1.0.4",
+    "imagemin-jpegtran": "^5.0.2",
+    "imagemin-optipng": "^5.2.1",
+    "imagemin-svgo": "^7.0.0",
     "require-dir": "^1.0.0",
     "run-sequence": "^2.1.0"
   },
