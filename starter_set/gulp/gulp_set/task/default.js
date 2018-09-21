@@ -10,8 +10,8 @@ gulp.task('clean', $.del.bind(null, setting.path.base.dest));
 gulp.task('build', () => {
   return $.sequence(
     ['clean'],
-    ['html', 'js', 'scss', 'include'],
-    ['imagemin',]
+    ['html', 'js', 'scss', 'include', 'json'],
+    ['svg', 'imagemin']
     );
 });
 
@@ -23,6 +23,7 @@ gulp.task('watch', () => {
   gulp.watch([setting.path.js.src], ['js']);
   gulp.watch([setting.path.include.src], ['include']);
   gulp.watch([setting.path.html.src], ['html']);
+  gulp.watch([setting.path.html.src], ['json']);
   gulp.watch([setting.path.image.src], ['imagemin']);
 });
 

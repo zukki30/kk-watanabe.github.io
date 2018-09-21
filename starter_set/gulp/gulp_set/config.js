@@ -1,13 +1,12 @@
 /**********************************
  環境変数
 **********************************/
-
 const base = {
-  src: 'src/assets/',
-  dest: 'httpdocs/assets/',
+  src  : 'src/assets/',
+  dest : 'httpdocs/assets/',
 };
 
-module.exports.setting = {
+const setting = {
   autoprefixer: {
       browser: ['last 2 versions']
   },
@@ -18,16 +17,58 @@ module.exports.setting = {
         baseDir: 'httpdocs',
     },
   },
-  imagemin: {[
-    imagemin.jpegtran({progressive: true}),
-    imagemin.optipng({optimizationLevel: 5}),
-    imagemin.svgo({
-        plugins: [
-            {removeViewBox: true},
-            {cleanupIDs: false}
-        ]
-    }},
+  svg : {
+    necessary: true,
+    plugin   : (pre) => {
+      let option = [{
+        cleanupIDs: {
+            prefix: pre + '-',
+            minify: true
+        }
+      }];
 
+      return option;
+    }
+  },
+  imagemin: {
+      jpg : {
+          progressive: true
+      },
+      png : {
+          optimizationLevel: 5
+      },
+      svg : {
+         plugins: [
+             {removeViewBox: true},
+             {cleanupIDs: false}
+         ]
+      },
+  },
+  webpack : {
+    // モード値を production に設定すると最適化された状態で、
+    // development に設定するとソースマップ有効でJSファイルが出力される
+    mode            : 'development',
+    jqueryNecessary : true, //jQueryを使用しない場合はfalse
+
+    uglifyJsPlugin : {
+        sourceMap     : true,
+        uglifyOptions : {
+            mangle   : false,
+            output   : {comments: false},
+            compress : {warnings: false}
+        }
+    },
+    providePlugin  : (judge) => {
+      let plugin = {};
+
+      if(judge) {
+        plugin['jQuery'] = 'jquery';
+        plugin['$']      = 'jquery';
+      }
+
+      return plugin;
+    }
+  },
   path: {
     base: {
       src: 'src',
@@ -38,7 +79,7 @@ module.exports.setting = {
       dest: base.dest + 'css/',
     },
     js: {
-      src: base.src + 'js/**/*.js',
+      src: base.src + 'js/',
       dest: base.dest + 'js/',
     },
     image: {
@@ -49,8 +90,14 @@ module.exports.setting = {
       src: [base.src + 'inc/**/*'],
       dest: base.dest + 'inc/',
     },
+    json: {
+      src: base.edit + 'json/*.json'
+    },
+    svg: {
+      src: base.edit + 'svg/*.svg'
+    },
     html: {
-      src: ['src/**/*', '!src/assets/**/*']
+      src: ['src/**/*.html', '!src/assets/**/*']
     },
   }
 };
@@ -58,13 +105,14 @@ module.exports.setting = {
 /**
  * ロードモジュールの設定
  */
-module.exports.loadPlugins = {
+const loadPlugins = {
   pattern: [
     'gulp-*',
     'gulp.*',
     'browser-sync',
     'run-sequence',
     'imagemin-*',
+    'webpack-*',
     'del'
   ],
   rename : {
@@ -73,6 +121,13 @@ module.exports.loadPlugins = {
     'del'               : 'del',
     'imagemin-svgo'     : 'imageminSvgo',
     'imagemin-jpegtran' : 'imageminJpeg',
-    'imagemin-optipng'  : 'imageminPng'
+    'imagemin-optipng'  : 'imageminPng',
+    'webpack-stream'    : 'webpackStream'
   }
 };
+
+module.exports = {
+  base: base,
+  setting: setting,
+  loadPlugins: loadPlugins,
+}

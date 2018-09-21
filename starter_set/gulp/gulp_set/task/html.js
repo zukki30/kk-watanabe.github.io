@@ -9,9 +9,11 @@ gulp.task('html', () => {
       setting.path.html.src,
       {base: setting.path.base.src}
     )
+    .pipe($.htmlhint('.htmlhintrc'))
     .pipe($.plumber({
       errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
     }))
+    .pipe($.htmlhint.failOnError())
     .pipe($.changed(setting.path.base.dest))
     .pipe(gulp.dest(setting.path.base.dest))
     .pipe($.browserSync.reload({stream: true}));

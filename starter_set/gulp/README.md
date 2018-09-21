@@ -105,3 +105,7 @@ build : npm run build
 importは使用しない
 追記でバベルのプラグインが必要なため
 設定ファイルも追加が必要
+
+### メモ3
+babel-core、6.26.3の場合、
+babel-loaderはバージョン 7 でないとエラーがでる
