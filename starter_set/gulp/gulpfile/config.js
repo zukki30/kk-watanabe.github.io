@@ -10,12 +10,17 @@ const setting = {
   autoprefixer: {
       browser: ['last 2 versions']
   },
+  connectSet : (path) => {
+    let set = {
+      base :path,
+      bin  : 'C:/xampp/php/php.exe',
+      ini  : 'C:/xampp/php/php.ini'
+    };
+
+    return set;
+  },
   browserSync: {
-    // 使わない方はコメントアウトする
-    // proxy: 'test.test',
-    server:{
-        baseDir: 'httpdocs',
-    },
+    proxy: 'localhost:8000'
   },
   svg : {
     necessary: true,
@@ -97,7 +102,7 @@ const setting = {
       src: base.edit + 'svg/*.svg'
     },
     html: {
-      src: ['src/**/*.html', '!src/assets/**/*']
+      src: ['src/**/*.+(html|php)', '!src/assets/**/*']
     },
   }
 };

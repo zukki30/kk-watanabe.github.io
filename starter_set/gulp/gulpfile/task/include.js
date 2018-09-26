@@ -1,20 +1,20 @@
+/**
+ * PHPインクルードの更新
+ */
 const gulp    = require('gulp');
 const config  = require('../config');
 const setting = config.setting;
 const $       = require('gulp-load-plugins')(config.loadPlugins);
 
-// HTML
-gulp.task('html', () => {
+// Include
+gulp.task('include', () => {
   return gulp.src(
-      setting.path.html.src,
-      {base: setting.path.base.src}
+      setting.path.include.src
     )
-    .pipe($.htmlhint('.htmlhintrc'))
     .pipe($.plumber({
       errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
     }))
-    .pipe($.htmlhint.failOnError())
-    .pipe($.changed(setting.path.base.dest))
-    .pipe(gulp.dest(setting.path.base.dest))
+    .pipe($.changed(setting.path.include.dest))
+    .pipe(gulp.dest(setting.path.include.dest))
     .pipe($.browserSync.reload({stream: true}));
 });

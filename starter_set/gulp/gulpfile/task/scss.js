@@ -1,3 +1,6 @@
+/**
+ * CSSの更新
+ */
 const gulp    = require('gulp');
 const config  = require('../config');
 const setting = config.setting;
@@ -7,7 +10,7 @@ const $       = require('gulp-load-plugins')(config.loadPlugins);
 gulp.task('scss',() => {
   return gulp.src(setting.path.sass.src)
     .pipe($.sassLint({
-      configFile: '.sass-lint.yml'
+      configFile: './lint/.sass-lint.yml'
     }))
     .pipe($.plumber({
       errorHandler: $.notify.onError("Error: <%= error.message %>") //<-

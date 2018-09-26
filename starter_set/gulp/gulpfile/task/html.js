@@ -1,17 +1,23 @@
+/**
+ * HTMLの更新
+ */
 const gulp    = require('gulp');
 const config  = require('../config');
 const setting = config.setting;
 const $       = require('gulp-load-plugins')(config.loadPlugins);
 
-// Include
-gulp.task('include', () => {
+// HTML
+gulp.task('html', () => {
   return gulp.src(
-      setting.path.include.src
+      setting.path.html.src,
+      {base: setting.path.base.src}
     )
+    .pipe($.htmlhint('./lint/.htmlhintrc'))
     .pipe($.plumber({
       errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
     }))
-    .pipe($.changed(setting.path.include.dest))
-    .pipe(gulp.dest(setting.path.include.dest))
+    .pipe($.htmlhint.failOnError())
+    .pipe($.changed(setting.path.base.dest))
+    .pipe(gulp.dest(setting.path.base.dest))
     .pipe($.browserSync.reload({stream: true}));
 });

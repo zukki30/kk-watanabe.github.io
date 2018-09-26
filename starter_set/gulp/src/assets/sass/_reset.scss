@@ -177,8 +177,8 @@ input {
 	&[type=number] {
 		appearance : textfield;
 
-		&::inner-spin-button,
-		&::outer-spin-button {
+		&::-webkit-inner-spin-button,
+		&::-webkit-outer-spin-button {
 			margin     : 0;
 			appearance : none;
 		}

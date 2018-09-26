@@ -1,3 +1,6 @@
+/**
+ * build & watch
+ */
 const gulp    = require('gulp');
 const config  = require('../config');
 const setting = config.setting;
@@ -17,7 +20,11 @@ gulp.task('build', () => {
 
 // Watch
 gulp.task('watch', () => {
-  $.browserSync.init(setting.browserSync);
+  // $.browserSync.init(setting.browserSync);
+
+  $.connectPhp.server(setting.connectSet(setting.browserSync.server.baseDir), () => {
+    $.browserSync.init(setting.browserSync);
+  });
 
   gulp.watch([setting.path.sass.src], ['scss']);
   gulp.watch([setting.path.js.src], ['js']);

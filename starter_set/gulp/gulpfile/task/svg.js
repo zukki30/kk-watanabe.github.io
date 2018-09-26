@@ -1,3 +1,6 @@
+/**
+ * SVGの更新
+ */
 const gulp            = require('gulp');
 const config          = require('../config');
 const setting         = config.setting;

@@ -1,4 +1,7 @@
-const config         = require('./gulp_set/config');
+/**
+ * Webpack関連まとめ
+ */
+const config         = require('./config');
 const setting        = config.setting;
 const webpack        = require('webpack');
 const paths          = require('path');
@@ -37,6 +40,7 @@ module.exports = {
                 loader: 'eslint-loader',
                 options: {
                   failOnError: true,
+                  configFile : './lint/.eslintrc.json'
                 }
               }
             ]
