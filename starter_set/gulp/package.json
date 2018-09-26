@@ -30,6 +30,7 @@
         "gulp-plumber": "^1.0.0",
         "gulp-postcss": "^8.0.0",
         "gulp-sass": "^4.0.1",
+        "gulp-sass-lint": "^1.4.0",
         "gulp-svgmin": "^2.1.0",
         "gulp-svgstore": "^7.0.0",
         "gulp-uglify-es": "^1.0.4",
@@ -48,38 +49,30 @@
         "start": "gulp",
         "build": "gulp build"
     },
-    "eslintConfig": {
-        "env": {
-            "browser": true,
-            "commonjs": true,
-            "es6": true,
-            "node": true,
-            "jquery": true
-        },
-        "extends": "eslint:recommended",
-        "parserOptions": {
-            "ecmaVersion": 2017,
-            "sourceType": "module"
-        },
-        "rules": {
-            "no-console": 0,
-            "indent": [
-                "error",
-                4
-            ],
-            "linebreak-style": [
-                "error",
-                "windows"
-            ],
-            "quotes": [
-                "error",
-                "single"
-            ],
-            "semi": [
-                "error",
-                "always"
-            ]
-        }
+    "htmlhintConfig": {
+        "tagname-lowercase": true,
+        "attr-lowercase": true,
+        "attr-value-double-quotes": true,
+        "attr-value-not-empty": true,
+        "attr-no-duplication": true,
+        "doctype-first": true,
+        "tag-pair": true,
+        "tag-self-close": true,
+        "spec-char-escape": true,
+        "id-unique": true,
+        "src-not-empty": true,
+        "title-require": true,
+        "head-script-disabled": true,
+        "doctype-html5": true,
+        "id-class-value": true,
+        "style": true,
+        "inline-style-disabled": true,
+        "inline-script-disabled": true,
+        "space-tab-mixed-disabled": "tab",
+        "id-class-ad-disabled": true,
+        "href-abs-or-rel": true,
+        "attr-unsafe-chars": true,
+        "alt-require": true
     },
     "author": "",
     "license": "ISC"

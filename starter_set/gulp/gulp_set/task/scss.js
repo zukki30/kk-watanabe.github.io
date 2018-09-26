@@ -6,9 +6,14 @@ const $       = require('gulp-load-plugins')(config.loadPlugins);
 // SASS
 gulp.task('scss',() => {
   return gulp.src(setting.path.sass.src)
+    .pipe($.sassLint({
+      configFile: '.sass-lint.yml'
+    }))
     .pipe($.plumber({
       errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
     }))
+    .pipe($.sassLint.format())
+    .pipe($.sassLint.failOnError())
     .pipe($.sass({outputStyle: 'compressed'}))
     .pipe($.postcss([
       require('autoprefixer')({browsers: setting.autoprefixer.browser}),

@@ -75,7 +75,7 @@ const setting = {
       dest: 'httpdocs'
     },
     sass: {
-      src: base.src + 'sass/**/*.scss',
+      src: base.src + 'sass/**/*.s+(a|c)ss',
       dest: base.dest + 'css/',
     },
     js: {

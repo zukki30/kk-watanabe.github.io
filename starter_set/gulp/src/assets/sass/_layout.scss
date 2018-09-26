@@ -1,54 +1,72 @@
 @charset "UTF-8";
-/*------------------------------------------------------------
-	レイアウト
-------------------------------------------------------------*/
+
+/*!------------------------------------------------------------
+*レイアウト
+------------------------------------------------------------**/
 body {
-	line-height: 1.5;
+	line-height : 1.5;
 }
 
-#container {
+.l-container {
+	display : block;
 }
 
-#main {
-	@include cf;
+.l-main {
+	display : block;
 }
 
 // PC用
-@media only screen and (min-width: $pc_break_w){
-}
-
-// SP用
-@media only screen and (max-width: $sp_break_w){
-	body {
-		min-width: $min_width;
+@media only screen and (min-width : $pc_break_w) {
+	.l-container {
+		display : block;
 	}
 }
 
+// SP用
+@media only screen and (max-width : $sp_break_w) {
+	body {
+		min-width : $min_width;
+	}
+}
 
-/*------------------------------------------------------------
-	ヘッダー
-------------------------------------------------------------*/
+/*!------------------------------------------------------------
+*ヘッダー
+------------------------------------------------------------**/
 .l-header {
+	display : block;
 }
 
 // PC用
-@media only screen and (min-width: $pc_break_w){
+@media only screen and (min-width : $pc_break_w) {
+	.l-header {
+		display : block;
+	}
 }
 
 // SP用
-@media only screen and (max-width: $sp_break_w){
+@media only screen and (max-width : $sp_break_w) {
+	.l-header {
+		display : block;
+	}
 }
 
-/*------------------------------------------------------------
-	フッター
-------------------------------------------------------------*/
+/*!------------------------------------------------------------
+*フッター
+------------------------------------------------------------**/
 .l-footer {
+	display : block;
 }
 
 // PC用
-@media only screen and (min-width: $pc_break_w){
+@media only screen and (min-width : $pc_break_w) {
+	.l-footer {
+		display : block;
+	}
 }
 
 // SP用
-@media only screen and (max-width: $sp_break_w){
+@media only screen and (max-width : $sp_break_w) {
+	.l-footer {
+		display : block;
+	}
 }

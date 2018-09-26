@@ -1,44 +1,50 @@
 @charset "UTF-8";
-//
-// mixin,extendで使用する
-//
-
-// clearfix（float解除）
-@mixin cf{
+/*!------------------------------------------------------------
+*mixin,extendで使用する
+------------------------------------------------------------**/
+/*!-----clearfix（float解除）-----*/
+@mixin cf {
 	&:after {
-		display: block;
-		clear: both;
-		content: "";
+		display : block;
+		clear   : both;
+		content : "";
 	}
 }
+
+//////////////////
 // example:
 // @include cf;
+//////////////////
 
-// 疑似要素の基本読み込み
+/*!-----疑似要素の基本読み込み-----*/
 @mixin pse_erem {
-	position: absolute;
-	content: '';
+	position : absolute;
+	content  : "";
 }
+//////////////////
 // example:
 // @include pse_erem;
+//////////////////
 
-/*
-| アローアイコンの作成用mixin（疑似要素）
-|
-| $size     ・・・ 線の長さ
-| $bd_width ・・・ 線の横幅
-| $color    ・・・ 線の色
-| $rotate   ・・・ 角度
-*/
+/*!------------------------------------------------------------
+* アローアイコンの作成用mixin（疑似要素）
+*
+* $size     ・・・ 線の長さ
+* $bd_width ・・・ 線の横幅
+* $color    ・・・ 線の色
+* $rotate   ・・・ 角度
+------------------------------------------------------------**/
 @mixin arrow($size, $bd_width, $color, $rotare) {
-	margin-top: -$size/2;
-	width: $size;
-	height: $size;
-	border-top: $bd_width solid $color;
-	border-right: $bd_width solid $color;
-	transform: rotate($rotare);
-	top: 50%;
-	content: '';
+	top          : 50%;
+	transform    : rotate($rotare);
+	margin-top   : -$size/2;
+	border-top   : $bd_width solid $color;
+	border-right : $bd_width solid $color;
+	width        : $size;
+	height       : $size;
+	content      : "";
 }
+//////////////////
 // example:
 // @include arrow(10px, 3px, #111, 45deg);
+//////////////////

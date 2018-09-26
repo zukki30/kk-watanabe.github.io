@@ -109,3 +109,15 @@ importは使用しない
 ### メモ3
 babel-core、6.26.3の場合、
 babel-loaderはバージョン 7 でないとエラーがでる
+
+### メモ4
+CSSの順序は下記を対応
+https://github.com/sasstools/sass-lint/blob/develop/lib/config/property-sort-orders/concentric.yml
+
+### メモ5
+sass-lintは下記を確認
+https://github.com/sasstools/sass-lint/tree/develop/docs/rules
+
+### メモ6
+sublime text で「Hayaku」を使用すると「:（コロン）」前にスペースを入れられない
+emmentであれば設定で対応可能
