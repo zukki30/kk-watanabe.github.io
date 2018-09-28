@@ -20,17 +20,15 @@ gulp.task('build', () => {
 
 // Watch
 gulp.task('watch', () => {
-  // $.browserSync.init(setting.browserSync);
-
-  $.connectPhp.server(setting.connectSet(setting.browserSync.server.baseDir), () => {
-    $.browserSync.init(setting.browserSync);
+  $.connect.server(setting.connectSet(setting.path.base.dest), () => {
+    $.browserSync.init(setting.browserSyncSet(setting.path.base.dest, setting.php_use));
   });
 
   gulp.watch([setting.path.sass.src], ['scss']);
-  gulp.watch([setting.path.js.src], ['js']);
+  gulp.watch([setting.path.js.src + '**/*.js'], ['js']);
   gulp.watch([setting.path.include.src], ['include']);
   gulp.watch([setting.path.html.src], ['html']);
-  gulp.watch([setting.path.html.src], ['json']);
+  gulp.watch([setting.path.json.src], ['json']);
   gulp.watch([setting.path.image.src], ['imagemin']);
 });
 

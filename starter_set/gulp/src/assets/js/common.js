@@ -18,7 +18,7 @@ $(function(){
     if (get_device() === 'other') {
         html.addClass('pc_device');
     }
-    console.log(html);
+
     //ページTOPボタン
     (function(){
         $('a[href^="#"]').not('[target="_blank"]').on('click', function() {

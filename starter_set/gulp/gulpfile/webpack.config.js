@@ -39,8 +39,7 @@ module.exports = {
               {
                 loader: 'eslint-loader',
                 options: {
-                  failOnError: true,
-                  configFile : './lint/.eslintrc.json'
+                  configFile  : './lint/.eslintrc.json',
                 }
               }
             ]

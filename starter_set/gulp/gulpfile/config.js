@@ -7,20 +7,35 @@ const base = {
 };
 
 const setting = {
+  php_use     : true,
   autoprefixer: {
       browser: ['last 2 versions']
   },
   connectSet : (path) => {
     let set = {
-      base :path,
-      bin  : 'C:/xampp/php/php.exe',
-      ini  : 'C:/xampp/php/php.ini'
+      port : 8000,
+      base : path
     };
 
     return set;
   },
-  browserSync: {
-    proxy: 'localhost:8000'
+  browserSyncSet : (path, use) => {
+    let set;
+
+    if(use) {
+      set = {
+        baseDir : path,
+        proxy   : 'localhost:8000'
+      };
+    } else {
+      set = {
+        server : {
+          baseDir : path
+        }
+      };
+    }
+
+    return set;
   },
   svg : {
     necessary: true,
@@ -127,7 +142,8 @@ const loadPlugins = {
     'imagemin-svgo'     : 'imageminSvgo',
     'imagemin-jpegtran' : 'imageminJpeg',
     'imagemin-optipng'  : 'imageminPng',
-    'webpack-stream'    : 'webpackStream'
+    'webpack-stream'    : 'webpackStream',
+    'gulp-connect-php'  : 'connect'
   }
 };
 
