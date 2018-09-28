@@ -15,7 +15,6 @@ gulp.task('js', () => {
           errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
         }))
         .pipe($.webpackStream(webpackConfig, webpack))
-        .pipe($.changed(setting.path.js.dest))
-        .pipe(gulp.dest('./' + setting.path.js.dest))
+        .pipe(gulp.dest(setting.path.js.dest))
         .pipe($.browserSync.reload({stream: true}));
 });
