@@ -121,3 +121,6 @@ https://github.com/sasstools/sass-lint/tree/develop/docs/rules
 ### メモ6
 sublime text で「Hayaku」を使用すると「:（コロン）」前にスペースを入れられない
 emmentであれば設定で対応可能
+
+### メモ7
+xamppを使用しPHPを環境変数にする場合、PCを再起動する必要がある場合がある
