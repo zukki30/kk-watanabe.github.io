@@ -3,10 +3,6 @@
     "version": "2.0.0",
     "description": "",
     "main": "index.js",
-    "dependencies": {
-        "browser-sync": "^2.4.0",
-        "gulp": "^3.8.11"
-    },
     "devDependencies": {
         "babel-core": "^6.26.3",
         "babel-loader": "^7.1.5",

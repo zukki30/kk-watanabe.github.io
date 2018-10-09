@@ -4,19 +4,15 @@
 const config         = require('./config');
 const setting        = config.setting;
 const webpack        = require('webpack');
-const paths          = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     mode: setting.webpack.mode,
 
     // メインのJS
-    entry: `./${setting.path.js.src}common.js`,
+    entry: setting.webpack.entry_file,
     // 出力ファイル
-    output: {
-        path: paths.join(__dirname, setting.path.js.dest),
-        filename: 'bundle.js'
-    },
+    output: setting.webpack.output_file,
     module: {
         rules: [
           {

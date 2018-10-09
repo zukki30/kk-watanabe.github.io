@@ -3,21 +3,21 @@
  */
 const gulp    = require('gulp');
 const config  = require('../config');
-const setting = config.setting;
+const paths   = config.paths;
 const $       = require('gulp-load-plugins')(config.loadPlugins);
 
 // HTML
 gulp.task('html', () => {
   return gulp.src(
-      setting.path.html.src,
-      {base: setting.path.base.src}
+      paths.html.src,
+      {base: paths.base.src}
     )
     .pipe($.htmlhint('./lint/.htmlhintrc'))
     .pipe($.plumber({
       errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
     }))
     .pipe($.htmlhint.failOnError())
-    .pipe($.changed(setting.path.base.dest))
-    .pipe(gulp.dest(setting.path.base.dest))
+    .pipe($.changed(paths.base.dest))
+    .pipe(gulp.dest(paths.base.dest))
     .pipe($.browserSync.reload({stream: true}));
 });

@@ -3,15 +3,15 @@
  */
 const gulp            = require('gulp');
 const config          = require('../config');
-const setting         = config.setting;
+const paths           = config.paths;
 const $               = require('gulp-load-plugins')(config.loadPlugins);
 
 gulp.task('json', function(){
-  return gulp.src(setting.path.json.src)
+  return gulp.src(paths.json.src)
     .pipe($.plumber({
       errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
     }))
-    .pipe($.changed(setting.path.js.dest))
-    .pipe(gulp.dest(setting.path.js.dest))
+    .pipe($.changed(paths.js.dest))
+    .pipe(gulp.dest(paths.js.dest))
     .pipe($.browserSync.reload({stream: true}));
 });

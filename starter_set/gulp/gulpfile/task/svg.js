@@ -3,11 +3,12 @@
  */
 const gulp            = require('gulp');
 const config          = require('../config');
+const paths           = config.paths;
 const setting         = config.setting;
 const $               = require('gulp-load-plugins')(config.loadPlugins);
 
 gulp.task('svg', () => {
-  return gulp.src(setting.path.svg.src)
+  return gulp.src(paths.svg.src)
     .pipe($.plumber({
       errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
     }))
@@ -28,5 +29,5 @@ gulp.task('svg', () => {
         },
         parserOptions: { xmlMode: true }
     }))
-    .pipe(gulp.dest(setting.path.image.dest));
+    .pipe(gulp.dest(paths.image.dest));
 });

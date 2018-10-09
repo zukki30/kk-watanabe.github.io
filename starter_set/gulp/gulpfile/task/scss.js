@@ -3,12 +3,13 @@
  */
 const gulp    = require('gulp');
 const config  = require('../config');
+const paths   = config.paths;
 const setting = config.setting;
 const $       = require('gulp-load-plugins')(config.loadPlugins);
 
 // SASS
 gulp.task('scss',() => {
-  return gulp.src(setting.path.sass.src)
+  return gulp.src(paths.sass.src)
     .pipe($.sassLint({
       configFile: './lint/.sass-lint.yml'
     }))
@@ -23,6 +24,6 @@ gulp.task('scss',() => {
       require('css-mqpacker')
     ]))
     .pipe($.csso())
-    .pipe(gulp.dest(setting.path.sass.dest))
+    .pipe(gulp.dest(paths.sass.dest))
     .pipe($.browserSync.reload({stream: true}));
 });
