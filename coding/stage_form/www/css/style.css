@@ -114,8 +114,54 @@ body {
 /*------------------------------------------------------------
 	mail_form
 ------------------------------------------------------------*/
+.required {
+  color: red; }
+
+.text {
+  padding: 50px 50px 0;
+  font-size: 1.4rem; }
+
 #mail_form {
   padding: 50px;
   font-size: 1.6rem; }
   #mail_form .box + .box {
     margin-top: 30px; }
+  #mail_form .required {
+    margin-bottom: 10px; }
+
+.stage_pager {
+  margin-bottom: 30px;
+  display: flex; }
+  .stage_pager_list {
+    padding: 10px;
+    border: 1px solid #ccc;
+    flex: 1;
+    text-align: center; }
+    .stage_pager_list:not(:first-child) {
+      margin-left: 10px; }
+    .stage_pager_list.active_list {
+      background-color: #ddd; }
+
+.submit_group {
+  margin-top: 30px;
+  letter-spacing: -0.4em;
+  text-align: center; }
+  .submit_group_list {
+    margin: 0 10px;
+    display: inline-block;
+    letter-spacing: normal;
+    vertical-align: top; }
+
+.btn_type {
+  padding: 15px;
+  background-color: #666;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  color: #fff;
+  cursor: pointer; }
+  .btn_type:hover {
+    opacity: .7; }
+  .btn_type.is_not_input {
+    background-color: #ddd;
+    color: #999; }

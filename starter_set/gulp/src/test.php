@@ -1,3 +1,4 @@
+<?php phpinfo() ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -73,6 +74,6 @@
 	</footer>
 </div>
 
-<script src="assets/js/bundle.js"></script>
+<script src="assets/js/common.js"></script>
 </body>
 </html>
