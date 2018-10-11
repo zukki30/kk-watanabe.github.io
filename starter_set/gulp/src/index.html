@@ -5,30 +5,39 @@
 <meta name="format-detection" content="telephone=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title></title>
+
 <meta name="description" content="">
 <meta name="keywords" content="">
-<title></title>
+
+<meta property="og:url" content="ページのURL">
+<meta property="og:title" content="ページのタイトル">
+<meta property="og:type" content="ページのタイプ">
+<meta property="og:description" content="記事の抜粋">
+<meta property="og:image" content="画像のURL">
+
+<meta name="twitter:card" content="カード種類">
+<meta name="twitter:site" content="@Twitterユーザー名">
+<meta property="og:site_name" content="サイト名">
+<meta property="og:locale" content="ja_JP">
+
+<link rel="canonical" href="">
+
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="画像のURL">
+
 <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="l-container">
-	<header id="header">
+	<header class="l-header">
 		<h1>サンプルテキスト</h1>
-		<div class="logo">サイトロゴ</div>
-
-		<div class="banner">
-			バナー
-		</div>
-
-		<ul class="otherNavi">
-			<li class="contact"><a href="">お問い合わせ</a></li>
-			<li class="sitemap"><a href="">サイトマップ</a></li>
-		</ul>
 	</header>
 
-	<nav id="gNavi">
-		<ul class="clearfix">
+	<nav class="l-gNavi">
+		<ul>
 			<li><a href="">menu1</a></li>
 			<li><a href="">menu2</a></li>
 			<li><a href="">menu3</a></li>
@@ -37,15 +46,31 @@
 		</ul>
 	</nav>
 
-	<ol id="pagePath">
-		<li class="root"><a href="">サイトタイトル</a>&gt;</li>
-		<li>ページタイトル</li>
-	</ol>
-
-	<input type="number" name="">
+	<div class="l-pagePath">
+		<div class="l-pagePath__in" itemscope itemtype="http://schema.org/BreadcrumbList">
+			<div class="l-pagePath__list" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a href="/" itemprop="item" class="l-pagePath__anc">
+					<span itemprop="name" class="l-pagePath__txt">HOME</span>
+				</a>
+				<meta itemprop="position" content="3">
+			</div>
+			<div class="l-pagePath__list" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a href="" itemprop="item" class="l-pagePath__anc">
+					<span itemprop="name" class="l-pagePath__txt">カテゴリ名</span>
+				</a>
+				<meta itemprop="position" content="2">
+			</div>
+			<div class="l-pagePath__list" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a href="" itemprop="item" class="l-pagePath__anc is-notAnc">
+					<span itemprop="name" class="l-pagePath__txt">ページタイトル</span>
+				</a>
+				<meta itemprop="position" content="1">
+			</div>
+		</div>
+	</div>
 
 	<div class="l-main">
-		<div id="conts">
+		<main class="l-conts">
 			<section>
 				<h2>ページタイトル</h2>
 				<section>
@@ -55,24 +80,18 @@
 					</section>
 				</section>
 			</section>
-		</div><!-- /#conts -->
-		<div id="sideBar">
-		サイドバー
-		</div><!-- /#sideBar -->
+		</main><!-- /#conts -->
+
+		<aside class="l-subConts">
+			サイドバー
+		</aside><!-- /#sideBar -->
 	</div><!-- /#main -->
 
-	<footer id="footer">
-		<ul class="subNavi">
-			<li><a href="">sub menu1</a></li>
-			<li><a href="">sub menu2</a></li>
-			<li><a href="">sub menu3</a></li>
-			<li><a href="">sub menu4</a></li>
-			<li class="lastChild"><a href="">sub menu5</a></li>
-		</ul>
-		<small class="copyright">copyright</small>
+	<footer class="l-footer">
+		<small class="l-footer__copyright">copyright</small>
 	</footer>
 </div>
 
-<script src="assets/js/bundle.js"></script>
+<script src="assets/js/bundle.js" async></script>
 </body>
 </html>

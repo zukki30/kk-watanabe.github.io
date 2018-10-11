@@ -1,35 +1,36 @@
-//共通変数
 $(function(){
-    const html = $('html');
+	//共通変数
+	const   html = $('html'),
 
-    //デバイス取得
-    let get_device = function(){
-        const ua = navigator.userAgent;
+			//デバイス取得
+			getDevice = function(){
+				const ua = navigator.userAgent;
 
-        if(ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0){
-            return 'sp';
-        }else if(ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0){
-            return 'tab';
-        }else{
-            return 'other';
-        }
-    };
+				if(ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0){
+					return 'sp';
+				}else if(ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0){
+					return 'tab';
+				}else{
+					return 'other';
+				}
+			};
 
-    if (get_device() === 'other') {
-        html.addClass('pc_device');
-    }
+	//デバイスを判定しclass付与
+	if (getDevice() === 'other') {
+		html.addClass('pc_device');
+	}
 
-    //ページTOPボタン
-    (function(){
-        $('a[href^="#"]').not('[target="_blank"]').on('click', function() {
-            const
-                speed    = 750,
-                href     = $(this).attr('href'),
-                target   = $(href == '#' || href == '' ? 'html' : href),
-                position = target.offset().top;
+	//ページTOPボタン
+	(function(){
+		$('a[href^="#"]').not('[target="_blank"]').on('click', function() {
+			const   speed    = 750
+					href     = $(this).attr('href'),
+					target   = $(href == '#' || href == '' ? 'html' : href),
+					position = target.offset().top;
 
-            $('html, body').animate({scrollTop: position}, speed, 'swing');
-            return false;
-        });
-    })();
+			$('html, body').animate({scrollTop: position}, speed, 'swing');
+
+			return false;
+		});
+	})();
 });
