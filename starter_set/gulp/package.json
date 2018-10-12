@@ -28,6 +28,7 @@
         "gulp-postcss": "^8.0.0",
         "gulp-sass": "^4.0.1",
         "gulp-sass-lint": "^1.4.0",
+        "gulp-sourcemaps": "^2.6.4",
         "gulp-svgmin": "^2.1.0",
         "gulp-svgstore": "^7.0.0",
         "gulp-uglify-es": "^1.0.4",

@@ -10,6 +10,7 @@ const $       = require('gulp-load-plugins')(config.loadPlugins);
 // SASS
 gulp.task('scss',() => {
   return gulp.src(paths.sass.src)
+    .pipe($.sourcemaps.init())
     .pipe($.sassLint({
       configFile: './lint/.sass-lint.yml'
     }))
@@ -24,6 +25,7 @@ gulp.task('scss',() => {
       require('css-mqpacker')
     ]))
     .pipe($.csso())
+    .pipe($.sourcemaps.write('./maps'))
     .pipe(gulp.dest(paths.sass.dest))
     .pipe($.browserSync.reload({stream: true}));
 });

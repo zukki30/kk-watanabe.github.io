@@ -1,8 +1,10 @@
 @charset "UTF-8";
 
-/*!------------------------------------------------------------
+/*------------------------------------------------------------
 *デフォルトスタイル
-------------------------------------------------------------**/
+*
+*ブラウザの差異をなくすためリセット
+------------------------------------------------------------*/
 html,
 body,
 div,
@@ -100,7 +102,7 @@ select,
 option,
 textarea,
 button {
-	font-family : $ff_all;
+	@include font_base;
 }
 
 article,
@@ -223,24 +225,5 @@ a {
 	&:active,
 	&:hover {
 		outline-width : 0;
-	}
-}
-
-
-// PCへ切り替え
-@media only screen and (min-width : $pc_break_w) {
-	a {
-		text-decoration : none;
-
-		&:hover {
-			text-decoration : underline;
-		}
-	}
-}
-
-// SPへ切り替え
-@media only screen and (max-width : $sp_break_w) {
-	a {
-		text-decoration : none;
 	}
 }

@@ -53,6 +53,7 @@ XAMPPをインストール後は<a href="https://pc-karuma.net/xampp-php-path/" 
 <dd>各linterの設定ファイルを格納。</dd>
 </dl>
 
+### 全体の構成
 root
 ┣gulpfile
 ┃┠task              - gulpの設定ファイルを格納
