@@ -5,71 +5,7 @@
 *
 *ブラウザの差異をなくすためリセット
 ------------------------------------------------------------*/
-html,
-body,
-div,
-span,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-abbr,
-address,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-samp,
-small,
-strong,
-sub,
-sup,
-var,
-b,
-i,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-dialog,
-figure,
-footer,
-header,
-button,
-nav,
-section,
-time,
-mark,
-audio,
-video {
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b,i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, button, nav, section, time, mark, audio, video {
 	margin    : 0;
 	outline   : 0;
 	border    : 0;
@@ -95,35 +31,15 @@ body {
 	text-size-adjust : 100%;
 }
 
-html,
-table,
-input,
-select,
-option,
-textarea,
-button {
+html, table, input, select, option, textarea, button {
 	@include font_base;
 }
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-menu,
-nav,
-section,
-summary {
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
 	display : block;
 }
 
-audio,
-canvas,
-progress,
-video {
+audio, canvas, progress, video {
 	display        : inline-block;
 	vertical-align : baseline;
 }
@@ -135,30 +51,19 @@ audio {
 	}
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
 	font-weight : bold;
 }
 
-table,
-input,
-select,
-option,
-button {
+table, input, select, option, button {
 	line-height : 1.1;
 }
 
-ol,
-ul {
+ol, ul {
 	list-style : none;
 }
 
-blockquote,
-q {
+blockquote, q {
 	quotes : none;
 }
 
@@ -192,16 +97,13 @@ input {
 	}
 }
 
-button,
-select {
+button, select {
 	margin         : 0;
 	cursor         : pointer;
 	text-transform : none;
 }
 
-button,
-input,
-select {
+button, input, select {
 	overflow : visible;
 }
 

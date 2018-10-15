@@ -7,7 +7,7 @@
 	display : block;
 
 	// PCへ切り替え
-	@include media_querys($pc_break_w) {
+	@include media_querys(500px) {
 		display : block;
 	}
 

@@ -25,7 +25,9 @@ a {
 *レイアウト
 ------------------------------------------------------------*/
 body {
-	line-height : 1.5;
+	line-height : $is_base_text_lh;
+	color       : $is_text_color;
+
 	// SPへ切り替え
 	@include media_querys(0, $sp_break_w) {
 		min-width : $min_width;

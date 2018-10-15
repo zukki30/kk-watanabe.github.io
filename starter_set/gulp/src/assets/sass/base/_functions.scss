@@ -106,7 +106,7 @@
 @mixin arrow($size, $bd_width, $color, $rotare) {
 	top          : 50%;
 	transform    : rotate($rotare);
-	margin-top   : -$size/2;
+	margin-top   : -$size / 2;
 	border-top   : $bd_width solid $color;
 	border-right : $bd_width solid $color;
 	width        : $size;

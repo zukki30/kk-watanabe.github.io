@@ -120,6 +120,7 @@ root
 - gulp-postcss
 - gulp-sass
 - gulp-sass-lint
+- gulp-sourcemaps
 
 ### JS関連
 - babel-core
