@@ -1,5 +1,3 @@
-<body>
-
 <div class="l-container">
 	<header class="l-header">
 		<h1>サンプルテキスト</h1>
