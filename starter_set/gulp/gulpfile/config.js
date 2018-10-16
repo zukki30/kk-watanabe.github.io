@@ -54,7 +54,7 @@ const port_num = 8000;
 
 //各モジュールの設定
 const setting = {
-  //PHPを使用する場合は「turu」
+  //PHPを使用する場合は「true」
   php_use     : false,
 
   //ブラウザバージョン管理
