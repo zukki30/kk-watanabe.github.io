@@ -84,12 +84,18 @@ class Units {
 		} else {
 			list($cate, $file) = $script;
 
+			$fisrt_ttl = $meta[$cate][$file]['title'];
+
+			if(isset($article_title) && !empty($article_title)) {
+				$fisrt_ttl = $article_title;
+			}
+
 			//第二回層
 			if($file === 'index') {
-				$text = $meta[$cate][$file]['title'].'｜'.$index_ttl;
+				$text = $fisrt_ttl.'｜'.$index_ttl;
 			} else {
 				//第三階層
-				$text = $meta[$cate][$file]['title'].'｜'.$meta[$cate]['index']['title'].'｜'.$index_ttl;
+				$text = $fisrt_ttl.'｜'.$meta[$cate]['index']['title'].'｜'.$index_ttl;
 			}
 		}
 
@@ -145,7 +151,7 @@ class Units {
 		return $id;
 	}
 
-	/****************************************************************************
+	/**
 	* パンくずを取得、作成
 	* URLを元に取得
 	*
@@ -155,49 +161,55 @@ class Units {
 		$html = '';
 
 		$url          = (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"];
-		$ttl          = $this->title;
+		$meta         = $this->meta_data;
 		$script       = $this->get_script();
 		$count_script = count($script);
 		$pos_num      = 3;
 
-		//countが1の場合
+		//countが1より多い場合
 		if ($count_script > 1) {
-			list($category, $file_name) = $script;
+			list($cate, $file) = $script;
 
-			if ($file_name === 'index') {
+			$fisrt_ttl = $meta[$cate][$file]['title'];
+
+			if ($file === 'index') {
 				$pos_num = 2;
 			}
 
-			$html = '<ol class="l-pagepath" itemscope="" itemtype="http://schema.org/BreadcrumbList" data-aos="fade-up">';
-			$html .= '<li class="l-pagepath__list" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">';
-			$html .= '<a href="'.$url.'/" itemprop="item" class="l-pagepath__anchor"><span itemprop="name" class="l-pagepath__txt">HOME</span></a>&gt;';
+			$html = '<div class="l-breadcrumbs"><ol class="l-breadcrumbs__in" itemscope itemtype="http://schema.org/BreadcrumbList">';
+			$html .= '<li class="l-breadcrumbs__list" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">';
+			$html .= '<a href="'.$url.'/" itemprop="item" class="l-breadcrumbs__anchor"><span itemprop="name" class="l-breadcrumbs__txt">HOME</span></a>';
 			$html .= '<meta itemprop="position" content="'.$pos_num.'"></li>';
 
-			if ($file_name === 'index') {
+			if ($file === 'index') {
 				//第2階層
-				$html .= '<li class="l-pagepath__list" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">';
-				$html .= '<a href="'.$url.'/'.$category.'/" itemprop="item" class="l-pagepath__anchor is-noLink">';
-				$html .= '<span itemprop="name" class="l-pagepath__txt">'.$ttl[$category][$file_name].'</span></a>';
+				$html .= '<li class="l-breadcrumbs__list" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">';
+				$html .= '<a href="'.$this->location.'" itemprop="item" class="l-breadcrumbs__anchor is-notAnc">';
+				$html .= '<span itemprop="name" class="l-breadcrumbs__txt">'.$fisrt_ttl.'</span></a>';
 				$html .= '<meta itemprop="position" content="1"></li>';
 			} else {
 				//第2階層
-				$html .= '<li class="l-pagepath__list" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">';
-				$html .= '<a href="'.$url.'/'.$category.'/" itemprop="item" class="l-pagepath__anchor">';
-				$html .= '<span itemprop="name" class="l-pagepath__txt">'.$ttl[$category]['index'].'</span></a>&gt;';
+				$html .= '<li class="l-breadcrumbs__list" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">';
+				$html .= '<a href="'.$url.'/'.$cate.'/" itemprop="item" class="l-breadcrumbs__anchor">';
+				$html .= '<span itemprop="name" class="l-breadcrumbs__txt">'.$meta[$cate]['index']['title'].'</span></a>';
 				$html .= '<meta itemprop="position" content="2"></li>';
+
+				if(isset($article_title) && !empty($article_title)) {
+					$fisrt_ttl = $article_title;
+				}
 
 				//第3階層
 				if (isset($article_title) && !empty($article_title)) {
-					$ttl[$category][$file_name] = $article_title;
+					$fisrt_ttl = $article_title;
 				}
 
-				$html .= '<li class="l-pagepath__list" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">';
-				$html .= '<a href="'.$url.'/'.$category.'/'.$file_name.'.php" itemprop="item" class="l-pagepath__anchor is-noLink">';
-				$html .= '<span itemprop="name" class="l-pagepath__txt">'.$ttl[$category][$file_name].'</span></a>';
+				$html .= '<li class="l-breadcrumbs__list" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">';
+				$html .= '<a href="'.$this->location.'" itemprop="item" class="l-breadcrumbs__anchor is-notAnc">';
+				$html .= '<span itemprop="name" class="l-breadcrumbs__txt">'.$fisrt_ttl.'</span></a>';
 				$html .= '<meta itemprop="position" content="1"></li>';
 			}
 
-			$html .= '</ol>';
+			$html .= '</ol></div>';
 		}
 
 		echo $html;
