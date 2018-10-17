@@ -7,27 +7,34 @@ const paths   = config.paths;
 const setting = config.setting;
 const $       = require('gulp-load-plugins')(config.loadPlugins);
 
+// Clean
+gulp.task('clean', $.del.bind(null, paths.base.dest));
+
 // Build
 gulp.task('build', () => {
   return $.sequence(
-    ['js', 'scss', 'include', 'json'],
+    ['clean'],
+    ['html', 'js', 'scss', 'include', 'json'],
     ['svg', 'imagemin']
     );
 });
 
 // Watch
 gulp.task('watch', () => {
-  $.connect.server(setting.connectSet(paths.base.dest), () => {
+  if(setting.php_use) {
+    $.connect.server(setting.connectSet(paths.base.dest), () => {
+      $.browserSync.init(setting.browserSyncSet(paths.base.dest, setting.php_use));
+    });
+  } else {
     $.browserSync.init(setting.browserSyncSet(paths.base.dest, setting.php_use));
-  });
+  }
 
   gulp.watch([paths.sass.src], ['scss']);
   gulp.watch([paths.js.src + '**/*.js'], ['js']);
   gulp.watch([paths.include.src], ['include']);
+  gulp.watch([paths.html.src], ['html']);
   gulp.watch([paths.json.src], ['json']);
   gulp.watch([paths.image.src], ['imagemin']);
-
-  gulp.watch([paths.html.dest], {interval : 500}, $.browserSync.reload);
 });
 
 gulp.task('default',['watch']);
