@@ -14,13 +14,10 @@ pakage.jsonの記載されたモジュールがインストールされます。
 
 ### 注意点
 
-#### PHPを使用する場合
-gulpでPHPを使用する場合は特殊な設定が必要になります。
-この開発環境では「<a href="https://www.apachefriends.org/jp/index.html" target="_blank">XAMPP</a>」を使用することを想定しています。
-PHPをインストールし使用するとなると各PCでの設定で差異が出やすいため、差異がでないようにXAMPPを使用します。
-XAMPPをインストール後は<a href="https://pc-karuma.net/xampp-php-path/" target="_blank">環境変数の設定</a>を行います。
-その後はPCを再起動すれば設定完了となります。
-後は、gulpfile/config.jsの設定を調整致します。
+#### PHPを使用する想定
+PHP、主にWordpressを使用する前提のフォルダ校正です。
+そのため不要なファイルを削除したり、残したりしています。
+詳しくは下記「全体の校正」をご確認ください。
 
 #### ※ gulp-cilを使用しない
 通常gulpを使用する場合はgulp-cilをグローバルインストールする必要があります。
@@ -32,7 +29,7 @@ XAMPPをインストール後は<a href="https://pc-karuma.net/xampp-php-path/" 
 
 <dl>
 <dt>npm run build</dt>
-<dd>srcを元にhttpdocsを作成します。<br>すでにhttpdocsがある場合は削除後httpdocsが作成されます。</dd>
+<dd>srcを元にhttpdocsを作成します。</dd>
 
 <dt>npm run start</dt>
 <dd>httpdocsをルートにWebサーバーを立ち上げます。<br>立ち上げた後、srcを編集すると自動で反映されるようになります。</dd>
@@ -47,10 +44,13 @@ XAMPPをインストール後は<a href="https://pc-karuma.net/xampp-php-path/" 
 <dd>開発用のファイルを格納。<br>設定ファイル以外、ここに格納。</dd>
 
 <dt>httpdocs</dt>
-<dd>開発用のファイルをコンパイルしたときに出力先となるフォルダ。<br>Webサーバーによりこのフォルダが表示。</dd>
+<dd>ページを構成するPHPファイルはここに入れておきます。<br>Wordpressデータを入れる想定なためsrcフォルダに入れないようにしました。<br>Webサーバーによりこのフォルダが表示。</dd>
 
 <dt>lint</dt>
 <dd>各linterの設定ファイルを格納。</dd>
+
+<dt>publick</dt>
+<dd>PHP関連の設定ファイルが入っています。</dd>
 </dl>
 
 ### 全体の構成
@@ -60,19 +60,33 @@ root
 ┃┠confing.js        - gulpやwebpackで使用する設定をまとめたファイル
 ┃┗webpack.config.js - webpackの設定ファイル
 ┃
+┣httpdocs
+┃┠company
+┃┃┠detail
+┃┃┃┗index.php    - 第3階層確認のファイル
+┃┃┗index.php     - 第2階層確認のファイル
+┃┗index.php      - TOPページ用のPHPファイル
+┃
 ┣lint
 ┃┠.eslintrc.json - ESlintの設定ファイル
-┃┠.htmlhintrc    - HTMLHintの設定ファイル
 ┃┗.sass-lint.yml - SASSの設定ファイル
+┃
+┣public
+┃┠class
+┃┃┠set.php         - publicのPHPファイルを設定ファイル
+┃┃┗units.php       - 情報やコンテンツの出力用のファイル
+┃┗config
+┃ ┠confing.php     - DB情報などサイト全体のファイル
+┃ ┗seo_confing.php - 各サイトのSEO設定ファイル
 ┃
 ┣src
 ┃┣assets
-┃┃┠img     - jpg|png|gifを格納。
-┃┃┠svg     - svgファイルを格納。コンパイル後は「httpdocs/assets/img」に出力
-┃┃┠sass    - scssファイルを格納。コンパイル後は「httpdocs/assets/css」に出力
-┃┃┠js      - jsファイルを格納。
-┃┃┠json    - jsonファイル。コンパイル後は「httpdocs/assets/js」に出力
-┃┃┗include - includeするファイル
+┃┃┠img  - jpg|png|gifを格納。
+┃┃┠svg  - svgファイルを格納。コンパイル後は「httpdocs/assets/img」に出力
+┃┃┠sass - scssファイルを格納。コンパイル後は「httpdocs/assets/css」に出力
+┃┃┠js   - jsファイルを格納。
+┃┃┠json - jsonファイル。コンパイル後は「httpdocs/assets/js」に出力
+┃┃┗inc  - includeするファイル
 ┃┗index.html|.php
 ┃
 ┣.gitignore
@@ -98,9 +112,6 @@ root
 - gulp-path
 - require-dir
 - run-sequence
-
-### HTML関連
-- gulp-htmlhint
 
 ### 画像関連
 - gulp-imagemin
