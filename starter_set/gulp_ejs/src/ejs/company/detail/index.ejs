@@ -1,7 +1,5 @@
-<?php require_once($_SERVER['DOCUMENT_ROOT'].'/assets/inc/head.php'); ?>
-<?php require_once($_SERVER['DOCUMENT_ROOT'].'/assets/inc/header.php'); ?>
-
-	<?php echo $units->get_page_path(); ?>
+<%- include('../../../assets/inc/_head'); %>
+<%- include('../../../assets/inc/_header'); %>
 
 	<div class="l-main">
 		<main class="l-conts">
@@ -16,7 +14,7 @@
 			</section>
 		</main><!-- /#conts -->
 
-<?php require_once($_SERVER['DOCUMENT_ROOT'].'/assets/inc/subconts.php'); ?>
+<%- include('../../../assets/inc/_subconts'); %>
 	</div><!-- /#main -->
 
-<?php require_once($_SERVER['DOCUMENT_ROOT'].'/assets/inc/footer.php'); ?>
+<%- include('../../../assets/inc/_footer'); %>

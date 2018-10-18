@@ -44,43 +44,22 @@ const path_setting = {
     src : assets.src + 'svg/*.svg'
   },
   html : {
-    dest : base.dest + '/**/*.+(html|php)'
+    src  : [
+      base.src + '/ejs/**/*.ejs',
+      '!' + base.src +  + '/ejs/**/_*.ejs' ,
+    ],
+    dest : base.dest,
   },
 };
 
-//PHPを使用する場合使用。
-//PORT：8000が使用されている場合任意の番号に変更
-const port_num = 8000;
-
 //各モジュールの設定
 const setting = {
-  //PHPを使用する場合は「true」
-  php_use     : true,
+  //metaデータ
+  meta_data   : './gulpfile/meta_data.json',
 
   //ブラウザバージョン管理
   autoprefixer: {
       browser: ['last 2 versions']
-  },
-
-  //PHPを使用する場合使用。
-  connectSet : (path) => {
-    let set = {
-      port : port_num,
-      base : path
-    };
-
-    return set;
-  },
-
-  //「browser-sync」の設定。
-  //PHPを使用するかによって分岐
-  browserSyncSet : (path, use) => {
-    let set = {
-      baseDir : path,
-      proxy   : 'localhost:' + port_num
-    };
-
-    return set;
   },
 
   //SVGの設定

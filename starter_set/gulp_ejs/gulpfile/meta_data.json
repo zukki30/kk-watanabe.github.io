@@ -1,0 +1,19 @@
+{
+  "default": {
+    "title": "default title",
+    "description": "default description",
+    "canonical": "http://example.com/"
+  },
+
+  "home": {
+    "title": "document",
+    "description": "home description",
+    "canonical": "http://example.com/"
+  },
+
+  "page": {
+    "title": "page - document",
+    "description": "page description",
+    "canonical": "http://example.com/page/"
+  }
+}
