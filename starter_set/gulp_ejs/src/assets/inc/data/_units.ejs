@@ -1,4 +1,51 @@
 <%
-	var test = 'test';
-	console.log(test);
+////////////////////////////////
+//グローバル変数・定数・関数の設定
+////////////////////////////////
+
+//プロジェクト管理
+siteName  = 'site名';
+siteUrl   = 'http://dummy.com';
+siteEmail = 'no-reply@dummy.com';
+
+//SNS管理
+ogImg    = siteUrl + '/assets/common/dummy.png';
+ogLocale = 'ja_JP';
+
+twiiterCard   = 'summary';
+twiiterDomein = 'Twitterユーザー名';
+twitterSite   = '@' + twiiterDomein;
+
+//ファイルのmeta情報を取得
+getFileMeta = function(path) {
+	let lastpPath = meta_data;
+
+	for (let i = 0; i < path.length; i++) {
+		const name = path[i];
+
+		lastpPath = lastpPath[name];
+	}
+
+	return lastpPath;
+};
+
+//パンくずリスト作成
+getBreadcrumbs = function(path) {
+	const baseClassName = 'l-breadcrumbs';
+
+	//枠作成
+	let breadcrumb = document.createElement('div'),
+		inner      = document.createElement('ol');
+
+	//classや属性の追加
+	breadcrumb.classList.add(baseClassName);
+	inner.classList.add(baseClassName + '__in');
+	inner.setAttribute('itemscope', 'itemscope');
+	inner.setAttribute('itemtype', 'http://schema.org/BreadcrumbList');
+
+	//追加
+	breadcrumb.appendChild(inner);
+
+	return breadcrumb;
+};
 %>

@@ -1,19 +1,26 @@
 {
-  "default": {
-    "title": "default title",
-    "description": "default description",
-    "canonical": "http://example.com/"
+  "index" : {
+    "title"       : "test",
+    "description" : "test",
+    "keywords"    : "",
+    "body_id"     : "index"
   },
 
-  "home": {
-    "title": "document",
-    "description": "home description",
-    "canonical": "http://example.com/"
-  },
+  "company" : {
+    "index"  : {
+      "title"       : "test1 | test",
+      "description" : "test1",
+      "keywords"    : "",
+      "body_id"     : "company_index"
+    },
 
-  "page": {
-    "title": "page - document",
-    "description": "page description",
-    "canonical": "http://example.com/page/"
+    "detail" : {
+      "index"  : {
+        "title"       : "test1_1 | test1 | test",
+        "description" : "test1_1",
+        "keywords"    : "",
+        "body_id"     : "company_detial"
+      }
+    }
   }
 }

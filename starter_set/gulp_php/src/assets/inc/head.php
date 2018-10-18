@@ -30,7 +30,7 @@
 <meta name="twitter:site" content="<?php echo __TWITTER_SITE__; ?>">
 <meta name="twitter:domain" content="<?php echo __TWITTER_DOMEIN__; ?>">
 
-<link rel="canonical" href="">
+<link rel="canonical" href="<?php echo $units->location; ?>">
 
 <link href="/assets/img/favicon.ico" rel="icon">
 <link href="/assets/img/webclip.png" rel="apple-touch-icon-precomposed">

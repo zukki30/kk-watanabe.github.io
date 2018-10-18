@@ -1,5 +1,7 @@
-<%- include('../../assets/inc/_head'); %>
-<%- include('../../assets/inc/_header'); %>
+<%- include(folderpath + '/assets/inc/_head'); %>
+<%- include(folderpath + '/assets/inc/_header'); %>
+<% var breadcrumb = getBreadcrumbs(filename); %>
+<%= breadcrumb; %>
 
 	<div class="l-main">
 		<main class="l-conts">
@@ -14,7 +16,7 @@
 			</section>
 		</main><!-- /#conts -->
 
-<%- include('../../assets/inc/_subconts'); %>
+<%- include(folderpath + '/assets/inc/_subconts'); %>
 	</div><!-- /#main -->
 
-<%- include('../../assets/inc/_footer'); %>
+<%- include(folderpath + '/assets/inc/_footer'); %>
