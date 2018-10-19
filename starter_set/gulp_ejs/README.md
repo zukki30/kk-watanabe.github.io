@@ -14,10 +14,9 @@ pakage.jsonの記載されたモジュールがインストールされます。
 
 ### 注意点
 
-#### PHPを使用する想定
-PHP、主にWordpressを使用する前提のフォルダ校正です。
-そのため不要なファイルを削除したり、残したりしています。
-詳しくは下記「全体の校正」をご確認ください。
+#### HTML専用
+EJSを使用したこの環境は、PHPの動作を想定していません。
+PHPを使用する場合は、PHP専用の環境を使用して下さい。
 
 #### ※ gulp-cilを使用しない
 通常gulpを使用する場合はgulp-cilをグローバルインストールする必要があります。
@@ -81,12 +80,13 @@ root
 ┃
 ┣src
 ┃┣assets
-┃┃┠img  - jpg|png|gifを格納。
-┃┃┠svg  - svgファイルを格納。コンパイル後は「httpdocs/assets/img」に出力
-┃┃┠sass - scssファイルを格納。コンパイル後は「httpdocs/assets/css」に出力
-┃┃┠js   - jsファイルを格納。
-┃┃┠json - jsonファイル。コンパイル後は「httpdocs/assets/js」に出力
-┃┃┗inc  - includeするファイル
+┃┃┠img   - jpg|png|gifを格納。
+┃┃┠svg   - svgファイルを格納。コンパイル後は「httpdocs/assets/img」に出力
+┃┃┠sass  - scssファイルを格納。コンパイル後は「httpdocs/assets/css」に出力
+┃┃┠js    - jsファイルを格納。
+┃┃┠inc   - includeするファイル
+┃┃┃┗data - ejsで使用する全体管理のファイル
+┃┃┗json  - jsonファイル。コンパイル後は「httpdocs/assets/js」に出力
 ┃┗index.html|.php
 ┃
 ┣.gitignore
@@ -112,6 +112,11 @@ root
 - gulp-path
 - require-dir
 - run-sequence
+
+### HTML関連
+- gulp-data
+- gulp-ejs
+- gulp-htmlhint
 
 ### 画像関連
 - gulp-imagemin
