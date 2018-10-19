@@ -14,19 +14,19 @@ gulp.task('clean', $.del.bind(null, paths.base.dest));
 gulp.task('build', () => {
   return $.sequence(
     ['clean'],
-    ['html', 'js', 'scss', 'include', 'json'],
+    ['html', 'js', 'scss', 'json'],
     ['svg', 'imagemin', 'htmlhint']
     );
 });
 
 // Watch
 gulp.task('watch', () => {
-  $.browserSync.init(setting.browserSyncSet(paths.base.dest, setting.php_use));
+  $.browserSync.init({server : {baseDir : paths.base.dest}});
 
   gulp.watch([paths.sass.src], ['scss']);
   gulp.watch([paths.js.src + '**/*.js'], ['js']);
-  gulp.watch([paths.include.src], ['include']);
   gulp.watch([paths.html.src], ['html', 'htmlhint']);
+  gulp.watch([paths.include.src], ['include']);
   gulp.watch([paths.json.src], ['json']);
   gulp.watch([paths.image.src], ['imagemin']);
 });

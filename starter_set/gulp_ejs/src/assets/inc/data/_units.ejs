@@ -18,7 +18,7 @@ twitterSite   = '@' + twiiterDomein;
 
 //ファイルのmeta情報を取得
 getFileMeta = function(path) {
-	let lastpPath = meta_data;
+	let lastpPath = meta;
 
 	for (let i = 0; i < path.length; i++) {
 		const name = path[i];
@@ -27,25 +27,5 @@ getFileMeta = function(path) {
 	}
 
 	return lastpPath;
-};
-
-//パンくずリスト作成
-getBreadcrumbs = function(path) {
-	const baseClassName = 'l-breadcrumbs';
-
-	//枠作成
-	let breadcrumb = document.createElement('div'),
-		inner      = document.createElement('ol');
-
-	//classや属性の追加
-	breadcrumb.classList.add(baseClassName);
-	inner.classList.add(baseClassName + '__in');
-	inner.setAttribute('itemscope', 'itemscope');
-	inner.setAttribute('itemtype', 'http://schema.org/BreadcrumbList');
-
-	//追加
-	breadcrumb.appendChild(inner);
-
-	return breadcrumb;
 };
 %>

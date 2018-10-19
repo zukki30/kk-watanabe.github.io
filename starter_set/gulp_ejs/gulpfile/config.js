@@ -1,6 +1,7 @@
 /**********************************
  環境変数
 **********************************/
+const fs        = require( 'fs' );
 const path_data = require('path');
 
 //baseディレクトリの指定
@@ -34,8 +35,7 @@ const path_setting = {
     dest : assets.dest + 'img/',
   },
   include : {
-    src  : [assets.src + 'inc/**/*'],
-    dest : assets.dest + 'inc/',
+    src  : assets.src + 'inc/**/**.ejs',
   },
   json : {
     src : assets.src + 'json/*.json'
@@ -46,16 +46,17 @@ const path_setting = {
   html : {
     src  : [
       base.src + '/ejs/**/*.ejs',
-      '!' + base.src +  + '/ejs/**/_*.ejs' ,
+      '!' + assets.src + 'inc/**/_*.ejs' ,
     ],
     dest : base.dest,
   },
+  meta_data : './gulpfile/meta_data.json'
 };
 
 //各モジュールの設定
 const setting = {
   //metaデータ
-  meta_data   : './gulpfile/meta_data.json',
+  meta : JSON.parse(fs.readFileSync(path_setting.meta_data)),
 
   //ブラウザバージョン管理
   autoprefixer: {
@@ -133,6 +134,39 @@ const setting = {
 
       return plugin;
     }
+  },
+
+  //ejsの設定
+  ejs     : {
+    space : true,
+    ext   : '.html'
+  },
+
+  //フォルダのパスを取得し整形
+  getSiteData   : (file) => {
+    const allPath   = file.path.split('\\').join('/');
+    const allPaths  = allPath.split('/ejs/');
+    const path_data = allPaths[1].replace('.ejs', '').split('/');
+    const path_url  = allPaths[1].replace('.ejs', '.html');
+
+    return {
+      'fileUrl'    : '/' + path_url,
+      'fileName'   : path_data,
+      'folderPath' : setting.getFolderPass(path_data)
+    }
+  },
+
+  // 「 ../ 」をdataの数で出力する
+  getFolderPass : (data) => {
+    const pathTxt = '../';
+
+    let addPath = '';
+
+    for (var i = 0; i < data.length; i++) {
+      addPath = addPath + pathTxt;
+    }
+
+    return addPath;
   }
 };
 

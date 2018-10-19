@@ -1,6 +1,7 @@
 {
   "index" : {
     "title"       : "test",
+    "breadcrumb"  : "HOME",
     "description" : "test",
     "keywords"    : "",
     "body_id"     : "index"
@@ -9,6 +10,7 @@
   "company" : {
     "index"  : {
       "title"       : "test1 | test",
+      "breadcrumb"  : "TEST1",
       "description" : "test1",
       "keywords"    : "",
       "body_id"     : "company_index"
@@ -17,6 +19,7 @@
     "detail" : {
       "index"  : {
         "title"       : "test1_1 | test1 | test",
+        "breadcrumb"  : "TEST1_1",
         "description" : "test1_1",
         "keywords"    : "",
         "body_id"     : "company_detial"
