@@ -1,6 +1,7 @@
 /**********************************
  環境変数
 **********************************/
+const fs        = require( 'fs' );
 const path_data = require('path');
 
 //baseディレクトリの指定
@@ -34,8 +35,7 @@ const path_setting = {
     dest : assets.dest + 'img/',
   },
   include : {
-    src  : [assets.src + 'inc/**/*'],
-    dest : assets.dest + 'inc/',
+    src  : assets.src + 'inc/**/**.ejs',
   },
   json : {
     src : assets.src + 'json/*.json'
@@ -44,53 +44,23 @@ const path_setting = {
     src : assets.src + 'svg/*.svg'
   },
   html : {
-    src : ['src/**/*.+(html|php)', '!src/assets/**/*']
+    src  : [
+      base.src + '/ejs/**/*.ejs',
+      '!' + assets.src + 'inc/**/_*.ejs' ,
+    ],
+    dest : base.dest,
   },
+  meta_data : './gulpfile/meta_data.json'
 };
-
-//PHPを使用する場合使用。
-//PORT：8000が使用されている場合任意の番号に変更
-const port_num = 8000;
 
 //各モジュールの設定
 const setting = {
-  //PHPを使用する場合は「true」
-  php_use     : false,
+  //metaデータ
+  meta : JSON.parse(fs.readFileSync(path_setting.meta_data)),
 
   //ブラウザバージョン管理
   autoprefixer: {
       browser: ['last 2 versions']
-  },
-
-  //PHPを使用する場合使用。
-  connectSet : (path) => {
-    let set = {
-      port : port_num,
-      base : path
-    };
-
-    return set;
-  },
-
-  //「browser-sync」の設定。
-  //PHPを使用するかによって分岐
-  browserSyncSet : (path, use) => {
-    let set;
-
-    if(use) {
-      set = {
-        baseDir : path,
-        proxy   : 'localhost:' + port_num
-      };
-    } else {
-      set = {
-        server : {
-          baseDir : path
-        }
-      };
-    }
-
-    return set;
   },
 
   //SVGの設定
@@ -164,6 +134,39 @@ const setting = {
 
       return plugin;
     }
+  },
+
+  //ejsの設定
+  ejs     : {
+    space : true,
+    ext   : '.html'
+  },
+
+  //フォルダのパスを取得し整形
+  getSiteData   : (file) => {
+    const allPath   = file.path.split('\\').join('/');
+    const allPaths  = allPath.split('/ejs/');
+    const path_data = allPaths[1].replace('.ejs', '').split('/');
+    const path_url  = allPaths[1].replace('.ejs', '.html');
+
+    return {
+      'fileUrl'    : '/' + path_url,
+      'fileName'   : path_data,
+      'folderPath' : setting.getFolderPass(path_data)
+    }
+  },
+
+  // 「 ../ 」をdataの数で出力する
+  getFolderPass : (data) => {
+    const pathTxt = '../';
+
+    let addPath = '';
+
+    for (var i = 0; i < data.length; i++) {
+      addPath = addPath + pathTxt;
+    }
+
+    return addPath;
   }
 };
 

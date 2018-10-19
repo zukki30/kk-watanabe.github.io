@@ -44,7 +44,7 @@ const path_setting = {
     src : assets.src + 'svg/*.svg'
   },
   html : {
-    src : ['src/**/*.+(html|php)', '!src/assets/**/*']
+    dest : base.dest + '/**/*.+(html|php)'
   },
 };
 
@@ -55,7 +55,7 @@ const port_num = 8000;
 //各モジュールの設定
 const setting = {
   //PHPを使用する場合は「true」
-  php_use     : false,
+  php_use     : true,
 
   //ブラウザバージョン管理
   autoprefixer: {
@@ -75,20 +75,10 @@ const setting = {
   //「browser-sync」の設定。
   //PHPを使用するかによって分岐
   browserSyncSet : (path, use) => {
-    let set;
-
-    if(use) {
-      set = {
-        baseDir : path,
-        proxy   : 'localhost:' + port_num
-      };
-    } else {
-      set = {
-        server : {
-          baseDir : path
-        }
-      };
-    }
+    let set = {
+      baseDir : path,
+      proxy   : 'localhost:' + port_num
+    };
 
     return set;
   },
