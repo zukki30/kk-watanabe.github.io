@@ -26,9 +26,15 @@
 <meta property="og:image" content="<?php echo __OG_IMG__; ?>">
 <meta property="og:locale" content="<?php echo __OG_LOCALE__; ?>">
 
+<meta property="article:published_time" content="公開日">
+<meta property="article:modified_time" content="更新日">
+
 <meta name="twitter:card" content="<?php echo __TWITTER_CARD__; ?>">
 <meta name="twitter:site" content="<?php echo __TWITTER_SITE__; ?>">
 <meta name="twitter:domain" content="<?php echo __TWITTER_DOMEIN__; ?>">
+<meta name="twitter:title" content="<?php echo $units->get_meta_title(); ?>">
+<meta name="twitter:description" content="<?php echo $units->get_meta_description(); ?>">
+<meta name="twitter:image" content="<?php echo __OG_IMG__; ?>">
 
 <link rel="canonical" href="<?php echo $units->location; ?>">
 
