@@ -11,11 +11,11 @@ const
       return 'other';
     }
   },
-  ankerClickPageMove = function() {
+  ankerClickPageMove = () => {
     //定数
     const anker    = document.querySelectorAll('a[href^="#"]:not([target="_blank"])'),
           ankerNum = anker.length,
-          max      = 100,
+          max      = 50,
           interval = 10;
 
     //アニメーション
@@ -41,24 +41,20 @@ const
           action   = null;
 
       //定数
-      const start    = window.pageYOffset,     //スタート位置
-            pos      = getTargetTop(elm), //最終位置
-            diff     = pos - start,
-            upOrDown = diff <= 0,
-            move     = function() {
+      const start = window.pageYOffset,     //スタート位置
+            move  = function() {
+              let pos      = getTargetTop(elm), //最終位置
+                  diff     = pos - start,
+                  upOrDown = diff <= 0;
+
               progress++;
               goal = start + (diff * easeOut(progress / max));
 
               window.scrollTo(0, goal);
 
-              // 目的位置より進んでいなければ続行
-              if (
-                (upOrDown && pos < goal) ||
-                 (!upOrDown && goal < pos)
-              ) {
-                action = setTimeout(move, interval);
-              } else {
-                clearTimeout(action);
+              // 目的位置に到達したらSTOP
+              if ((upOrDown && pos >= goal) || (!upOrDown && goal >= pos)) {
+                clearInterval(action);
 
                 progress = null;
                 goal     = null;
@@ -66,7 +62,7 @@ const
               }
             };
 
-      action = setTimeout(move, interval);
+      action = setInterval(move, interval);
     };
 
     //クリックイベントをセットする
