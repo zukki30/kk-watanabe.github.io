@@ -11,58 +11,80 @@ const
       return 'other';
     }
   },
-  ankerClickPageMove = function(H) {
-    const
-      interval = 10,                //スクロール処理を繰り返す間隔
-      divisor  = 8,                 //近づく割合（数値が大きいほどゆっくり近く）
-      range    = (divisor / 2) + 1, //どこまで近づけば処理を終了するか(無限ループにならないように divisor から算出)
-      links    = document.querySelectorAll('a[href^="#"]:not([target="_blank"])');
+  ankerClickPageMove = function() {
+    //定数
+    const anker    = document.querySelectorAll('a[href^="#"]:not([target="_blank"])'),
+          ankerNum = anker.length,
+          max      = 100,
+          interval = 10;
 
-    for (let i = 0; i < links.length; i++) {
-      links[i].addEventListener('click', function (e) {
-        e.preventDefault();
+    //アニメーション
+    function easeOut(p) {
+      return p * (2 - p);
+    };
 
-        let
-          toY,
-          nowY = window.pageYOffset; //現在のスクロール値
+    //位置取得
+    function getTargetTop(elm) {
+      const href   = elm.getAttribute('href'),
+            target = document.querySelector(href),
+            info   = target.getBoundingClientRect(),
+            posY   = info.top + window.pageYOffset;
 
-        const
-          href       = e.target.getAttribute('href'),  //href取得
-          target     = document.querySelector(href),   //リンク先の要素（ターゲット）取得
-          targetRect = target.getBoundingClientRect(), //ターゲットの座標取得
-          targetY    = targetRect.top + nowY - H,      //現在のスクロール値 & ヘッダーの高さを踏まえた座標
-          clientH    = document.body.clientHeight;     //高さ取得
+      return posY;
+    };
 
-        //スクロール終了まで繰り返す処理
-        (function doScroll() {
-          //次に移動する場所（近く割合は除数による。）
-          toY = nowY + Math.round((targetY - nowY) / divisor);
+    //位置情報へ移動
+    function setTargetMove(elm) {
+      //変数
+      let progress = 0,
+          goal     = 0,
+          action   = null;
 
-          //スクロールさせる
-          window.scrollTo(0, toY);
+      //定数
+      const start    = window.pageYOffset,     //スタート位置
+            pos      = getTargetTop(elm), //最終位置
+            diff     = pos - start,
+            upOrDown = diff <= 0,
+            move     = function() {
+              progress++;
+              goal = start + (diff * easeOut(progress / max));
 
-          //nowY更新
-          nowY = toY;
+              window.scrollTo(0, goal);
 
-          if (clientH - window.innerHeight < toY) {
-            //最下部にスクロールしても対象まで届かない場合は下限までスクロールして強制終了
-            window.scrollTo(0, clientH);
-            return;
-          }
+              // 目的位置より進んでいなければ続行
+              if (
+                (upOrDown && pos < goal) ||
+                 (!upOrDown && goal < pos)
+              ) {
+                action = setTimeout(move, interval);
+              } else {
+                clearTimeout(action);
 
-          if (toY >= targetY + range || toY <= targetY - range) {
-            //+-rangeの範囲内へ近くまで繰り返す
-            window.setTimeout(doScroll, interval);
-          } else {
-            //+-range の範囲内にくれば正確な値へ移動して終了。
-            window.scrollTo(0, targetY);
-          }
-        })();
-      });
-    }
+                progress = null;
+                goal     = null;
+                action   = null;
+              }
+            };
+
+      action = setTimeout(move, interval);
+    };
+
+    //クリックイベントをセットする
+    function setClickEvent() {
+      for(let i = 0; i < ankerNum; i++) {
+        const _self = anker[i];
+
+        _self.addEventListener('click', function(e) {
+          e.preventDefault();
+          setTargetMove(this);
+        });
+      }
+    };
+
+    setClickEvent();
   };
 
-$(function(){
+window.onload = () => {
   //共通変数
   const html = document.querySelectorAll('html')[0];
 
@@ -74,8 +96,5 @@ $(function(){
   }
 
   //ページTOPボタン
-  (function(){
-    const head = 0;
-    ankerClickPageMove(head);
-  })();
-});
+  ankerClickPageMove();
+};

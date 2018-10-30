@@ -7,7 +7,7 @@ const path_data = require('path');
 //baseディレクトリの指定
 const base = {
   src  : 'src',
-  dest : 'httpdocs',
+  dest : 'docs',
 };
 
 //assetsディレクトリの指定

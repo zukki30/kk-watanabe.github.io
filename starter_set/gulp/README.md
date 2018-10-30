@@ -32,10 +32,10 @@ XAMPPをインストール後は<a href="https://pc-karuma.net/xampp-php-path/" 
 
 <dl>
 <dt>npm run build</dt>
-<dd>srcを元にhttpdocsを作成します。<br>すでにhttpdocsがある場合は削除後httpdocsが作成されます。</dd>
+<dd>srcを元にdocsを作成します。<br>すでにdocsがある場合は削除後docsが作成されます。</dd>
 
 <dt>npm run start</dt>
-<dd>httpdocsをルートにWebサーバーを立ち上げます。<br>立ち上げた後、srcを編集すると自動で反映されるようになります。</dd>
+<dd>docsをルートにWebサーバーを立ち上げます。<br>立ち上げた後、srcを編集すると自動で反映されるようになります。</dd>
 </dl>
 
 ## ディレクトリルール
@@ -46,7 +46,7 @@ XAMPPをインストール後は<a href="https://pc-karuma.net/xampp-php-path/" 
 <dt>src</dt>
 <dd>開発用のファイルを格納。<br>設定ファイル以外、ここに格納。</dd>
 
-<dt>httpdocs</dt>
+<dt>docs</dt>
 <dd>開発用のファイルをコンパイルしたときに出力先となるフォルダ。<br>Webサーバーによりこのフォルダが表示。</dd>
 
 <dt>lint</dt>
@@ -68,10 +68,10 @@ root
 ┣src
 ┃┣assets
 ┃┃┠img     - jpg|png|gifを格納。
-┃┃┠svg     - svgファイルを格納。コンパイル後は「httpdocs/assets/img」に出力
-┃┃┠sass    - scssファイルを格納。コンパイル後は「httpdocs/assets/css」に出力
+┃┃┠svg     - svgファイルを格納。コンパイル後は「docs/assets/img」に出力
+┃┃┠sass    - scssファイルを格納。コンパイル後は「docs/assets/css」に出力
 ┃┃┠js      - jsファイルを格納。
-┃┃┠json    - jsonファイル。コンパイル後は「httpdocs/assets/js」に出力
+┃┃┠json    - jsonファイル。コンパイル後は「docs/assets/js」に出力
 ┃┃┗include - includeするファイル
 ┃┗index.html|.php
 ┃

@@ -28,10 +28,10 @@ PHPを使用する場合は、PHP専用の環境を使用して下さい。
 
 <dl>
 <dt>npm run build</dt>
-<dd>srcを元にhttpdocsを作成します。</dd>
+<dd>srcを元にdocsを作成します。</dd>
 
 <dt>npm run start</dt>
-<dd>httpdocsをルートにWebサーバーを立ち上げます。<br>立ち上げた後、srcを編集すると自動で反映されるようになります。</dd>
+<dd>docsをルートにWebサーバーを立ち上げます。<br>立ち上げた後、srcを編集すると自動で反映されるようになります。</dd>
 </dl>
 
 ## ディレクトリルール
@@ -42,7 +42,7 @@ PHPを使用する場合は、PHP専用の環境を使用して下さい。
 <dt>src</dt>
 <dd>開発用のファイルを格納。<br>設定ファイル以外、ここに格納。</dd>
 
-<dt>httpdocs</dt>
+<dt>docs</dt>
 <dd>ページを構成するPHPファイルはここに入れておきます。<br>Wordpressデータを入れる想定なためsrcフォルダに入れないようにしました。<br>Webサーバーによりこのフォルダが表示。</dd>
 
 <dt>lint</dt>
@@ -59,7 +59,7 @@ root
 ┃┠confing.js        - gulpやwebpackで使用する設定をまとめたファイル
 ┃┗webpack.config.js - webpackの設定ファイル
 ┃
-┣httpdocs
+┣docs
 ┃┠company
 ┃┃┠detail
 ┃┃┃┗index.php    - 第3階層確認のファイル
@@ -81,12 +81,12 @@ root
 ┣src
 ┃┣assets
 ┃┃┠img   - jpg|png|gifを格納。
-┃┃┠svg   - svgファイルを格納。コンパイル後は「httpdocs/assets/img」に出力
-┃┃┠sass  - scssファイルを格納。コンパイル後は「httpdocs/assets/css」に出力
+┃┃┠svg   - svgファイルを格納。コンパイル後は「docs/assets/img」に出力
+┃┃┠sass  - scssファイルを格納。コンパイル後は「docs/assets/css」に出力
 ┃┃┠js    - jsファイルを格納。
 ┃┃┠inc   - includeするファイル
 ┃┃┃┗data - ejsで使用する全体管理のファイル
-┃┃┗json  - jsonファイル。コンパイル後は「httpdocs/assets/js」に出力
+┃┃┗json  - jsonファイル。コンパイル後は「docs/assets/js」に出力
 ┃┗index.html|.php
 ┃
 ┣.gitignore
