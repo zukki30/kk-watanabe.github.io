@@ -26,9 +26,14 @@ const
     //位置取得
     function getTargetTop(elm) {
       const href   = elm.getAttribute('href'),
-            target = document.querySelector(href),
-            info   = target.getBoundingClientRect(),
-            posY   = info.top + window.pageYOffset;
+            target = document.querySelector(href);
+
+      if(target === null) {
+        return null;
+      }
+
+      info = target.getBoundingClientRect(),
+      posY = info.top + window.pageYOffset;
 
       return posY;
     };
