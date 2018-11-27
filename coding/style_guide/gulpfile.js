@@ -6,7 +6,7 @@ var del = require('del');
 
 var setting = {
   autoprefixer: {
-      browser: ['last 2 version', 'Explorer >= 8', 'Android >= 4', 'Android 2.3']
+      browser: ['last 2 versions']
   },
   browserSync: {
     // 使わない方はコメントアウトする
@@ -24,43 +24,22 @@ var setting = {
     css: false,
     js: false
   },
-  cssbeautify: {
-    disabled: true,
-    options: {
-      indent: ''
-    }
-  },
-  csscomb: {
-    disabled: true,
-  },
   path: {
     base: {
       src: 'src',
       dest: 'www'
     },
     sass: {
-      src: 'src/sass/**/*.scss',
-      dest: 'www/css/',
+      src: 'src/assets/sass/**/*.scss',
+      dest: 'www/assets/css/',
     },
     js: {
-      src: 'src/js/**/*.js',
-      dest: 'www/js/',
+      src: 'src/assets/js/**/*.js',
+      dest: 'www/assets/js/',
     },
     image: {
-      src: 'src/img/**/*',
-      dest: 'www/img/',
-    },
-    lib: {
-      src: 'src/lib/**/*',
-      dest: 'www/lib/',
-    },
-    include: {
-      src: ['src/include/**/*'],
-      dest: 'www/include/',
-    },
-    etc: {
-      src: 'src/etc/**/*',
-      dest: 'www/etc/',
+      src: 'src/assets/img/**/*',
+      dest: 'www/assets/img/',
     },
     html: {
       src: ['src/**/*', '!src/assets/**/*']
@@ -102,8 +81,14 @@ gulp.task('scss',function(){
     .pipe($.plumber({
       errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
     }))
-    .pipe($.sass({outputStyle: 'expanded'}))
-    .pipe($.autoprefixer(setting.autoprefixer.browser))
+    .pipe($.sourcemaps.init())
+    .pipe($.sass({outputStyle: 'compressed'}))
+    .pipe($.postcss([
+      require('autoprefixer')({browsers: setting.autoprefixer.browser}),
+      require('css-mqpacker')
+    ]))
+    .pipe($.csso())
+    .pipe($.sourcemaps.write('./maps'))
     .pipe(gulp.dest(setting.path.sass.dest))
     .pipe(browserSync.reload({stream: true}));
 });
@@ -135,45 +120,6 @@ gulp.task('js', function(){
     .pipe(browserSync.reload({stream: true}));
 });
 
-// Lib
-gulp.task('lib', function(){
-  return gulp.src(
-      setting.path.lib.src
-    )
-    .pipe($.plumber({
-      errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
-    }))
-    .pipe($.changed(setting.path.lib.dest))
-    .pipe(gulp.dest(setting.path.lib.dest))
-    .pipe(browserSync.reload({stream: true}));
-});
-
-// Include
-gulp.task('include', function(){
-  return gulp.src(
-      setting.path.include.src
-    )
-    .pipe($.plumber({
-      errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
-    }))
-    .pipe($.changed(setting.path.include.dest))
-    .pipe(gulp.dest(setting.path.include.dest))
-    .pipe(browserSync.reload({stream: true}));
-});
-
-// Etc
-gulp.task('etc', function(){
-  return gulp.src(
-      setting.path.etc.src
-    )
-    .pipe($.plumber({
-      errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
-    }))
-    .pipe($.changed(setting.path.etc.dest))
-    .pipe(gulp.dest(setting.path.etc.dest))
-    .pipe(browserSync.reload({stream: true}));
-});
-
 // JS Minify
 gulp.task('jsminify', function(){
   if(setting.minify.js){
@@ -186,42 +132,6 @@ gulp.task('jsminify', function(){
   }
 });
 
-// CSS Minify
-gulp.task('cssminify', function(){
-  if(setting.minify.css){
-    return gulp.src(setting.path.sass.dest+'**/*.css')
-      .pipe($.plumber({
-        errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
-      }))
-      .pipe($.csso())
-      .pipe(gulp.dest(setting.path.sass.dest));
-  }
-});
-
-// CSS Beautify
-gulp.task('cssbeautify', function(){
-  if(!setting.cssbeautify.disabled && !setting.minify.css){
-    return gulp.src(setting.path.sass.dest+'**/*.css')
-      .pipe($.plumber({
-        errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
-      }))
-      .pipe($.cssbeautify(setting.cssbeautify.options))
-      .pipe(gulp.dest(setting.path.sass.dest));
-  }
-});
-
-// CSS Comb
-gulp.task('csscomb', function(){
-  if(!setting.csscomb.disabled && !setting.minify.css){
-    return gulp.src(setting.path.sass.dest+'**/*.css')
-      .pipe($.plumber({
-        errorHandler: $.notify.onError("Error: <%= error.message %>") //<-
-      }))
-      .pipe($.csscomb())
-      .pipe(gulp.dest(setting.path.sass.dest));
-  }
-});
-
 // Clean
 gulp.task('clean', del.bind(null, setting.path.base.dest));
 
@@ -229,9 +139,8 @@ gulp.task('clean', del.bind(null, setting.path.base.dest));
 gulp.task('build', function(){
   return runSequence(
     ['clean'],
-    ['html', 'js', 'scss', 'lib', 'include', 'etc'],
-    ['csscomb'],
-    ['imagemin', 'cssminify', 'jsminify', 'cssbeautify']
+    ['html', 'js', 'scss'],
+    ['imagemin', 'jsminify']
     );
 });
 
@@ -239,13 +148,10 @@ gulp.task('build', function(){
 gulp.task('watch', function(){
   browserSync.init(setting.browserSync);
 
-  gulp.watch([setting.path.sass.src], ['scss']);
-  gulp.watch([setting.path.js.src], ['js']);
-  gulp.watch([setting.path.lib.src], ['lib']);
-  gulp.watch([setting.path.include.src], ['include']);
-  gulp.watch([setting.path.etc.src], ['etc']);
-  gulp.watch([setting.path.html.src], ['html']);
-  gulp.watch([setting.path.image.src], ['imagemin']);
+  gulp.watch([setting.path.sass.src], {interval: 500},['scss']);
+  gulp.watch([setting.path.js.src], {interval: 500},['js']);
+  gulp.watch([setting.path.html.src], {interval: 500},['html']);
+  gulp.watch([setting.path.image.src], {interval: 500},['imagemin']);
 });
 
 gulp.task('default',['watch']);
