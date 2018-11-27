@@ -94,20 +94,19 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style lang="sass" scoped>
+[v-cloak]
+  display: none
+
+#form
+  margin-right: auto
+  margin-left: auto
+  padding: 30px
+  max-width: 800px
+  text-align: left
+  .error
+    margin-top: 10px
+    color: red
+  div
+    margin-top: 50px
 </style>
