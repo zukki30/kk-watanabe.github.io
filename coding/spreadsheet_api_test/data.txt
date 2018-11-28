@@ -1,0 +1,7 @@
+data.txt
+
+Client ID
+187043343283-7qb8ajgfciv3dcld67acfa83t2hvpsoa.apps.googleusercontent.com
+
+API key
+AIzaSyD-8D1AzrgQlO9VZBCRvLJr_d2MZlF5Wkw
