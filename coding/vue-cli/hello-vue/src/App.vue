@@ -1,32 +1,49 @@
 <template>
     <div class="container">
-        <app-header></app-header>
-        <hr>
+        <app-header :quoteCount="quotes.length" :maxQuotes="maxQuotes"></app-header>
+        <app-new-quote @quoteAdded="newQuote"></app-new-quote>
+        <app-quote-grid :quotes="quotes" @quoteDelited="deleteQuote"></app-quote-grid>
+
         <div class="row">
-            <servers></servers>
-            <app-server-detail></app-server-detail>
+            <div class="col-sm-12 text-center">
+                <div class="alert alert-info">Info: Click on a Quote to Delte it!</div>
+            </div>
         </div>
-        <hr>
-        <app-footer></app-footer>
     </div>
 </template>
 
 <script>
-    import Header from './components/layout/Header'
-    import Footer from './components/layout/Footer'
-    import Servers from './components/server/Servers'
-    import ServerDetail from './components/server/ServerDetails'
+    import QuoteGrid from './components/QuoteGrid'
+    import NewQuote from './components/NewQuote'
+    import Header from './components/Header'
 
     export default {
+        data: function() {
+            return {
+                quotes: [
+                    'Just a Quote to see something'
+                ],
+                maxQuotes: 10
+            }
+        },
+        methods: {
+            newQuote(quote) {
+                if (this.quotes.length >= this.maxQuotes) {
+                    return alert('Please delete Quotes first!');
+                }
+                this.quotes.push(quote);
+            },
+             deleteQuote(index) {
+                 this.quotes.splice(index, 1)
+             }
+        },
         components: {
-            appHeader: Header,
-            'app-footer': Footer,
-            Servers,
-            'app-server-detail': ServerDetail
+            appQuoteGrid: QuoteGrid,
+            appNewQuote: NewQuote,
+            appHeader: Header
         }
-    }
+    } 
 </script>
 
 <style>
-
 </style>
