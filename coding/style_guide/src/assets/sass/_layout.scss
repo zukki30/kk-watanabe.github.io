@@ -1,0 +1,139 @@
+@charset "UTF-8";
+/*------------------------------------------------------------
+	レイアウト
+------------------------------------------------------------*/
+a {
+	color : $sub_color;
+
+	&:hover {
+		text-decoration : none;
+	}
+}
+
+* {
+	box-sizing: border-box;
+	&:before,
+	&:after {
+		box-sizing: border-box;
+	}
+}
+
+.lay_body {
+	margin : 0;
+	padding : 0;
+	font-family: 'Noto Sans JP', sans-serif;
+}
+
+.lay_container {
+	background-color: #fff;
+	text-align: left;
+}
+
+.lay_main {
+	padding: 60px 15px;
+	color: #111;
+	// @include fontsize(14);
+
+	&_inner {
+		padding: 30px;
+		border-radius: 5px;
+		box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+		position: relative;
+		> p {
+			margin-bottom: 45px;
+		}
+	}
+}
+
+/*------------------------------------------------------------
+	ヘッダー
+------------------------------------------------------------*/
+.lay_header {
+	padding-right : 15px;
+	padding-left : 15px;
+	width: 100%;
+	background-color: $base_color;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+	display: table;
+	color: #FFF;
+}
+
+.lay_logo {
+	padding: 10px 15px;
+	width: 145px;
+	display: table-cell;
+	@include fontsize(16);
+	vertical-align: middle;
+}
+
+/*------------------------------------------------------------
+	グローバルナビ
+------------------------------------------------------------*/
+.lay_gnav {
+	display: table-cell;
+	vertical-align: middle;
+
+	&_inner {
+		margin : 0;
+		padding : 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		list-style : none;
+	}
+
+	&_anchor {
+		padding: 20px 15px;
+		display: table-cell;
+		color: #FFF;
+		@include fontsize(12);
+		text-align: center;
+		vertical-align: top;
+		text-decoration : none;
+		transition: all 300ms ease;
+
+		&:hover {
+			background-color: $dark_base;
+			text-decoration: none;
+		}
+
+		&.is-current {
+			background-color: $dark_base;
+		}
+	}
+}
+
+/*------------------------------------------------------------
+	フッター
+------------------------------------------------------------*/
+.lay_pagetop {
+	a {
+		display : block;
+		padding : 15px;
+		background-color : $dark_base;
+		opacity: 1;
+		color: #fff;
+		@include fontsize(12);
+		text-align: center;
+		text-decoration : none;
+		transition: opacity 500ms ease;
+
+		&:hover {
+			opacity: 0.7;
+			text-decoration: none;
+		}
+	}
+}
+
+.lay_footer {
+	background-color : $base_color;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+}
+
+.lay_copyright {
+	margin : 0;
+	padding: 15px;
+	color: #FFF;
+	@include fontsize(12);
+	text-align: center;
+}

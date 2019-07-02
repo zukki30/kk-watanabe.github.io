@@ -1,0 +1,144 @@
+@charset "UTF-8";
+@import "vars";	// 変数
+@import "functions"; // 関数等
+@import "reset"; // スタイルリセット
+@import "prettify";	// ソースコード
+@import "utilities";	// 便利系スタイル
+@import "layout"; // テンプレート部位のレイアウト
+/*------------------------------------------------------------
+	styleguide
+------------------------------------------------------------*/
+.st_tab {
+	&_ttl {
+		margin : 0;
+		padding: 12px 15px 7px;
+		height: 45px;
+		background-color: $dark_base;
+		-webkit-border-radius: 5px 5px 0 0;
+		border-radius: 5px 5px 0 0;
+		position: absolute;
+		top: -45px;
+		left: 5px;
+		color: #FFF;
+		@include fontsize(15);
+		font-weight: normal;
+	}
+}
+
+.st_style {
+	& + .st_style {
+		margin-top: 10em;
+	}
+
+	&_ttl {
+		margin-bottom: 1.5em;
+		padding: 10px;
+		background-color: $base_color;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		color: #FFF;
+		@include fontsize(20);
+		font-weight: normal;
+	}
+
+	&_item {
+		& + .st_style_item {
+			margin-top: 5em;
+		}
+
+		code {
+			margin-right: 5px;
+			padding: 3px 5px;
+			background-color: #ddd;
+			text-shadow: 0 0 2px #fff;
+		}
+	}
+
+	&_classname {
+		margin-bottom: 1em;
+		padding-top : 4px;
+		padding-left: 1em;
+		padding-bottom: 3px;
+		border-bottom: 1px solid $sub_color;
+		position: relative;
+		@include fontsize(18);
+
+		&:before {
+			width: 5px;
+			height: 100%;
+			background-color: $sub_color;
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: "";
+		}
+	}
+
+	&_text {
+		line-height: 1.75;
+		p {
+			margin-bottom: 2em;
+		}
+	}
+
+	&_list {
+		margin-bottom: 2em;
+		padding-left : 0;
+		list-style : none;
+
+		li {
+			margin-top: 5px;
+			padding-left: 1em;
+			position: relative;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:before {
+				width: 6px;
+				height: 6px;
+				background-color: $base_color;
+				border-radius: 10px;
+				position: absolute;
+				top: 8px;
+				left: 0;
+				content: "";
+			}
+		}
+	}
+
+	&_display {
+		margin-top: 2em;
+		margin-bottom: 2em;
+		padding: 20px;
+		padding-top: 50px;
+		background-color: #f0f0f0;
+		border: 1px solid #eee;
+		box-shadow: 1px 1px 2px rgba(0, 0, 0, .25) inset;
+		position: relative;
+
+		&:before {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			color: #666;
+			@include fontsize(12);
+			content: attr(data-ttl);
+		}
+	}
+
+	&_markup {
+		margin-bottom: 2em;
+		overflow: auto;
+		line-height: 1.75;
+
+		.tag {
+			color : $base_color;
+		}
+
+		.atn {
+			color : $light_base;
+		}
+	}
+}

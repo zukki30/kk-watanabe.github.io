@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
-<title>スタイルガイド作成</title>
-<link href="css/prettify.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<title>Style Guide</title>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&amp;subset=japanese" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
 </head>
-<body>
-<div id="container">
-	<header id="lay_header">
-		<h1 class="lay_logo">スタイルガイド</h1>
+<body class="lay_body">
+<div id="container" class="lay_container">
+	<header class="lay_header">
+		<h1 class="lay_logo">Style Guide</h1>
 
-		<nav id="lay_gnav">
+		<nav class="lay_gnav">
 			<ul class="lay_gnav_inner">
 				<li class="lay_gnav_li"><a href="#st-ttlay_txt" class="lay_gnav_anchor">見出し・テキスト</a></li>
 				<li class="lay_gnav_li"><a href="#st-icon_link_button" class="lay_gnav_anchor">アイコン・リンク・ボタン</a></li>
@@ -28,12 +28,12 @@
 		</nav>
 	</header>
 
-	<main id="lay_main">
+	<main class="lay_main">
 		<div class="lay_main_inner">
 			<p>変換URL：<a href="http://www.netyasun.com/syntaxhighlighter/source-escape.html" target="_blank">http://www.netyasun.com/syntaxhighlighter/source-escape.html</a></p>
 
-			<section id="st-ttlay_txt" class="st_tab_cont" data-html-name="ttlay_txt">
-				<h2 class="ttl">見出し・テキスト</h2>
+			<section id="st-ttlay_txt" class="st_tab_cont">
+				<h2 class="st_tab_ttl">見出し・テキスト</h2>
 
 				<section class="st_style">
 					<h3 class="st_style_ttl">見出し</h3>
@@ -71,58 +71,17 @@
 					</section>
 				</section>
 			</section>
-
-			<section id="st-icon_link_button" class="st_tab_cont" data-html-name="icon_link_button">
-				<h2 class="ttl">アイコン・リンク・ボタン</h2>
-
-			</section>
-
-			<section id="st-box" class="st_tab_cont" data-html-name="box">
-				<h2 class="ttl">ボックス</h2>
-
-			</section>
-
-			<section id="st-list" class="st_tab_cont" data-html-name="list">
-				<h2 class="ttl">リスト</h2>
-
-			</section>
-
-			<section id="st-table" class="st_tab_cont" data-html-name="table">
-				<h2 class="ttl">テーブル</h2>
-
-			</section>
-
-			<section id="st-row_cont" class="st_tab_cont" data-html-name="row_cont">
-				<h2 class="ttl">横並び</h2>
-
-			</section>
-
-			<section id="st-column" class="st_tab_cont" data-html-name="column">
-				<h2 class="ttl">カラム</h2>
-
-			</section>
-
-			<section id="st-content" class="st_tab_cont" data-html-name="content">
-				<h2 class="ttl">コンテンツ</h2>
-
-			</section>
-
-			<section id="st-other" class="st_tab_cont" data-html-name="other">
-				<h2 class="ttl">その他</h2>
-
-			</section>
 		</div>
 	</main>
 
-	<div id="lay_pagetop"><a href="#container">ページTOP</a></div>
-
-	<footer id="lay_footer">
-		<p class="lay_copyright"><small>© 2016 Kazuki Watanabe.</small></p>
+	<footer class="lay_footer">
+		<div class="lay_pagetop"><a href="#container">ページTOP</a></div>
+		<p class="lay_copyright"><small>© 2018 k-watanabe.</small></p>
 	</footer>
 </div>
 
-<script src="js/prettify.js"></script>
-<script src="js/lang-css.js"></script>
-<script src="js/common.js"></script>
+<script src="assets/js/prettify.js"></script>
+<script src="assets/js/lang-css.js"></script>
+<script src="assets/js/common.js"></script>
 </body>
 </html>

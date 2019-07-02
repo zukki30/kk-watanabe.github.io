@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="vue.js"></script>
+	<link rel="stylesheet" href="Exercise 4/styles.css">
+</head>
+<body>
+	<div id="exercise">
+		<!-- 1) Start the Effect with the Button. The Effect should alternate the "highlight" or "shrink" class on each new setInterval tick (attach respective class to the div with id "effect" below) -->
+		<div>
+			<button @click="startEffect">Start Effect</button>
+			<div id="effect" :class="addEffectClass"></div>
+		</div>
+		<!-- 2) Create a couple of CSS classes and attach them via the array syntax -->
+		<div :class="['color1', 'color2', 'color3']">I got no class :(</div>
+		<!-- 3) Let the user enter a class (create some example classes) and attach it -->
+		<div>
+			<input type="text" v-model="color">
+			<div :class="color"></div>
+		</div>
+		<!-- 4) Let the user enter a class and enter true/ false for another class (create some example classes) and attach the classes -->
+		<div>
+			<input type="text" v-model="color">
+			<input type="text" v-model="colores">
+			<div :class="colorJude"></div>
+		</div>
+		<!-- 5) Repeat 3) but now with values for styles (instead of class names). Attach the respective styles.  -->
+		<div>
+			<input type="text" v-model="width">
+			<div class="color1" :style="{width: width + 'px'}"></div>
+		</div>
+		<!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
+		<div>
+			<button v-on:click="startProgress">Start Progress</button>
+			<div class="progress" :style="{width: num + '%'}"></div>
+		</div>
+	</div>
+</body>
+<script>
+	new Vue({
+		el: '#exercise',
+		data: {
+			effect: false,
+			color: ['color1', 'color2', 'color3'],
+			colores: false,
+			width: 100,
+			num: 0
+		},
+		methods: {
+			startEffect: function() {
+				this.effect = !this.effect;
+			},
+			startProgress: function() {
+				setInterval(() => {
+					if (this.num !== 100) {
+						this.num++;
+					}
+				}, 100);
+			}
+		},
+		computed: {
+			addEffectClass: function() {
+				let colors;
+
+				setInterval(() => {
+					colors = {
+						highlight: this.effect,
+						shrink: !this.effect
+					}
+				}, 3000);
+
+				return colors;
+			},
+			colorJude: function() {
+				return {
+					color2: this.colores,
+					color3: !this.colores
+				}
+			}
+		}
+	});
+</script>
+</html>
