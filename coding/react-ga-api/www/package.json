@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "babel-register": "^6.26.0",
-    "browser-sync": "^2.18.13",
+    "browser-sync": "^2.27.10",
     "gulp": "^3.9.1",
     "react": "^16.1.1",
     "react-dom": "^16.1.1"
@@ -15,7 +15,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "browser-sync": "^2.18.13",
+    "browser-sync": "^2.27.10",
     "css-mqpacker": "^6.0.1",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
