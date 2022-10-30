@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "browser-sync": "^2.4.0",
+    "browser-sync": "^2.27.10",
     "gulp": "^3.8.11",
     "jquery": "^3.3.1",
     "webpack-stream": "^5.1.1"
   },
   "devDependencies": {
     "aos": "^2.3.2",
-    "browser-sync": "^2.4.0",
+    "browser-sync": "^2.27.10",
     "css-mqpacker": "^7.0.0",
     "del": "^3.0.0",
     "gulp": "^3.8.11",
